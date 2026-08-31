@@ -1849,3 +1849,11 @@ footer {
     color: rgba(51,37,31,.55);
 }city: 0.55;
 }
+
+.idea-copy {
+    max-width: 680px;
+}
+
+.team-thanks {
+    grid-column: 1;
+}
