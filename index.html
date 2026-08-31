@@ -1,11 +1,10 @@
-<!DOCTYPE html>
-<html lang="pt">
-<head>
-    <meta charset="UTF-8">
-    <title>A Minha Primeira Página</title>
-</head>
-<body>
-    <h1>Olá, Mundo!</h1>
-    <p>Este é o meu primeiro ficheiro HTML criado no Windows.</p>
-</body>
-</html>
+<h1>Olá, Mundo!</h1>
+<p>Este é o meu primeiro ficheiro HTML criado no Windows.</p>
+
+<button onclick="changeText()">Click me</button>
+
+<script>
+function changeText() {
+    document.querySelector("p").textContent = "You clicked the button!";
+}
+</script>
