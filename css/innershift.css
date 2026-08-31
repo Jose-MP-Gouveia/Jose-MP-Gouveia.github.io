@@ -1809,51 +1809,98 @@ footer {
     }
 }
 
+/* =========================================
+   IDEA SECTION — RESTORE TWO-COLUMN LAYOUT
+   ========================================= */
+
+.idea-grid {
+    display: grid !important;
+    grid-template-columns: minmax(0, 1.15fr) minmax(320px, 0.85fr) !important;
+    column-gap: 7vw !important;
+    align-items: center !important;
+}
+
+.idea-copy {
+    grid-column: 1 !important;
+    grid-row: 1 !important;
+    width: auto !important;
+    max-width: none !important;
+}
+
+.symbiosis {
+    grid-column: 2 !important;
+    grid-row: 1 !important;
+    width: 100% !important;
+}
+
+/* =========================================
+   TEAM THANKS — FULL WIDTH
+   ========================================= */
+
 .team-thanks {
-    margin-top: 42px;
-    max-width: 680px;
-    padding-top: 18px;
-    border-top: 1px solid var(--paper-line);
+    grid-column: 1 / -1;
+
+    width: 100%;
+    margin-top: 2rem;
+    padding-top: 1.25rem;
+
+    border-top: 1px solid var(--line);
+
+    display: grid;
+    grid-template-columns: 140px minmax(0, 1fr);
+    column-gap: 2.5rem;
+    align-items: start;
 }
 
 .team-label {
-    display: block;
-    margin-bottom: 10px;
-
     font-family: var(--mono);
-    font-size: 9px;
-    letter-spacing: .14em;
+    font-size: 0.7rem;
+    letter-spacing: 0.16em;
     text-transform: uppercase;
+    color: var(--muted);
 
-    color: rgba(51,37,31,.6);
+    white-space: nowrap;
 }
 
 .team-thanks p {
     margin: 0;
 
     font-family: var(--mono);
-    font-size: 11px;
-    line-height: 1.7;
-
-    color: var(--ink);
+    font-size: 0.82rem;
+    line-height: 1.6;
+    letter-spacing: 0.03em;
 }
 
 .team-note {
-    display: block;
-    margin-top: 8px;
+    grid-column: 2;
 
-    font-family: var(--mono);
-    font-size: 9px;
-    line-height: 1.6;
+    margin-top: 0.5rem !important;
 
-    color: rgba(51,37,31,.55);
-}city: 0.55;
+    font-size: 0.68rem !important;
+    line-height: 1.5 !important;
+
+    color: var(--muted);
 }
 
-.idea-copy {
-    max-width: 680px;
-}
 
-.team-thanks {
-    grid-column: 1;
+/* =========================================
+   MOBILE
+   ========================================= */
+
+@media (max-width: 800px) {
+
+    .team-thanks {
+        grid-template-columns: 1fr;
+        row-gap: 0.6rem;
+    }
+
+    .team-label {
+        white-space: normal;
+    }
+
+    .team-thanks p,
+    .team-note {
+        grid-column: 1;
+    }
+
 }
