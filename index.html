@@ -1,22 +1,518 @@
 <!DOCTYPE html>
-<html lang="pt">
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
-    <title>A Minha Primeira Página</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>José Gouveia — Marketing Automator</title>
 
     <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
 
-    <h1>Olá, Mundo!</h1>
+    <!-- =========================
+         ARCHIVE NAVIGATION
+         ========================= -->
 
-    <p>Este é o meu primeiro ficheiro HTML criado no Windows.</p>
-    
-    <button id="myButton">Click me!</button>
+    <nav class="archive-nav" id="archiveNav">
+
+        <button class="nav-toggle" id="navToggle" aria-label="Open archive navigation">
+            ☰
+        </button>
+
+        <div class="nav-content">
+
+            <div class="nav-header">
+                <span>ARCHIVE INDEX</span>
+                <span class="status">● ACTIVE</span>
+            </div>
+
+            <div class="nav-line"></div>
+
+            <a href="#home">
+                <span>01</span>
+                HOME
+            </a>
+
+            <a href="#work">
+                <span>02</span>
+                WORK
+            </a>
+
+            <a href="#about">
+                <span>03</span>
+                ABOUT
+            </a>
+
+            <a href="#archive">
+                <span>04</span>
+                ARCHIVE
+            </a>
+
+            <a href="#contact">
+                <span>05</span>
+                CONTACT
+            </a>
+
+            <div class="nav-footer">
+                NODE_01<br>
+                SYSTEM: STABLE
+            </div>
+
+        </div>
+
+    </nav>
+
+
+    <!-- =========================
+         MAIN CONTENT
+         ========================= -->
+
+    <main>
+
+        <!-- =========================
+             HOME
+             ========================= -->
+
+        <section id="home" class="hero section">
+
+            <div class="system-label">
+                ARCHIVE NODE_01
+            </div>
+
+            <div class="hero-content">
+
+                <p class="eyebrow">
+                    PERSONAL RECORD / 2026
+                </p>
+
+                <h1>
+                    José Gouveia
+                </h1>
+
+                <h2>
+                    Marketing Automator
+                </h2>
+
+                <p class="descriptor">
+                    Random Knowledge Collector
+                </p>
+
+                <div class="hero-divider"></div>
+
+                <p class="hero-introduction">
+                    Projects, experience and accumulated knowledge —
+                    recorded for future retrieval.
+                </p>
+
+                <a href="#work" class="archive-button">
+                    THE RECORD IS OPEN
+                    <span>→</span>
+                </a>
+
+            </div>
+
+            <div class="hero-status">
+
+                <span>STATUS: ACTIVE</span>
+                <span>RECORDS: 03</span>
+                <span>INDEX: 001</span>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             SELECTED WORK
+             ========================= -->
+
+        <section id="work" class="section work-section">
+
+            <div class="section-header">
+
+                <div>
+                    <span class="section-number">02</span>
+                    <h2>Selected Records</h2>
+                </div>
+
+                <span class="section-status">
+                    STATUS: VERIFIED
+                </span>
+
+            </div>
+
+
+            <div class="records-grid">
+
+
+                <!-- INNERSHIFT -->
+
+                <article class="record-card">
+
+                    <div class="record-top">
+                        <span>RECORD_001</span>
+                        <span>VERIFIED</span>
+                    </div>
+
+                    <div class="record-icon">
+                        ◯
+                    </div>
+
+                    <h3>
+                        Innershift
+                    </h3>
+
+                    <p class="record-category">
+                        INNOVATION / ENTREPRENEURSHIP
+                    </p>
+
+                    <div class="record-result">
+
+                        <span class="result-label">
+                            RESULT
+                        </span>
+
+                        <strong>
+                            03
+                        </strong>
+
+                        <span>
+                            Dean's Innovation Challenge
+                        </span>
+
+                    </div>
+
+                    <a href="#" class="record-link">
+                        OPEN RECORD →
+                    </a>
+
+                </article>
+
+
+                <!-- TEDxNOVA -->
+
+                <article class="record-card">
+
+                    <div class="record-top">
+                        <span>RECORD_002</span>
+                        <span>VERIFIED</span>
+                    </div>
+
+                    <div class="record-icon">
+                        △
+                    </div>
+
+                    <h3>
+                        TEDxNOVA
+                    </h3>
+
+                    <p class="record-category">
+                        MARKETING / SOCIAL MEDIA
+                    </p>
+
+                    <div class="record-result">
+
+                        <span class="result-label">
+                            RESULT
+                        </span>
+
+                        <strong>
+                            +5,500
+                        </strong>
+
+                        <span>
+                            new visitors to social pages
+                        </span>
+
+                    </div>
+
+                    <a href="#" class="record-link">
+                        OPEN RECORD →
+                    </a>
+
+                </article>
+
+
+                <!-- WALLID -->
+
+                <article class="record-card">
+
+                    <div class="record-top">
+                        <span>RECORD_003</span>
+                        <span>VERIFIED</span>
+                    </div>
+
+                    <div class="record-icon">
+                        □
+                    </div>
+
+                    <h3>
+                        WallID
+                    </h3>
+
+                    <p class="record-category">
+                        CONTENT / WEB OPTIMIZATION
+                    </p>
+
+                    <div class="record-result">
+
+                        <span class="result-label">
+                            RESULT
+                        </span>
+
+                        <strong>
+                            25
+                        </strong>
+
+                        <span>
+                            optimized web articles / month
+                        </span>
+
+                    </div>
+
+                    <a href="#" class="record-link">
+                        OPEN RECORD →
+                    </a>
+
+                </article>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             ABOUT
+             ========================= -->
+
+        <section id="about" class="section about-section">
+
+            <div class="section-header">
+
+                <div>
+                    <span class="section-number">03</span>
+                    <h2>About</h2>
+                </div>
+
+                <span class="section-status">
+                    RECORD: PERSONAL
+                </span>
+
+            </div>
+
+
+            <div class="about-grid">
+
+                <div class="about-main">
+
+                    <p class="terminal-label">
+                        > ACCESSING PROFILE...
+                    </p>
+
+                    <p class="about-text">
+                        I work at the intersection of marketing,
+                        automation, technology and whatever interesting
+                        knowledge happens to cross my path.
+                    </p>
+
+                    <p class="about-text">
+                        My professional focus is building systems that
+                        make work more efficient, measurable and useful.
+                    </p>
+
+                </div>
+
+
+                <div class="about-metadata">
+
+                    <div>
+                        <span>PROFESSION</span>
+                        <strong>MARKETING AUTOMATOR</strong>
+                    </div>
+
+                    <div>
+                        <span>TYPE</span>
+                        <strong>KNOWLEDGE COLLECTOR</strong>
+                    </div>
+
+                    <div>
+                        <span>STATUS</span>
+                        <strong>CONTINUOUSLY LEARNING</strong>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             ARCHIVE
+             ========================= -->
+
+        <section id="archive" class="section archive-section">
+
+            <div class="section-header">
+
+                <div>
+                    <span class="section-number">04</span>
+                    <h2>The Archive</h2>
+                </div>
+
+                <span class="section-status">
+                    STATUS: INDEXING
+                </span>
+
+            </div>
+
+
+            <div class="archive-grid">
+
+
+                <article class="archive-item">
+                    <span class="archive-number">01</span>
+                    <h3>Education</h3>
+                    <p>Academic records and formal studies.</p>
+                    <span class="archive-status">STATUS: ACTIVE</span>
+                </article>
+
+
+                <article class="archive-item">
+                    <span class="archive-number">02</span>
+                    <h3>Experience</h3>
+                    <p>Professional and organizational records.</p>
+                    <span class="archive-status">STATUS: ACTIVE</span>
+                </article>
+
+
+                <article class="archive-item">
+                    <span class="archive-number">03</span>
+                    <h3>Certifications</h3>
+                    <p>Verified credentials and completed programs.</p>
+                    <span class="archive-status">STATUS: VERIFIED</span>
+                </article>
+
+
+                <article class="archive-item">
+                    <span class="archive-number">04</span>
+                    <h3>Awards</h3>
+                    <p>Recognitions, competitions and distinctions.</p>
+                    <span class="archive-status">STATUS: INDEXING</span>
+                </article>
+
+
+                <article class="archive-item">
+                    <span class="archive-number">05</span>
+                    <h3>Projects</h3>
+                    <p>Additional experiments and previous work.</p>
+                    <span class="archive-status">STATUS: INDEXING</span>
+                </article>
+
+
+                <!-- UNDER CONSTRUCTION -->
+
+                <article class="archive-item under-construction">
+
+                    <span class="archive-number">06</span>
+
+                    <h3>
+                        Under Construction
+                    </h3>
+
+                    <p>
+                        Records currently being recovered,
+                        classified or otherwise subjected to the
+                        usual human tendency to start things before
+                        finishing them.
+                    </p>
+
+                    <span class="archive-status corrupted">
+                        STATUS: CORRUPTED
+                    </span>
+
+                </article>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             CONTACT
+             ========================= -->
+
+        <section id="contact" class="section contact-section">
+
+            <div class="section-header">
+
+                <div>
+                    <span class="section-number">05</span>
+                    <h2>Contact</h2>
+                </div>
+
+                <span class="section-status">
+                    STATUS: OPEN
+                </span>
+
+            </div>
+
+
+            <div class="contact-content">
+
+                <p class="contact-label">
+                    COMMUNICATION NODE
+                </p>
+
+                <h2>
+                    The record remains open.
+                </h2>
+
+                <p>
+                    If something here caught your attention,
+                    communication is considerably easier than
+                    deciphering an ancient manuscript.
+                </p>
+
+                <a href="mailto:your@email.com" class="archive-button">
+                    INITIATE CONTACT
+                    <span>→</span>
+                </a>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- =========================
+         FOOTER
+         ========================= -->
+
+    <footer>
+
+        <div>
+            ARCHIVE NODE_01
+        </div>
+
+        <div>
+            WRITTEN ONCE · RETRIEVED FOREVER
+        </div>
+
+        <div>
+            MMXXVI
+        </div>
+
+    </footer>
+
 
     <script src="js/script.js"></script>
+
 </body>
 
 </html>
