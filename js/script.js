@@ -22,7 +22,10 @@ navLinks.forEach(function(link) {
 
         archiveNav.classList.remove("open");
 
-        navToggle.setAttribute("aria-expanded", "false");
+        navToggle.setAttribute(
+            "aria-expanded",
+            "false"
+        );
 
     });
 
@@ -30,65 +33,204 @@ navLinks.forEach(function(link) {
 
 
 /* =========================================
-   INTERACTIVE RECORD INDEX
+   RECORD SELECTOR
    ========================================= */
 
-const indexPoints = document.querySelectorAll(".index-point");
-const indexDescription = document.querySelector("#indexDescription");
+const records = [
 
-const recordDescriptions = {
-    "record-1": "01 — INNERSHIFT / INNOVATION",
-    "record-2": "02 — TEDxNOVA / SOCIAL MEDIA",
-    "record-3": "03 — WALLID / WEB OPTIMIZATION"
-};
+    {
+        id: "record-1",
+        number: "01",
+        name: "INNERSHIFT",
+        category: "INNOVATION"
+    },
+
+    {
+        id: "record-2",
+        number: "02",
+        name: "TEDxNOVA",
+        category: "SOCIAL MEDIA"
+    },
+
+    {
+        id: "record-3",
+        number: "03",
+        name: "WALLID",
+        category: "WEB OPTIMIZATION"
+    }
+
+];
 
 
-indexPoints.forEach(function(point) {
+let currentRecord = 2;
 
-    point.addEventListener("click", function() {
 
-        const targetId = point.dataset.target;
-        const target = document.querySelector("#" + targetId);
+const selectorPrevious =
+    document.querySelector("#selectorPrevious");
 
-        if (!target) {
-            return;
-        }
+const selectorCurrent =
+    document.querySelector("#selectorCurrent");
 
-        indexPoints.forEach(function(item) {
-            item.classList.remove("active");
-        });
+const selectorNext =
+    document.querySelector("#selectorNext");
 
-        point.classList.add("active");
+const selectorNumber =
+    document.querySelector("#selectorNumber");
 
-        indexDescription.textContent = recordDescriptions[targetId];
+const selectorName =
+    document.querySelector("#selectorName");
 
-        target.scrollIntoView({
-            behavior: "smooth",
-            block: "center"
-        });
+const selectorCategory =
+    document.querySelector("#selectorCategory");
 
-        target.classList.add("highlighted");
 
-        setTimeout(function() {
-            target.classList.remove("highlighted");
-        }, 1500);
+function updateRecordSelector() {
 
+    const current = records[currentRecord];
+
+    const previous =
+        records[
+            (currentRecord - 1 + records.length)
+            % records.length
+        ];
+
+    const next =
+        records[
+            (currentRecord + 1)
+            % records.length
+        ];
+
+
+    selectorNumber.textContent =
+        current.number;
+
+    selectorName.textContent =
+        current.name;
+
+    selectorCategory.textContent =
+        current.category;
+
+
+    selectorPrevious.querySelector(
+        ".selector-number"
+    ).textContent = previous.number;
+
+
+    selectorNext.querySelector(
+        ".selector-number"
+    ).textContent = next.number;
+
+}
+
+
+function selectRecord(index) {
+
+    currentRecord = index;
+
+    updateRecordSelector();
+
+
+    const target =
+        document.querySelector(
+            "#" + records[currentRecord].id
+        );
+
+    if (!target) {
+        return;
+    }
+
+
+    target.scrollIntoView({
+        behavior: "smooth",
+        block: "center"
     });
 
-});
+
+    document
+        .querySelectorAll(".record-card")
+        .forEach(function(card) {
+
+            card.classList.remove("highlighted");
+
+        });
+
+
+    target.classList.add("highlighted");
+
+
+    setTimeout(function() {
+
+        target.classList.remove("highlighted");
+
+    }, 1500);
+
+}
+
+
+selectorPrevious.addEventListener(
+    "click",
+    function() {
+
+        const previousIndex =
+            (currentRecord - 1 + records.length)
+            % records.length;
+
+        selectRecord(previousIndex);
+
+    }
+);
+
+
+selectorNext.addEventListener(
+    "click",
+    function() {
+
+        const nextIndex =
+            (currentRecord + 1)
+            % records.length;
+
+        selectRecord(nextIndex);
+
+    }
+);
+
+
+selectorCurrent.addEventListener(
+    "click",
+    function() {
+
+        selectRecord(currentRecord);
+
+    }
+);
+
+
+/* Initial state */
+
+updateRecordSelector();
 
 
 /* =========================================
    ARCHIVE RETRIEVAL
    ========================================= */
 
-const archiveItems = document.querySelectorAll(".archive-item");
+const archiveItems =
+    document.querySelectorAll(".archive-item");
 
-const retrievalScreen = document.querySelector("#retrievalScreen");
-const retrievalTitle = document.querySelector("#retrievalTitle");
-const retrievalLog = document.querySelector("#retrievalLog");
-const retrievalProgressBar = document.querySelector("#retrievalProgressBar");
-const retrievalStatus = document.querySelector("#retrievalStatus");
+const retrievalScreen =
+    document.querySelector("#retrievalScreen");
+
+const retrievalTitle =
+    document.querySelector("#retrievalTitle");
+
+const retrievalLog =
+    document.querySelector("#retrievalLog");
+
+const retrievalProgressBar =
+    document.querySelector("#retrievalProgressBar");
+
+const retrievalStatus =
+    document.querySelector("#retrievalStatus");
 
 
 const archiveRecords = {
@@ -128,109 +270,157 @@ const archiveRecords = {
 
 archiveItems.forEach(function(item) {
 
-    item.addEventListener("click", function() {
+    item.addEventListener(
+        "click",
+        function() {
 
-        const archiveId = item.dataset.archive;
-        const record = archiveRecords[archiveId];
+            const archiveId =
+                item.dataset.archive;
 
-        if (!record) {
-            return;
+            const record =
+                archiveRecords[archiveId];
+
+            if (!record) {
+                return;
+            }
+
+            retrieveArchive(record);
+
         }
-
-        retrieveArchive(record);
-
-    });
+    );
 
 });
 
 
 function retrieveArchive(record) {
 
-    retrievalTitle.textContent = record.title;
+    retrievalTitle.textContent =
+        record.title;
+
 
     retrievalLog.innerHTML = `
         <p>> CONNECTING TO ARCHIVE...</p>
     `;
 
-    retrievalProgressBar.style.width = "0%";
 
-    retrievalStatus.textContent = "STATUS: RETRIEVING";
+    retrievalProgressBar.style.width =
+        "0%";
 
-    retrievalScreen.classList.add("active");
 
-    retrievalScreen.setAttribute("aria-hidden", "false");
+    retrievalStatus.textContent =
+        "STATUS: RETRIEVING";
+
+
+    retrievalScreen.classList.add(
+        "active"
+    );
+
+
+    retrievalScreen.setAttribute(
+        "aria-hidden",
+        "false"
+    );
 
 
     const logMessages = [
+
         "> ACCESSING INDEX",
+
         "> VERIFYING RECORD",
+
         "> RETRIEVING DATA"
+
     ];
 
+
     let progress = 0;
+
     let messageIndex = 0;
 
 
-    const interval = setInterval(function() {
+    const interval =
+        setInterval(function() {
 
-        progress += 20;
-
-        retrievalProgressBar.style.width = progress + "%";
-
-
-        if (
-            progress % 40 === 0 &&
-            messageIndex < logMessages.length
-        ) {
-
-            const message = document.createElement("p");
-
-            message.textContent = logMessages[messageIndex];
-
-            retrievalLog.appendChild(message);
-
-            messageIndex++;
-
-        }
+            progress += 20;
 
 
-        if (progress >= 100) {
+            retrievalProgressBar.style.width =
+                progress + "%";
 
-            clearInterval(interval);
 
-            retrievalStatus.textContent =
-                "STATUS: " + record.status;
+            if (
+                progress % 40 === 0 &&
+                messageIndex < logMessages.length
+            ) {
 
-            const finalMessage = document.createElement("p");
+                const message =
+                    document.createElement("p");
 
-            if (record.status === "CORRUPTED") {
 
-                finalMessage.textContent =
-                    "> RECORD RECOVERED... MOSTLY.";
+                message.textContent =
+                    logMessages[messageIndex];
 
-            } else {
 
-                finalMessage.textContent =
-                    "> RECORD READY FOR FUTURE RETRIEVAL.";
+                retrievalLog.appendChild(
+                    message
+                );
+
+
+                messageIndex++;
 
             }
 
-            retrievalLog.appendChild(finalMessage);
+
+            if (progress >= 100) {
+
+                clearInterval(interval);
 
 
-            setTimeout(function() {
+                retrievalStatus.textContent =
+                    "STATUS: " + record.status;
 
-                retrievalScreen.classList.remove("active");
 
-                retrievalScreen.setAttribute(
-                    "aria-hidden",
-                    "true"
+                const finalMessage =
+                    document.createElement("p");
+
+
+                if (
+                    record.status ===
+                    "CORRUPTED"
+                ) {
+
+                    finalMessage.textContent =
+                        "> RECORD RECOVERED... MOSTLY.";
+
+                } else {
+
+                    finalMessage.textContent =
+                        "> RECORD READY FOR FUTURE RETRIEVAL.";
+
+                }
+
+
+                retrievalLog.appendChild(
+                    finalMessage
                 );
 
-            }, 900);
 
-        }
+                setTimeout(function() {
 
-    }, 180);
+                    retrievalScreen.classList.remove(
+                        "active"
+                    );
+
+
+                    retrievalScreen.setAttribute(
+                        "aria-hidden",
+                        "true"
+                    );
+
+                }, 900);
+
+            }
+
+        }, 180);
 
 }

@@ -75,7 +75,10 @@
          RETRIEVAL SCREEN
          ========================= -->
 
-    <div class="retrieval-screen" id="retrievalScreen" aria-hidden="true">
+    <div
+        class="retrieval-screen"
+        id="retrievalScreen"
+        aria-hidden="true">
 
         <div class="retrieval-box">
 
@@ -94,8 +97,12 @@
                 <div id="retrievalProgressBar"></div>
             </div>
 
-            <div class="retrieval-status" id="retrievalStatus">
+            <div
+                class="retrieval-status"
+                id="retrievalStatus">
+
                 STATUS: RETRIEVING
+
             </div>
 
         </div>
@@ -108,6 +115,7 @@
          ========================= -->
 
     <main>
+
 
         <!-- =========================
              HOME
@@ -151,6 +159,7 @@
 
             </div>
 
+
             <div class="hero-status">
 
                 <span>STATUS: ACTIVE</span>
@@ -160,41 +169,71 @@
             </div>
 
 
-            <!-- Small interactive index -->
+            <!-- =========================
+                 RECORD SELECTOR
+                 ========================= -->
 
-            <div class="record-index">
+            <div class="record-selector">
 
-                <div class="index-label">
+                <div class="selector-label">
                     RECORD INDEX
                 </div>
 
-                <div class="index-line">
+
+                <div class="selector-window">
 
                     <button
-                        class="index-point"
-                        data-target="record-1"
-                        aria-label="View Innershift record">
-                        <span>01</span>
+                        class="selector-item selector-previous"
+                        id="selectorPrevious"
+                        type="button">
+
+                        <span class="selector-number">02</span>
+                        <span class="selector-hint">PREVIOUS RECORD</span>
+
                     </button>
 
-                    <button
-                        class="index-point"
-                        data-target="record-2"
-                        aria-label="View TEDxNOVA record">
-                        <span>02</span>
-                    </button>
 
                     <button
-                        class="index-point"
-                        data-target="record-3"
-                        aria-label="View WallID record">
-                        <span>03</span>
+                        class="selector-item selector-current"
+                        id="selectorCurrent"
+                        type="button">
+
+                        <span
+                            class="selector-number"
+                            id="selectorNumber">
+                            03
+                        </span>
+
+                        <span
+                            class="selector-name"
+                            id="selectorName">
+                            WALLID
+                        </span>
+
+                        <span
+                            class="selector-category"
+                            id="selectorCategory">
+                            WEB OPTIMIZATION
+                        </span>
+
+                    </button>
+
+
+                    <button
+                        class="selector-item selector-next"
+                        id="selectorNext"
+                        type="button">
+
+                        <span class="selector-number">01</span>
+                        <span class="selector-hint">NEXT RECORD</span>
+
                     </button>
 
                 </div>
 
-                <div class="index-description" id="indexDescription">
-                    SELECT A RECORD
+
+                <div class="selector-instruction">
+                    SCROLL OR SELECT
                 </div>
 
             </div>
@@ -212,7 +251,10 @@
 
                 <div>
                     <span class="section-number">02</span>
-                    <h2>Selected Records</h2>
+
+                    <h2>
+                        Selected Records
+                    </h2>
                 </div>
 
                 <span class="section-status">
@@ -227,43 +269,64 @@
 
                 <!-- INNERSHIFT -->
 
-                <article class="record-card" id="record-1">
+                <article
+                    class="record-card"
+                    id="record-1">
 
                     <div class="record-top">
-                        <span>RECORD_001</span>
-                        <span>VERIFIED</span>
-                    </div>
-
-                    <div class="record-icon">
-                        ◯
-                    </div>
-
-                    <h3>
-                        Innershift
-                    </h3>
-
-                    <p class="record-category">
-                        INNOVATION / ENTREPRENEURSHIP
-                    </p>
-
-                    <div class="record-result">
-
-                        <span class="result-label">
-                            RESULT
-                        </span>
-
-                        <strong>
-                            03
-                        </strong>
 
                         <span>
-                            Dean's Innovation Challenge
+                            RECORD_001
+                        </span>
+
+                        <span>
+                            VERIFIED
                         </span>
 
                     </div>
 
-                    <button class="record-link" type="button">
-                        RECORD NOT YET INDEXED →
+
+                    <div class="record-content">
+
+                        <div class="record-identity">
+
+                            <h3>
+                                Innershift
+                            </h3>
+
+                            <p class="record-category">
+                                INNOVATION / ENTREPRENEURSHIP
+                            </p>
+
+                        </div>
+
+
+                        <div class="record-result">
+
+                            <span class="result-label">
+                                RESULT
+                            </span>
+
+                            <strong>
+                                03
+                            </strong>
+
+                            <span class="result-description">
+                                Dean's Innovation Challenge
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <button
+                        class="record-link"
+                        type="button">
+
+                        RECORD NOT YET INDEXED
+                        <span>→</span>
+
                     </button>
 
                 </article>
@@ -271,43 +334,64 @@
 
                 <!-- TEDxNOVA -->
 
-                <article class="record-card" id="record-2">
+                <article
+                    class="record-card"
+                    id="record-2">
 
                     <div class="record-top">
-                        <span>RECORD_002</span>
-                        <span>VERIFIED</span>
-                    </div>
-
-                    <div class="record-icon">
-                        △
-                    </div>
-
-                    <h3>
-                        TEDxNOVA
-                    </h3>
-
-                    <p class="record-category">
-                        MARKETING / SOCIAL MEDIA
-                    </p>
-
-                    <div class="record-result">
-
-                        <span class="result-label">
-                            RESULT
-                        </span>
-
-                        <strong>
-                            +5,500
-                        </strong>
 
                         <span>
-                            new visitors to social pages
+                            RECORD_002
+                        </span>
+
+                        <span>
+                            VERIFIED
                         </span>
 
                     </div>
 
-                    <button class="record-link" type="button">
-                        RECORD NOT YET INDEXED →
+
+                    <div class="record-content">
+
+                        <div class="record-identity">
+
+                            <h3>
+                                TEDxNOVA
+                            </h3>
+
+                            <p class="record-category">
+                                MARKETING / SOCIAL MEDIA
+                            </p>
+
+                        </div>
+
+
+                        <div class="record-result">
+
+                            <span class="result-label">
+                                RESULT
+                            </span>
+
+                            <strong>
+                                +5,500
+                            </strong>
+
+                            <span class="result-description">
+                                new visitors to social pages
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <button
+                        class="record-link"
+                        type="button">
+
+                        RECORD NOT YET INDEXED
+                        <span>→</span>
+
                     </button>
 
                 </article>
@@ -315,43 +399,64 @@
 
                 <!-- WALLID -->
 
-                <article class="record-card" id="record-3">
+                <article
+                    class="record-card"
+                    id="record-3">
 
                     <div class="record-top">
-                        <span>RECORD_003</span>
-                        <span>VERIFIED</span>
-                    </div>
-
-                    <div class="record-icon">
-                        □
-                    </div>
-
-                    <h3>
-                        WallID
-                    </h3>
-
-                    <p class="record-category">
-                        CONTENT / WEB OPTIMIZATION
-                    </p>
-
-                    <div class="record-result">
-
-                        <span class="result-label">
-                            RESULT
-                        </span>
-
-                        <strong>
-                            25
-                        </strong>
 
                         <span>
-                            optimized web articles / month
+                            RECORD_003
+                        </span>
+
+                        <span>
+                            VERIFIED
                         </span>
 
                     </div>
 
-                    <button class="record-link" type="button">
-                        RECORD NOT YET INDEXED →
+
+                    <div class="record-content">
+
+                        <div class="record-identity">
+
+                            <h3>
+                                WallID
+                            </h3>
+
+                            <p class="record-category">
+                                CONTENT / WEB OPTIMIZATION
+                            </p>
+
+                        </div>
+
+
+                        <div class="record-result">
+
+                            <span class="result-label">
+                                RESULT
+                            </span>
+
+                            <strong>
+                                25
+                            </strong>
+
+                            <span class="result-description">
+                                optimized web articles / month
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <button
+                        class="record-link"
+                        type="button">
+
+                        RECORD NOT YET INDEXED
+                        <span>→</span>
+
                     </button>
 
                 </article>
@@ -365,13 +470,22 @@
              ABOUT
              ========================= -->
 
-        <section id="about" class="section about-section">
+        <section
+            id="about"
+            class="section about-section">
 
             <div class="section-header">
 
                 <div>
-                    <span class="section-number">03</span>
-                    <h2>About</h2>
+
+                    <span class="section-number">
+                        03
+                    </span>
+
+                    <h2>
+                        About
+                    </h2>
+
                 </div>
 
                 <span class="section-status">
@@ -431,13 +545,22 @@
              ARCHIVE
              ========================= -->
 
-        <section id="archive" class="section archive-section">
+        <section
+            id="archive"
+            class="section archive-section">
 
             <div class="section-header">
 
                 <div>
-                    <span class="section-number">04</span>
-                    <h2>The Archive</h2>
+
+                    <span class="section-number">
+                        04
+                    </span>
+
+                    <h2>
+                        The Archive
+                    </h2>
+
                 </div>
 
                 <span class="section-status">
@@ -455,9 +578,13 @@
                     type="button"
                     data-archive="education">
 
-                    <span class="archive-number">01</span>
+                    <span class="archive-number">
+                        01
+                    </span>
 
-                    <h3>Education</h3>
+                    <h3>
+                        Education
+                    </h3>
 
                     <p>
                         Academic records and formal studies.
@@ -475,9 +602,13 @@
                     type="button"
                     data-archive="experience">
 
-                    <span class="archive-number">02</span>
+                    <span class="archive-number">
+                        02
+                    </span>
 
-                    <h3>Experience</h3>
+                    <h3>
+                        Experience
+                    </h3>
 
                     <p>
                         Professional and organizational records.
@@ -495,9 +626,13 @@
                     type="button"
                     data-archive="certifications">
 
-                    <span class="archive-number">03</span>
+                    <span class="archive-number">
+                        03
+                    </span>
 
-                    <h3>Certifications</h3>
+                    <h3>
+                        Certifications
+                    </h3>
 
                     <p>
                         Verified credentials and completed programs.
@@ -515,9 +650,13 @@
                     type="button"
                     data-archive="awards">
 
-                    <span class="archive-number">04</span>
+                    <span class="archive-number">
+                        04
+                    </span>
 
-                    <h3>Awards</h3>
+                    <h3>
+                        Awards
+                    </h3>
 
                     <p>
                         Recognitions, competitions and distinctions.
@@ -535,9 +674,13 @@
                     type="button"
                     data-archive="projects">
 
-                    <span class="archive-number">05</span>
+                    <span class="archive-number">
+                        05
+                    </span>
 
-                    <h3>Projects</h3>
+                    <h3>
+                        Projects
+                    </h3>
 
                     <p>
                         Additional experiments and previous work.
@@ -555,7 +698,9 @@
                     type="button"
                     data-archive="construction">
 
-                    <span class="archive-number">06</span>
+                    <span class="archive-number">
+                        06
+                    </span>
 
                     <h3>
                         Under Construction
@@ -583,13 +728,22 @@
              CONTACT
              ========================= -->
 
-        <section id="contact" class="section contact-section">
+        <section
+            id="contact"
+            class="section contact-section">
 
             <div class="section-header">
 
                 <div>
-                    <span class="section-number">05</span>
-                    <h2>Contact</h2>
+
+                    <span class="section-number">
+                        05
+                    </span>
+
+                    <h2>
+                        Contact
+                    </h2>
+
                 </div>
 
                 <span class="section-status">
@@ -615,9 +769,13 @@
                     deciphering an ancient manuscript.
                 </p>
 
-                <a href="mailto:your@email.com" class="archive-button">
+                <a
+                    href="mailto:your@email.com"
+                    class="archive-button">
+
                     INITIATE CONTACT
                     <span>→</span>
+
                 </a>
 
             </div>

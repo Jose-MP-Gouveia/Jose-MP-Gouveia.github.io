@@ -264,7 +264,7 @@ button {
 }
 
 .hero-content {
-    max-width: 750px;
+    max-width: 700px;
 }
 
 .eyebrow {
@@ -382,22 +382,22 @@ button {
 
 
 /* =========================================
-   INTERACTIVE RECORD INDEX
+   RECORD SELECTOR
    ========================================= */
 
-.record-index {
+.record-selector {
     position: absolute;
 
     right: 100px;
     top: 50%;
 
-    width: 230px;
+    width: 250px;
 
     transform: translateY(-50%);
 }
 
-.index-label {
-    margin-bottom: 20px;
+.selector-label {
+    margin-bottom: 15px;
 
     color: var(--blue);
 
@@ -407,110 +407,145 @@ button {
     letter-spacing: 3px;
 }
 
-.index-line {
+.selector-window {
+    height: 230px;
+
     position: relative;
 
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    overflow: hidden;
 
-    width: 100%;
-    height: 30px;
+    border-left: 1px solid var(--gold-border);
 }
 
-.index-line::before {
+.selector-window::before {
     content: "";
 
     position: absolute;
 
-    left: 0;
-    right: 0;
-
+    left: -4px;
     top: 50%;
 
-    height: 1px;
+    width: 7px;
+    height: 7px;
+
+    transform: translateY(-50%);
 
     background: var(--gold);
-}
-
-.index-point {
-    position: relative;
-
-    width: 16px;
-    height: 16px;
-
-    padding: 0;
-
-    background: var(--background);
-
-    border: 1px solid var(--gold);
 
     border-radius: 50%;
+
+    z-index: 2;
+}
+
+.selector-item {
+    width: calc(100% - 30px);
+
+    margin-left: 30px;
+
+    border: none;
+
+    background: transparent;
+
+    text-align: left;
 
     cursor: pointer;
 }
 
-.index-point::after {
-    content: "";
+.selector-previous,
+.selector-next {
+    height: 65px;
 
-    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 
-    top: 50%;
-    left: 50%;
+    opacity: 0.35;
 
-    width: 4px;
-    height: 4px;
-
-    transform: translate(-50%, -50%);
-
-    background: var(--gold);
-
-    border-radius: 50%;
+    transition: opacity 0.2s;
 }
 
-.index-point span {
-    position: absolute;
+.selector-previous:hover,
+.selector-next:hover {
+    opacity: 0.75;
+}
 
-    top: 22px;
-    left: 50%;
+.selector-current {
+    height: 100px;
 
-    transform: translateX(-50%);
+    padding: 15px 0;
+
+    border-top: 1px solid var(--gold);
+    border-bottom: 1px solid var(--gold);
+
+    transition:
+        background 0.2s,
+        padding-left 0.2s;
+}
+
+.selector-current:hover {
+    padding-left: 8px;
+
+    background: rgba(230, 196, 0, 0.025);
+}
+
+.selector-number {
+    color: var(--gold);
+
+    font-family: monospace;
+    font-size: 11px;
+
+    letter-spacing: 2px;
+}
+
+.selector-name {
+    display: block;
+
+    margin-top: 3px;
+
+    color: var(--text);
+
+    font-family: Georgia, serif;
+    font-size: 22px;
+}
+
+.selector-category {
+    display: block;
+
+    margin-top: 2px;
+
+    color: var(--blue);
+
+    font-family: monospace;
+    font-size: 8px;
+
+    letter-spacing: 2px;
+}
+
+.selector-hint {
+    margin-top: 2px;
 
     color: var(--muted);
 
     font-family: monospace;
-    font-size: 9px;
+    font-size: 8px;
+
+    letter-spacing: 2px;
 }
 
-.index-point:hover,
-.index-point.active {
-    background: var(--gold);
-}
-
-.index-point:hover::after,
-.index-point.active::after {
-    background: var(--background);
-}
-
-.index-point:hover span,
-.index-point.active span {
-    color: var(--gold-bright);
-}
-
-.index-description {
-    margin-top: 35px;
+.selector-instruction {
+    margin-top: 15px;
 
     color: var(--muted);
 
     font-family: monospace;
-    font-size: 10px;
+    font-size: 8px;
 
     letter-spacing: 2px;
 }
 
 
 /* =========================================
-   RECORDS
+   RECORD CARDS
    ========================================= */
 
 .records-grid {
@@ -522,9 +557,10 @@ button {
 }
 
 .record-card {
-    min-height: 430px;
+    min-height: 420px;
 
-    position: relative;
+    display: flex;
+    flex-direction: column;
 
     padding: 25px;
 
@@ -562,27 +598,27 @@ button {
     letter-spacing: 2px;
 }
 
-.record-icon {
-    margin-top: 50px;
+.record-content {
+    flex: 1;
 
-    color: var(--gold);
+    display: flex;
+    flex-direction: column;
 
-    font-family: Georgia, serif;
-    font-size: 50px;
+    justify-content: space-between;
+
+    padding-top: 70px;
 }
 
 .record-card h3 {
-    margin-top: 20px;
-
     color: var(--text);
 
     font-family: Georgia, serif;
-    font-size: 30px;
+    font-size: 32px;
     font-weight: normal;
 }
 
 .record-category {
-    margin-top: 5px;
+    margin-top: 7px;
 
     color: var(--blue);
 
@@ -593,16 +629,14 @@ button {
 }
 
 .record-result {
-    display: flex;
-    flex-direction: column;
-
-    margin-top: 40px;
-    padding-top: 15px;
+    padding-top: 20px;
 
     border-top: 1px solid rgba(230, 196, 0, 0.25);
 }
 
 .result-label {
+    display: block;
+
     color: var(--green);
 
     font-family: monospace;
@@ -612,27 +646,33 @@ button {
 }
 
 .record-result strong {
+    display: block;
+
     margin-top: 5px;
 
     color: var(--gold-bright);
 
     font-family: monospace;
-    font-size: 36px;
+    font-size: 48px;
     font-weight: normal;
+
+    line-height: 1.1;
 }
 
-.record-result span:last-child {
+.result-description {
+    display: block;
+
+    margin-top: 5px;
+
     color: var(--muted);
 
     font-size: 12px;
 }
 
 .record-link {
-    position: absolute;
+    align-self: flex-start;
 
-    bottom: 25px;
-    left: 25px;
-
+    margin-top: 25px;
     padding: 0;
 
     background: transparent;
@@ -647,6 +687,16 @@ button {
     letter-spacing: 2px;
 
     cursor: pointer;
+
+    transition: color 0.2s;
+}
+
+.record-link:hover {
+    color: var(--blue-bright);
+}
+
+.record-link span {
+    margin-left: 5px;
 }
 
 
@@ -745,6 +795,8 @@ button {
 
     border: 1px solid rgba(230, 196, 0, 0.25);
 
+    color: inherit;
+
     text-align: left;
 
     cursor: pointer;
@@ -761,7 +813,7 @@ button {
 }
 
 .archive-item:focus-visible,
-.index-point:focus-visible,
+.selector-item:focus-visible,
 .nav-toggle:focus-visible,
 .record-link:focus-visible,
 .archive-button:focus-visible {
@@ -833,6 +885,7 @@ button {
     z-index: 2000;
 
     display: none;
+
     align-items: center;
     justify-content: center;
 
@@ -998,9 +1051,9 @@ footer {
    MOBILE
    ========================================= */
 
-@media (max-width: 1000px) {
+@media (max-width: 1050px) {
 
-    .record-index {
+    .record-selector {
         position: static;
 
         width: 300px;
@@ -1051,10 +1104,11 @@ footer {
         left: 30px;
 
         flex-direction: column;
+
         gap: 5px;
     }
 
-    .record-index {
+    .record-selector {
         width: 100%;
 
         margin-top: 70px;
@@ -1062,6 +1116,10 @@ footer {
 
     .records-grid {
         grid-template-columns: 1fr;
+    }
+
+    .record-card {
+        min-height: 390px;
     }
 
     .about-grid {
@@ -1084,6 +1142,7 @@ footer {
 
     .section-header {
         align-items: flex-start;
+
         flex-direction: column;
 
         gap: 15px;
