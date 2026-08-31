@@ -19,7 +19,11 @@
 
     <nav class="archive-nav" id="archiveNav">
 
-        <button class="nav-toggle" id="navToggle" aria-label="Open archive navigation">
+        <button
+            class="nav-toggle"
+            id="navToggle"
+            aria-label="Open archive navigation"
+            aria-expanded="false">
             ☰
         </button>
 
@@ -65,6 +69,38 @@
         </div>
 
     </nav>
+
+
+    <!-- =========================
+         RETRIEVAL SCREEN
+         ========================= -->
+
+    <div class="retrieval-screen" id="retrievalScreen" aria-hidden="true">
+
+        <div class="retrieval-box">
+
+            <div class="retrieval-header">
+                <span id="retrievalTitle">ARCHIVE ACCESS</span>
+                <span>NODE_01</span>
+            </div>
+
+            <div class="retrieval-line"></div>
+
+            <div class="retrieval-log" id="retrievalLog">
+                <p>> ESTABLISHING CONNECTION...</p>
+            </div>
+
+            <div class="retrieval-progress">
+                <div id="retrievalProgressBar"></div>
+            </div>
+
+            <div class="retrieval-status" id="retrievalStatus">
+                STATUS: RETRIEVING
+            </div>
+
+        </div>
+
+    </div>
 
 
     <!-- =========================
@@ -123,6 +159,46 @@
 
             </div>
 
+
+            <!-- Small interactive index -->
+
+            <div class="record-index">
+
+                <div class="index-label">
+                    RECORD INDEX
+                </div>
+
+                <div class="index-line">
+
+                    <button
+                        class="index-point"
+                        data-target="record-1"
+                        aria-label="View Innershift record">
+                        <span>01</span>
+                    </button>
+
+                    <button
+                        class="index-point"
+                        data-target="record-2"
+                        aria-label="View TEDxNOVA record">
+                        <span>02</span>
+                    </button>
+
+                    <button
+                        class="index-point"
+                        data-target="record-3"
+                        aria-label="View WallID record">
+                        <span>03</span>
+                    </button>
+
+                </div>
+
+                <div class="index-description" id="indexDescription">
+                    SELECT A RECORD
+                </div>
+
+            </div>
+
         </section>
 
 
@@ -151,7 +227,7 @@
 
                 <!-- INNERSHIFT -->
 
-                <article class="record-card">
+                <article class="record-card" id="record-1">
 
                     <div class="record-top">
                         <span>RECORD_001</span>
@@ -186,16 +262,16 @@
 
                     </div>
 
-                    <a href="#" class="record-link">
-                        OPEN RECORD →
-                    </a>
+                    <button class="record-link" type="button">
+                        RECORD NOT YET INDEXED →
+                    </button>
 
                 </article>
 
 
                 <!-- TEDxNOVA -->
 
-                <article class="record-card">
+                <article class="record-card" id="record-2">
 
                     <div class="record-top">
                         <span>RECORD_002</span>
@@ -230,16 +306,16 @@
 
                     </div>
 
-                    <a href="#" class="record-link">
-                        OPEN RECORD →
-                    </a>
+                    <button class="record-link" type="button">
+                        RECORD NOT YET INDEXED →
+                    </button>
 
                 </article>
 
 
                 <!-- WALLID -->
 
-                <article class="record-card">
+                <article class="record-card" id="record-3">
 
                     <div class="record-top">
                         <span>RECORD_003</span>
@@ -274,9 +350,9 @@
 
                     </div>
 
-                    <a href="#" class="record-link">
-                        OPEN RECORD →
-                    </a>
+                    <button class="record-link" type="button">
+                        RECORD NOT YET INDEXED →
+                    </button>
 
                 </article>
 
@@ -374,49 +450,110 @@
             <div class="archive-grid">
 
 
-                <article class="archive-item">
+                <button
+                    class="archive-item"
+                    type="button"
+                    data-archive="education">
+
                     <span class="archive-number">01</span>
+
                     <h3>Education</h3>
-                    <p>Academic records and formal studies.</p>
-                    <span class="archive-status">STATUS: ACTIVE</span>
-                </article>
+
+                    <p>
+                        Academic records and formal studies.
+                    </p>
+
+                    <span class="archive-status">
+                        STATUS: ACTIVE
+                    </span>
+
+                </button>
 
 
-                <article class="archive-item">
+                <button
+                    class="archive-item"
+                    type="button"
+                    data-archive="experience">
+
                     <span class="archive-number">02</span>
+
                     <h3>Experience</h3>
-                    <p>Professional and organizational records.</p>
-                    <span class="archive-status">STATUS: ACTIVE</span>
-                </article>
+
+                    <p>
+                        Professional and organizational records.
+                    </p>
+
+                    <span class="archive-status">
+                        STATUS: ACTIVE
+                    </span>
+
+                </button>
 
 
-                <article class="archive-item">
+                <button
+                    class="archive-item"
+                    type="button"
+                    data-archive="certifications">
+
                     <span class="archive-number">03</span>
+
                     <h3>Certifications</h3>
-                    <p>Verified credentials and completed programs.</p>
-                    <span class="archive-status">STATUS: VERIFIED</span>
-                </article>
+
+                    <p>
+                        Verified credentials and completed programs.
+                    </p>
+
+                    <span class="archive-status">
+                        STATUS: VERIFIED
+                    </span>
+
+                </button>
 
 
-                <article class="archive-item">
+                <button
+                    class="archive-item"
+                    type="button"
+                    data-archive="awards">
+
                     <span class="archive-number">04</span>
+
                     <h3>Awards</h3>
-                    <p>Recognitions, competitions and distinctions.</p>
-                    <span class="archive-status">STATUS: INDEXING</span>
-                </article>
+
+                    <p>
+                        Recognitions, competitions and distinctions.
+                    </p>
+
+                    <span class="archive-status">
+                        STATUS: INDEXING
+                    </span>
+
+                </button>
 
 
-                <article class="archive-item">
+                <button
+                    class="archive-item"
+                    type="button"
+                    data-archive="projects">
+
                     <span class="archive-number">05</span>
+
                     <h3>Projects</h3>
-                    <p>Additional experiments and previous work.</p>
-                    <span class="archive-status">STATUS: INDEXING</span>
-                </article>
+
+                    <p>
+                        Additional experiments and previous work.
+                    </p>
+
+                    <span class="archive-status">
+                        STATUS: INDEXING
+                    </span>
+
+                </button>
 
 
-                <!-- UNDER CONSTRUCTION -->
-
-                <article class="archive-item under-construction">
+                <button
+                    class="archive-item under-construction"
+                    type="button"
+                    data-archive="construction">
 
                     <span class="archive-number">06</span>
 
@@ -425,8 +562,8 @@
                     </h3>
 
                     <p>
-                        Records currently being recovered,
-                        classified or otherwise subjected to the
+                        Things are being recovered, classified,
+                        reorganized or otherwise subjected to the
                         usual human tendency to start things before
                         finishing them.
                     </p>
@@ -435,7 +572,7 @@
                         STATUS: CORRUPTED
                     </span>
 
-                </article>
+                </button>
 
             </div>
 
