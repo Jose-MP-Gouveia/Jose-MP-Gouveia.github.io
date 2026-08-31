@@ -1811,38 +1811,41 @@ footer {
 
 .team-thanks {
     margin-top: 42px;
-    max-width: 720px;
+    max-width: 680px;
     padding-top: 18px;
-    border-top: 1px solid rgba(48, 36, 30, 0.25);
+    border-top: 1px solid var(--paper-line);
 }
 
 .team-label {
     display: block;
     margin-bottom: 10px;
 
-    font-family: var(--font-mono);
-    font-size: 0.68rem;
-    letter-spacing: 0.14em;
+    font-family: var(--mono);
+    font-size: 9px;
+    letter-spacing: .14em;
     text-transform: uppercase;
 
-    opacity: 0.65;
+    color: rgba(51,37,31,.6);
 }
 
 .team-thanks p {
     margin: 0;
 
-    font-family: var(--font-mono);
-    font-size: 0.82rem;
+    font-family: var(--mono);
+    font-size: 11px;
     line-height: 1.7;
+
+    color: var(--ink);
 }
 
 .team-note {
     display: block;
     margin-top: 8px;
 
-    font-family: var(--font-mono);
-    font-size: 0.68rem;
+    font-family: var(--mono);
+    font-size: 9px;
     line-height: 1.6;
 
-    opacity: 0.55;
+    color: rgba(51,37,31,.55);
+}city: 0.55;
 }
