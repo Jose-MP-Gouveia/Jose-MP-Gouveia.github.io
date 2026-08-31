@@ -569,10 +569,49 @@ p {
 .day-image-wrap img {
     display: block;
     width: 100%;
+
+    opacity: 1;
+    transform: translateY(0) scale(1);
+
+    transition:
+        opacity 0.38s ease,
+        transform 0.46s cubic-bezier(.22, 1, .36, 1);
+
+    will-change:
+        opacity,
+        transform;
+}
+
+
+.day-image-wrap img.is-changing {
+    opacity: 0;
+
+    transform:
+        translateY(8px)
+        scale(0.985);
 }
 
 .day-copy {
     padding: 20px;
+
+    opacity: 1;
+    transform: translateY(0);
+
+    transition:
+        opacity 0.38s ease,
+        transform 0.46s cubic-bezier(.22, 1, .36, 1);
+
+    will-change:
+        opacity,
+        transform;
+}
+
+
+.day-copy.is-changing {
+    opacity: 0;
+
+    transform:
+        translateY(8px);
 }
 
 .day-copy h3 {

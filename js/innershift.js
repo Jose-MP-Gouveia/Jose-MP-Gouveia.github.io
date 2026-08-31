@@ -24,73 +24,248 @@ navLinks.forEach(function (link) {
    ========================================= */
 
 const days = {
+
     1: {
-        title: "BIODETox",
-        image: "assets/innershift/slide-05.png",
+        title: "BIODETOX",
+        image: "assets/innershift/day-01.png",
         description:
             "Disconnect from the habitual digital environment and begin paying attention to the world around you."
     },
+
     2: {
         title: "GO OUTSIDE",
-        image: "assets/innershift/slide-05.png",
+        image: "assets/innershift/day-02.png",
         description:
             "A deliberate change of environment: leave the habitual loop and redirect attention outward."
     },
+
     3: {
         title: "SELF-REFLECTION",
-        image: "assets/innershift/slide-05.png",
+        image: "assets/innershift/day-03.png",
         description:
             "Create space for reflection and examine the patterns that normally pass unnoticed."
     },
+
     4: {
         title: "WORK ELSEWHERE",
-        image: "assets/innershift/slide-05.png",
+        image: "assets/innershift/day-04.png",
         description:
             "Change the context in which work happens and interrupt the automatic relationship with routine."
     },
+
     5: {
         title: "CONNECTION",
-        image: "assets/innershift/slide-05.png",
+        image: "assets/innershift/day-05.png",
         description:
             "Use deliberate connection as part of the ritual rather than leaving social interaction to the algorithm."
     },
+
     6: {
         title: "MICRO-LEARNING",
-        image: "assets/innershift/slide-05.png",
+        image: "assets/innershift/day-06.png",
         description:
             "Introduce small, intentional learning moments into the day."
     },
+
     7: {
         title: "FATESMITH",
-        image: "assets/innershift/slide-05.png",
+        image: "assets/innershift/day-07.png",
         description:
             "Finish the seven-day path by turning the accumulated observations into a deliberate next step."
     }
+
 };
 
-const dayButtons = document.querySelectorAll(".day-button");
-const dayImage = document.querySelector("#dayImage");
-const dayNumber = document.querySelector("#dayNumber");
-const dayTitle = document.querySelector("#dayTitle");
-const dayDescription = document.querySelector("#dayDescription");
 
-dayButtons.forEach(function (button) {
-    button.addEventListener("click", function () {
-        const day = button.dataset.day;
-        const record = days[day];
+const dayButtons =
+    document.querySelectorAll(".day-button");
 
-        dayButtons.forEach(function (item) {
-            item.classList.remove("active");
-        });
+const dayImage =
+    document.querySelector("#dayImage");
 
-        button.classList.add("active");
+const dayCopy =
+    document.querySelector("#dayCopy");
+
+const dayNumber =
+    document.querySelector("#dayNumber");
+
+const dayTitle =
+    document.querySelector("#dayTitle");
+
+const dayDescription =
+    document.querySelector("#dayDescription");
+
+
+let currentDay = 1;
+let dayTransitioning = false;
+
+
+function setDay(day, animate = true) {
+
+    const record = days[day];
+
+    if (!record) {
+        return;
+    }
+
+    if (
+        animate &&
+        (dayTransitioning || day === currentDay)
+    ) {
+        return;
+    }
+
+
+    const romanDays = [
+        "I",
+        "II",
+        "III",
+        "IV",
+        "V",
+        "VI",
+        "VII"
+    ];
+
+
+    function applyRecord() {
 
         dayImage.src = record.image;
-        dayNumber.textContent = "DAY " + ["I", "II", "III", "IV", "V", "VI", "VII"][day - 1];
-        dayTitle.textContent = record.title;
-        dayDescription.textContent = record.description;
-    });
+
+        dayImage.alt =
+            "InnerShift Day " +
+            romanDays[day - 1] +
+            " ritual card";
+
+
+        dayNumber.textContent =
+            "DAY " + romanDays[day - 1];
+
+
+        dayTitle.textContent =
+            record.title;
+
+
+        dayDescription.textContent =
+            record.description;
+
+
+        currentDay = day;
+
+
+        dayButtons.forEach(function(button) {
+
+            const isActive =
+                Number(button.dataset.day) === day;
+
+
+            button.classList.toggle(
+                "active",
+                isActive
+            );
+
+
+            button.setAttribute(
+                "aria-selected",
+                isActive
+            );
+
+        });
+
+    }
+
+
+    /* Initial state */
+
+    if (!animate) {
+
+        applyRecord();
+
+        return;
+
+    }
+
+
+    /* Start transition */
+
+    dayTransitioning = true;
+
+
+    dayImage.classList.add(
+        "is-changing"
+    );
+
+
+    dayCopy.classList.add(
+        "is-changing"
+    );
+
+
+    /*
+       Wait until the old content has faded
+       before replacing it.
+    */
+
+    setTimeout(function() {
+
+        applyRecord();
+
+
+        requestAnimationFrame(function() {
+
+            dayImage.classList.remove(
+                "is-changing"
+            );
+
+
+            dayCopy.classList.remove(
+                "is-changing"
+            );
+
+
+            setTimeout(function() {
+
+                dayTransitioning = false;
+
+            }, 350);
+
+        });
+
+    }, 180);
+
+}
+
+
+/* =========================================
+   DAY BUTTONS
+   ========================================= */
+
+dayButtons.forEach(function(button) {
+
+    button.setAttribute(
+        "aria-selected",
+        button.classList.contains("active")
+    );
+
+
+    button.addEventListener(
+        "click",
+        function() {
+
+            const day =
+                Number(button.dataset.day);
+
+
+            setDay(day);
+
+        }
+    );
+
 });
+
+
+/* Initial state */
+
+setDay(1, false);
 
 
 /* =========================================
