@@ -566,20 +566,136 @@ p {
     box-shadow: 10px 10px 0 rgba(232,117,43,.18);
 }
 
-.day-image-wrap img {
-    display: block;
+.day-image-wrap {
+    background: #dfc79c;
+    padding: 18px;
+    border: 1px solid rgba(51,37,31,.4);
+    box-shadow: 10px 10px 0 rgba(232,117,43,.18);
+
+    overflow: hidden;
+
+    /*
+     * The original slide is 16:9.
+     * This window is shaped roughly like
+     * one of the seven ritual cards.
+     */
+}
+
+
+.day-image {
+    position: relative;
+
     width: 100%;
+    aspect-ratio: 0.58;
+
+    overflow: hidden;
+
+    background-image:
+        url("../assets/innershift/slide-04.png");
+
+    background-repeat: no-repeat;
+
+    /*
+     * Seven cards exist across slide-04.
+     * Make the source seven times wider than
+     * the viewing window.
+     */
+    background-size: 700% auto;
+
+    /*
+     * The cards sit roughly in the upper-middle
+     * part of the original presentation slide.
+     */
+    background-position:
+        0% 31%;
 
     opacity: 1;
-    transform: translateY(0) scale(1);
+
+    transform:
+        translateY(0)
+        scale(1);
 
     transition:
-        opacity 0.38s ease,
-        transform 0.46s cubic-bezier(.22, 1, .36, 1);
+        opacity .42s ease,
+        transform .52s cubic-bezier(.22, 1, .36, 1);
 
     will-change:
         opacity,
         transform;
+}
+
+
+/*
+ * Each day moves the source image horizontally.
+ */
+
+.day-image[data-day="1"] {
+    background-position: 0% 31%;
+}
+
+.day-image[data-day="2"] {
+    background-position: 16.666% 31%;
+}
+
+.day-image[data-day="3"] {
+    background-position: 33.333% 31%;
+}
+
+.day-image[data-day="4"] {
+    background-position: 50% 31%;
+}
+
+.day-image[data-day="5"] {
+    background-position: 66.666% 31%;
+}
+
+.day-image[data-day="6"] {
+    background-position: 83.333% 31%;
+}
+
+.day-image[data-day="7"] {
+    background-position: 100% 31%;
+}
+
+
+/*
+ * Fade + slight movement during transition.
+ */
+
+.day-image.is-changing {
+    opacity: 0;
+
+    transform:
+        translateY(10px)
+        scale(.985);
+}
+
+
+/* TEXT TRANSITION */
+
+.day-copy {
+    padding: 20px;
+
+    opacity: 1;
+
+    transform:
+        translateY(0);
+
+    transition:
+        opacity .42s ease,
+        transform .52s cubic-bezier(.22, 1, .36, 1);
+
+    will-change:
+        opacity,
+        transform;
+}
+
+
+.day-copy.is-changing {
+    opacity: 0;
+
+    transform:
+        translateY(10px);
 }
 
 

@@ -24,58 +24,38 @@ navLinks.forEach(function (link) {
    ========================================= */
 
 const days = {
-
     1: {
-        title: "BIODETOX",
-        image: "assets/innershift/day-01.png",
-        description:
-            "Disconnect from the habitual digital environment and begin paying attention to the world around you."
+        title: "BIODETOX"
     },
-
     2: {
-        title: "GO OUTSIDE",
-        image: "assets/innershift/day-02.png",
-        description:
-            "A deliberate change of environment: leave the habitual loop and redirect attention outward."
+        title: "GO OUTSIDE"
     },
-
     3: {
-        title: "SELF-REFLECTION",
-        image: "assets/innershift/day-03.png",
-        description:
-            "Create space for reflection and examine the patterns that normally pass unnoticed."
+        title: "SELF-REFLECTION"
     },
-
     4: {
-        title: "WORK ELSEWHERE",
-        image: "assets/innershift/day-04.png",
-        description:
-            "Change the context in which work happens and interrupt the automatic relationship with routine."
+        title: "WORK ELSEWHERE"
     },
-
     5: {
-        title: "CONNECTION",
-        image: "assets/innershift/day-05.png",
-        description:
-            "Use deliberate connection as part of the ritual rather than leaving social interaction to the algorithm."
+        title: "CONNECTION"
     },
-
     6: {
-        title: "MICRO-LEARNING",
-        image: "assets/innershift/day-06.png",
-        description:
-            "Introduce small, intentional learning moments into the day."
+        title: "MICRO-LEARNING"
     },
-
     7: {
-        title: "FATESMITH",
-        image: "assets/innershift/day-07.png",
-        description:
-            "Finish the seven-day path by turning the accumulated observations into a deliberate next step."
+        title: "FATESMITH"
     }
-
 };
 
+const romanDays = [
+    "I",
+    "II",
+    "III",
+    "IV",
+    "V",
+    "VI",
+    "VII"
+];
 
 const dayButtons =
     document.querySelectorAll(".day-button");
@@ -84,7 +64,7 @@ const dayImage =
     document.querySelector("#dayImage");
 
 const dayCopy =
-    document.querySelector("#dayCopy");
+    document.querySelector(".day-copy");
 
 const dayNumber =
     document.querySelector("#dayNumber");
@@ -95,9 +75,187 @@ const dayTitle =
 const dayDescription =
     document.querySelector("#dayDescription");
 
-
 let currentDay = 1;
 let dayTransitioning = false;
+
+
+/* -----------------------------------------
+   DAY DESCRIPTIONS
+   ----------------------------------------- */
+
+const dayDescriptions = {
+    1:
+        "Disconnect from the habitual digital environment and begin paying attention to the world around you.",
+
+    2:
+        "Leave the habitual environment and deliberately redirect your attention toward the world outside.",
+
+    3:
+        "Create space for reflection and examine the patterns that normally pass unnoticed.",
+
+    4:
+        "Change the context in which work happens and interrupt the automatic relationship with routine.",
+
+    5:
+        "Use deliberate connection as part of the ritual rather than leaving social interaction to the algorithm.",
+
+    6:
+        "Introduce small, intentional learning moments into the day.",
+
+    7:
+        "Finish the seven-day path by turning the accumulated observations into a deliberate next step."
+};
+
+
+/* -----------------------------------------
+   APPLY DAY
+   ----------------------------------------- */
+
+function applyDay(day) {
+
+    const record = days[day];
+
+    if (!record) {
+        return;
+    }
+
+    dayImage.dataset.day = day;
+
+    dayNumber.textContent =
+        "DAY " + romanDays[day - 1];
+
+    dayTitle.textContent =
+        record.title;
+
+    dayDescription.textContent =
+        dayDescriptions[day];
+
+
+    dayButtons.forEach(function(button) {
+
+        const active =
+            Number(button.dataset.day) === day;
+
+        button.classList.toggle(
+            "active",
+            active
+        );
+
+        button.setAttribute(
+            "aria-selected",
+            active
+        );
+
+    });
+
+    currentDay = day;
+}
+
+
+/* -----------------------------------------
+   CHANGE DAY
+   ----------------------------------------- */
+
+function setDay(day, animate = true) {
+
+    if (!days[day]) {
+        return;
+    }
+
+    if (day === currentDay && animate) {
+        return;
+    }
+
+    if (dayTransitioning) {
+        return;
+    }
+
+    if (!animate) {
+
+        applyDay(day);
+
+        return;
+    }
+
+
+    dayTransitioning = true;
+
+
+    /*
+     * Fade the existing card and text out.
+     */
+
+    dayImage.classList.add("is-changing");
+    dayCopy.classList.add("is-changing");
+
+
+    /*
+     * Replace the day after the fade has started.
+     */
+
+    setTimeout(function () {
+
+        applyDay(day);
+
+
+        /*
+         * Force the browser to acknowledge
+         * the new state before fading it in.
+         */
+
+        requestAnimationFrame(function () {
+
+            requestAnimationFrame(function () {
+
+                dayImage.classList.remove(
+                    "is-changing"
+                );
+
+                dayCopy.classList.remove(
+                    "is-changing"
+                );
+
+
+                setTimeout(function () {
+
+                    dayTransitioning = false;
+
+                }, 450);
+
+            });
+
+        });
+
+    }, 220);
+}
+
+
+/* -----------------------------------------
+   BUTTONS
+   ----------------------------------------- */
+
+dayButtons.forEach(function(button) {
+
+    button.addEventListener(
+        "click",
+        function() {
+
+            const day =
+                Number(button.dataset.day);
+
+            setDay(day);
+
+        }
+    );
+
+});
+
+
+/* -----------------------------------------
+   INITIAL STATE
+   ----------------------------------------- */
+
+applyDay(1);
 
 
 function setDay(day, animate = true) {
@@ -282,7 +440,7 @@ const artifacts = {
     },
     2: {
         title: "VII DAY RITUAL",
-        image: "assets/innershift/slide-05.png",
+        image: "assets/innershift/slide-04.png",
         status: "STATUS: RECOVERED",
         description:
             "The seven-day ritual represented through the original project card system. The artifact preserves the visual language of the proposed experience."
