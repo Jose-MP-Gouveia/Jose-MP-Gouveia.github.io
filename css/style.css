@@ -699,59 +699,224 @@ button {
     margin-left: 5px;
 }
 
-
 /* =========================================
    ABOUT
    ========================================= */
 
 .about-section {
-    background: rgba(255, 255, 255, 0.01);
+    position: relative;
+
+    width: 100%;
+    max-width: none;
+
+    min-height: 100vh;
+
+    padding: 70px 7vw;
+
+    background:
+        radial-gradient(
+            circle at 20% 45%,
+            rgba(100, 85, 50, 0.06),
+            transparent 30%
+        ),
+        radial-gradient(
+            circle at 85% 70%,
+            rgba(100, 85, 50, 0.04),
+            transparent 28%
+        ),
+        #090b0b;
+
+    overflow: hidden;
 }
 
-.about-grid {
-    display: grid;
 
-    grid-template-columns: 2fr 1fr;
+/* =========================================
+   ARCHIVE FRAME
+   ========================================= */
 
-    gap: 80px;
+.about-section::before {
+    content: "";
+
+    position: absolute;
+    inset: 24px;
+
+    border: 1px solid rgba(197, 163, 19, 0.10);
+
+    pointer-events: none;
 }
 
-.terminal-label {
-    margin-bottom: 30px;
 
-    color: var(--green);
+.about-section::after {
+    content: "FIG. 03";
+
+    position: absolute;
+
+    left: 30px;
+    top: 50%;
+
+    color: rgba(197, 163, 19, 0.45);
 
     font-family: monospace;
-    font-size: 12px;
+    font-size: 9px;
+
+    letter-spacing: 3px;
+
+    writing-mode: vertical-rl;
+
+    transform: rotate(180deg);
+
+    pointer-events: none;
 }
 
-.about-text {
-    max-width: 700px;
 
-    margin-bottom: 25px;
+/* =========================================
+   PAPER DOCUMENT
+   ========================================= */
 
-    color: var(--text);
+.about-paper {
+    position: relative;
+
+    width: min(1120px, 100%);
+    min-height: 760px;
+
+    margin: 0 auto;
+
+    padding: 55px 60px 60px;
+
+    background:
+        radial-gradient(
+            circle at 15% 25%,
+            rgba(120, 90, 50, 0.07),
+            transparent 25%
+        ),
+        radial-gradient(
+            circle at 85% 80%,
+            rgba(120, 90, 50, 0.06),
+            transparent 30%
+        ),
+        linear-gradient(
+            135deg,
+            #f4ead4 0%,
+            #eee1c4 100%
+        );
+
+    color: #33251f;
+
+    border: 1px solid rgba(51, 37, 31, 0.30);
+
+    box-shadow:
+        10px 10px 0 rgba(95, 61, 32, 0.20),
+        0 18px 45px rgba(0, 0, 0, 0.25);
+
+    overflow: hidden;
+}
+
+
+/* =========================================
+   PAPER TEXTURE
+   ========================================= */
+
+.about-paper::before {
+    content: "";
+
+    position: absolute;
+    inset: 0;
+
+    pointer-events: none;
+
+    opacity: 0.28;
+
+    background:
+        repeating-linear-gradient(
+            0deg,
+            transparent 0,
+            transparent 5px,
+            rgba(51, 37, 31, 0.035) 6px
+        ),
+        repeating-linear-gradient(
+            90deg,
+            transparent 0,
+            transparent 9px,
+            rgba(51, 37, 31, 0.018) 10px
+        );
+}
+
+
+/* Technical circle entering from bottom-right */
+
+.about-paper::after {
+    content: "";
+
+    position: absolute;
+
+    width: 310px;
+    height: 310px;
+
+    right: -155px;
+    bottom: -155px;
+
+    border: 1px solid rgba(216, 109, 41, 0.22);
+
+    border-radius: 50%;
+
+    pointer-events: none;
+}
+
+
+/* =========================================
+   HEADER
+   ========================================= */
+
+.about-header {
+    position: relative;
+    z-index: 2;
+
+    display: flex;
+
+    justify-content: space-between;
+    align-items: flex-end;
+
+    gap: 40px;
+}
+
+
+.about-header-title {
+    display: flex;
+    flex-direction: column;
+}
+
+
+.about-header-title .section-number {
+    margin-bottom: 10px;
+
+    color: #56834c;
+}
+
+
+.about-header-title h2 {
+    margin: 0;
+
+    color: #33251f;
 
     font-family: Georgia, serif;
-    font-size: 22px;
 
-    line-height: 1.7;
+    font-size: clamp(52px, 6vw, 78px);
+
+    font-weight: normal;
+
+    line-height: 0.95;
 }
 
-.about-metadata {
-    padding-left: 30px;
 
-    border-left: 1px solid var(--gold-border);
-}
+.about-header-meta {
+    display: flex;
+    flex-direction: column;
 
-.about-metadata div {
-    margin-bottom: 30px;
-}
+    gap: 7px;
 
-.about-metadata span {
-    display: block;
+    text-align: right;
 
-    color: var(--green);
+    color: #918b80;
 
     font-family: monospace;
     font-size: 9px;
@@ -759,18 +924,424 @@ button {
     letter-spacing: 2px;
 }
 
-.about-metadata strong {
-    display: block;
 
-    margin-top: 5px;
+/* =========================================
+   DOCUMENT RULE
+   ========================================= */
 
-    color: var(--blue);
+.about-rule {
+    position: relative;
+    z-index: 2;
 
-    font-family: monospace;
-    font-size: 11px;
-    font-weight: normal;
+    width: 100%;
+    height: 1px;
+
+    margin: 35px 0 62px;
+
+    background: rgba(51, 37, 31, 0.30);
 }
 
+
+/* =========================================
+   MAIN GRID
+   ========================================= */
+
+.about-grid {
+    position: relative;
+    z-index: 2;
+
+    display: grid;
+
+    grid-template-columns:
+        minmax(0, 1fr)
+        260px;
+
+    gap: 65px;
+}
+
+
+/* =========================================
+   PROFILE AREA
+   ========================================= */
+
+.about-main {
+    display: grid;
+
+    grid-template-columns:
+        210px
+        minmax(0, 1fr);
+
+    gap: 55px;
+
+    align-items: start;
+}
+
+
+/* =========================================
+   TECHNICAL FIGURE
+   ========================================= */
+
+.about-figure {
+    position: relative;
+
+    width: 190px;
+    height: 210px;
+
+    color: #5e5147;
+}
+
+
+.about-figure > span {
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    color: #918b80;
+
+    font-family: monospace;
+    font-size: 8px;
+
+    letter-spacing: 2px;
+}
+
+
+/* Slightly more "technical drawing" */
+
+.figure-circle {
+    position: absolute;
+
+    border-radius: 50%;
+
+    border: 1px solid rgba(51, 37, 31, 0.23);
+}
+
+
+.circle-large {
+    width: 190px;
+    height: 190px;
+
+    top: 8px;
+    left: 0;
+}
+
+
+.circle-medium {
+    width: 145px;
+    height: 145px;
+
+    top: 30px;
+    left: 22px;
+
+    border-style: dashed;
+}
+
+
+.circle-small {
+    width: 82px;
+    height: 82px;
+
+    top: 61px;
+    left: 53px;
+
+    border-color: rgba(216, 109, 41, 0.58);
+}
+
+
+.figure-cross {
+    position: absolute;
+
+    background: rgba(51, 37, 31, 0.18);
+}
+
+
+.figure-cross-x {
+    width: 190px;
+    height: 1px;
+
+    top: 103px;
+    left: 0;
+}
+
+
+.figure-cross-y {
+    width: 1px;
+    height: 190px;
+
+    left: 95px;
+    top: 8px;
+}
+
+
+.figure-point {
+    position: absolute;
+
+    width: 10px;
+    height: 10px;
+
+    top: 98px;
+    left: 90px;
+
+    border-radius: 50%;
+
+    background: #c5a313;
+
+    box-shadow:
+        0 0 0 5px rgba(197, 163, 19, 0.10);
+}
+
+
+/* =========================================
+   ABOUT COPY
+   ========================================= */
+
+.about-copy {
+    max-width: 650px;
+}
+
+
+.terminal-label {
+    margin-bottom: 30px;
+
+    color: #56834c;
+
+    font-family: monospace;
+    font-size: 10px;
+
+    letter-spacing: 2px;
+}
+
+
+.about-lead {
+    max-width: 650px;
+
+    margin-bottom: 30px;
+
+    color: #33251f;
+
+    font-family: Georgia, serif;
+
+    font-size: clamp(22px, 2.3vw, 29px);
+
+    line-height: 1.65;
+}
+
+
+.about-text {
+    max-width: 560px;
+
+    color: #5e5147;
+
+    font-family: Georgia, serif;
+
+    font-size: 17px;
+
+    line-height: 1.8;
+}
+
+
+.about-signature {
+    margin-top: 48px;
+
+    color: #a84e20;
+
+    font-family: cursive;
+
+    font-size: 29px;
+
+    transform: rotate(-3deg);
+}
+
+
+/* =========================================
+   METADATA
+   ========================================= */
+
+.about-metadata {
+    padding-left: 30px;
+
+    border-left:
+        1px solid rgba(51, 37, 31, 0.28);
+}
+
+
+.metadata-block {
+    padding-bottom: 23px;
+    margin-bottom: 23px;
+
+    border-bottom:
+        1px solid rgba(51, 37, 31, 0.16);
+}
+
+
+.metadata-block:last-child {
+    margin-bottom: 0;
+}
+
+
+.metadata-block span {
+    display: block;
+
+    margin-bottom: 10px;
+
+    color: #918b80;
+
+    font-family: monospace;
+    font-size: 8px;
+
+    letter-spacing: 2px;
+}
+
+
+.metadata-block strong {
+    display: block;
+
+    color: #2773a8;
+
+    font-family: monospace;
+    font-size: 10px;
+
+    font-weight: normal;
+
+    line-height: 1.5;
+
+    letter-spacing: 0.5px;
+}
+
+
+.metadata-block .metadata-yellow {
+    color: #c5a313;
+}
+
+
+/* =========================================
+   ARCHIVE STAMP
+   ========================================= */
+
+.about-stamp {
+    position: absolute;
+
+    z-index: 3;
+
+    right: 35px;
+    bottom: 28px;
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 3px;
+
+    padding: 9px 13px;
+
+    border:
+        1px solid rgba(168, 78, 32, 0.45);
+
+    color: #a84e20;
+
+    font-family: monospace;
+    font-size: 7px;
+
+    line-height: 1.4;
+
+    letter-spacing: 1px;
+
+    transform: rotate(-3deg);
+
+    opacity: 0.85;
+}
+
+
+/* =========================================
+   RESPONSIVE
+   ========================================= */
+
+@media (max-width: 900px) {
+
+    .about-section {
+        padding: 50px 30px;
+    }
+
+    .about-paper {
+        min-height: auto;
+
+        padding:
+            40px 35px 55px;
+    }
+
+    .about-grid {
+        grid-template-columns: 1fr;
+
+        gap: 50px;
+    }
+
+    .about-metadata {
+        padding-left: 0;
+        padding-top: 30px;
+
+        border-left: none;
+        border-top:
+            1px solid rgba(51, 37, 31, 0.25);
+    }
+
+}
+
+
+@media (max-width: 650px) {
+
+    .about-section {
+        padding: 30px 18px;
+    }
+
+    .about-section::before {
+        inset: 12px;
+    }
+
+    .about-section::after {
+        display: none;
+    }
+
+    .about-paper {
+        padding:
+            35px 25px 50px;
+    }
+
+    .about-header {
+        flex-direction: column;
+
+        align-items: flex-start;
+
+        gap: 20px;
+    }
+
+    .about-header-meta {
+        text-align: left;
+    }
+
+    .about-rule {
+        margin:
+            30px 0 45px;
+    }
+
+    .about-main {
+        grid-template-columns: 1fr;
+
+        gap: 35px;
+    }
+
+    .about-figure {
+        width: 180px;
+    }
+
+    .about-lead {
+        font-size: 22px;
+    }
+
+    .about-stamp {
+        right: 20px;
+        bottom: 18px;
+    }
+
+}
 
 /* =========================================
    ARCHIVE
@@ -1160,4 +1731,1832 @@ footer {
         gap: 10px;
     }
 
+}
+
+/* =========================================
+   ABOUT — ARCHIVAL REFINEMENT
+   ========================================= */
+
+.about-section {
+    padding: 42px 5.5vw 50px;
+    min-height: 100vh;
+    box-sizing: border-box;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #080a09;
+}
+
+
+/* =========================================
+   PAPER
+   ========================================= */
+
+.about-paper {
+    position: relative;
+
+    width: 100%;
+    max-width: 1380px;
+    min-height: calc(100vh - 92px);
+
+    box-sizing: border-box;
+
+    padding: 58px 70px 52px;
+
+    /* darker, warmer archival paper */
+    background:
+        linear-gradient(
+            90deg,
+            rgba(112, 76, 42, 0.035),
+            transparent 18%,
+            transparent 82%,
+            rgba(112, 76, 42, 0.045)
+        ),
+        #e6d8bb;
+
+    border: 1px solid rgba(48, 36, 27, 0.42);
+
+    box-shadow:
+        10px 10px 0 rgba(91, 51, 27, 0.18),
+        0 0 0 1px rgba(255, 255, 255, 0.025);
+
+    overflow: hidden;
+}
+
+
+/* subtle paper texture */
+
+.about-paper::before {
+    content: "";
+
+    position: absolute;
+    inset: 0;
+
+    pointer-events: none;
+
+    opacity: 0.20;
+
+    background-image:
+        repeating-linear-gradient(
+            0deg,
+            rgba(70, 52, 37, 0.025) 0px,
+            rgba(70, 52, 37, 0.025) 1px,
+            transparent 1px,
+            transparent 5px
+        );
+}
+
+
+/* archival circular mark */
+
+.about-paper::after {
+    content: "";
+
+    position: absolute;
+
+    width: 250px;
+    height: 250px;
+
+    right: -115px;
+    bottom: -120px;
+
+    border: 1px solid rgba(190, 82, 35, 0.28);
+
+    border-radius: 50%;
+
+    pointer-events: none;
+}
+
+
+/* =========================================
+   HEADER
+   ========================================= */
+
+.about-header {
+    position: relative;
+    z-index: 1;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+
+    margin-bottom: 24px;
+}
+
+
+.about-header-title {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+}
+
+
+.about-header-title .section-number {
+    font-family: "Courier New", monospace;
+
+    font-size: 11px;
+    letter-spacing: 0.38em;
+
+    color: #47734a;
+}
+
+
+.about-header-title h2 {
+    margin: 0;
+
+    font-family: Georgia, "Times New Roman", serif;
+
+    font-size: clamp(64px, 5.8vw, 88px);
+    line-height: 0.88;
+
+    font-weight: 500;
+
+    color: #35241d;
+}
+
+
+.about-header-meta {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 11px;
+
+    margin-top: 9px;
+
+    font-family: "Courier New", monospace;
+
+    font-size: 9px;
+    letter-spacing: 0.23em;
+
+    color: #887967;
+}
+
+
+.about-rule {
+    position: relative;
+    z-index: 1;
+
+    width: 100%;
+    height: 1px;
+
+    margin-bottom: 36px;
+
+    background: rgba(69, 53, 41, 0.30);
+}
+
+
+/* =========================================
+   CONTENT GRID
+   ========================================= */
+
+.about-grid {
+    position: relative;
+    z-index: 1;
+
+    display: grid;
+
+    grid-template-columns:
+        minmax(170px, 0.75fr)
+        minmax(430px, 2.7fr)
+        minmax(235px, 1.05fr);
+
+    column-gap: 48px;
+
+    align-items: start;
+}
+
+
+/* =========================================
+   FIGURE
+   ========================================= */
+
+.about-main {
+    display: contents;
+}
+
+
+.about-figure {
+    position: relative;
+
+    width: 210px;
+    height: 210px;
+
+    margin-top: 2px;
+}
+
+
+.about-figure > span {
+    position: absolute;
+
+    top: -2px;
+    left: 0;
+
+    font-family: "Courier New", monospace;
+
+    font-size: 8px;
+    letter-spacing: 0.25em;
+
+    color: #8e806f;
+}
+
+
+.figure-circle {
+    position: absolute;
+
+    left: 50%;
+    top: 52%;
+
+    transform: translate(-50%, -50%);
+
+    border-radius: 50%;
+}
+
+
+.circle-large {
+    width: 100%;
+    height: 100%;
+
+    border: 1px solid rgba(83, 70, 57, 0.32);
+}
+
+
+.circle-medium {
+    width: 76%;
+    height: 76%;
+
+    border: 1px dashed rgba(83, 70, 57, 0.30);
+}
+
+
+.circle-small {
+    width: 48%;
+    height: 48%;
+
+    border: 1px solid rgba(207, 94, 40, 0.55);
+}
+
+
+.figure-cross {
+    position: absolute;
+
+    background: rgba(83, 70, 57, 0.26);
+}
+
+
+.figure-cross-x {
+    width: 100%;
+    height: 1px;
+
+    left: 0;
+    top: 52%;
+}
+
+
+.figure-cross-y {
+    width: 1px;
+    height: 100%;
+
+    left: 50%;
+    top: 2%;
+}
+
+
+.figure-point {
+    position: absolute;
+
+    width: 10px;
+    height: 10px;
+
+    left: 50%;
+    top: 52%;
+
+    transform: translate(-50%, -50%);
+
+    border-radius: 50%;
+
+    background: #c6a719;
+
+    box-shadow:
+        0 0 0 7px rgba(198, 167, 25, 0.08);
+}
+
+
+/* =========================================
+   PROFILE
+   ========================================= */
+
+.about-copy {
+    max-width: 650px;
+    padding-top: 1px;
+}
+
+
+.terminal-label {
+    margin: 0 0 43px;
+
+    font-family: "Courier New", monospace;
+
+    font-size: 10px;
+    letter-spacing: 0.25em;
+
+    color: #4d794e;
+}
+
+
+.about-lead {
+    margin: 0;
+
+    max-width: 650px;
+
+    font-family: Georgia, "Times New Roman", serif;
+
+    font-size: clamp(29px, 2.45vw, 40px);
+    line-height: 1.43;
+
+    font-weight: 400;
+
+    color: #35241d;
+}
+
+
+.about-text {
+    margin: 34px 0 0;
+
+    max-width: 570px;
+
+    font-family: Georgia, "Times New Roman", serif;
+
+    font-size: 19px;
+    line-height: 1.55;
+
+    color: #66584b;
+}
+
+
+.about-signature {
+    margin-top: 42px;
+
+    font-family:
+        "Brush Script MT",
+        "Segoe Script",
+        cursive;
+
+    font-size: 34px;
+
+    color: #b65327;
+}
+
+
+/* =========================================
+   METADATA
+   ========================================= */
+
+.about-metadata {
+    border-left: 1px solid rgba(76, 62, 48, 0.34);
+
+    padding-left: 37px;
+
+    min-height: 450px;
+}
+
+
+.metadata-block {
+    padding-bottom: 22px;
+    margin-bottom: 22px;
+
+    border-bottom:
+        1px solid rgba(76, 62, 48, 0.20);
+}
+
+
+.metadata-block span {
+    display: block;
+
+    margin-bottom: 13px;
+
+    font-family: "Courier New", monospace;
+
+    font-size: 8px;
+    letter-spacing: 0.27em;
+
+    color: #8f816f;
+}
+
+
+.metadata-block strong {
+    display: block;
+
+    font-family: "Courier New", monospace;
+
+    font-size: 10px;
+    letter-spacing: 0.08em;
+
+    font-weight: 400;
+
+    color: #2678b9;
+}
+
+
+.metadata-block .metadata-yellow {
+    color: #b79600;
+}
+
+
+/* =========================================
+   STAMP
+   ========================================= */
+
+.about-stamp {
+    position: absolute;
+
+    right: 42px;
+    bottom: 32px;
+
+    z-index: 2;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    padding: 9px 16px;
+
+    border:
+        1px solid rgba(181, 83, 39, 0.42);
+
+    transform: rotate(-2deg);
+
+    color: #ae572f;
+}
+
+
+.about-stamp span,
+.about-stamp strong {
+    font-family: "Courier New", monospace;
+
+    font-size: 7px;
+    letter-spacing: 0.18em;
+
+    font-weight: 400;
+}
+
+
+/* =========================================
+   DESKTOP — KEEP THE DOCUMENT COMPACT
+   ========================================= */
+
+@media (min-width: 1200px) {
+
+    .about-paper {
+        min-height: 820px;
+        max-height: calc(100vh - 92px);
+    }
+
+}
+
+
+/* =========================================
+   TABLET
+   ========================================= */
+
+@media (max-width: 1100px) {
+
+    .about-section {
+        padding: 34px 4vw 42px;
+    }
+
+    .about-paper {
+        padding: 48px 46px 50px;
+    }
+
+    .about-grid {
+        grid-template-columns:
+            165px
+            minmax(300px, 1fr)
+            205px;
+
+        column-gap: 32px;
+    }
+
+    .about-figure {
+        width: 165px;
+        height: 165px;
+    }
+
+    .about-lead {
+        font-size: 29px;
+    }
+
+}
+
+
+/* =========================================
+   MOBILE
+   ========================================= */
+
+@media (max-width: 800px) {
+
+    .about-section {
+        padding: 20px 16px;
+        display: block;
+    }
+
+    .about-paper {
+        min-height: auto;
+        max-height: none;
+
+        padding: 36px 26px 42px;
+    }
+
+    .about-header {
+        margin-bottom: 20px;
+    }
+
+    .about-header-title h2 {
+        font-size: 56px;
+    }
+
+    .about-header-meta {
+        font-size: 7px;
+    }
+
+    .about-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .about-figure {
+        width: 145px;
+        height: 145px;
+    }
+
+    .terminal-label {
+        margin-bottom: 26px;
+    }
+
+    .about-lead {
+        font-size: 27px;
+        line-height: 1.4;
+    }
+
+    .about-text {
+        font-size: 17px;
+        margin-top: 27px;
+    }
+
+    .about-signature {
+        margin-top: 30px;
+    }
+
+    .about-metadata {
+        border-left: 0;
+        border-top: 1px solid rgba(76, 62, 48, 0.30);
+
+        padding: 27px 0 0;
+
+        min-height: auto;
+    }
+
+    .about-stamp {
+        position: relative;
+
+        right: auto;
+        bottom: auto;
+
+        width: fit-content;
+
+        margin: 30px 0 0 auto;
+    }
+}
+
+/* =========================================
+   ABOUT — SECOND REFINEMENT
+   ========================================= */
+
+.about-paper {
+    min-height: calc(100vh - 120px);
+
+    padding-top: 50px;
+    padding-bottom: 40px;
+
+    background:
+        radial-gradient(
+            circle at 18% 42%,
+            rgba(120, 82, 43, 0.055),
+            transparent 30%
+        ),
+        radial-gradient(
+            circle at 82% 78%,
+            rgba(120, 82, 43, 0.045),
+            transparent 28%
+        ),
+        #e2d3b4;
+}
+
+
+/* =========================================
+   HEADER — LESS EMPTY SPACE
+   ========================================= */
+
+.about-header {
+    margin-bottom: 20px;
+}
+
+.about-header-title h2 {
+    font-size: clamp(62px, 5.4vw, 84px);
+}
+
+.about-rule {
+    margin-bottom: 30px;
+}
+
+
+/* =========================================
+   MAIN AREA
+   ========================================= */
+
+.about-grid {
+    grid-template-columns:
+        220px
+        minmax(440px, 2.8fr)
+        minmax(245px, 1fr);
+
+    column-gap: 38px;
+}
+
+
+/* =========================================
+   FIGURE — TECHNICAL DOCUMENT FEEL
+   ========================================= */
+
+.about-figure {
+    width: 200px;
+    height: 200px;
+    margin-top: 0;
+}
+
+.about-figure::before {
+    content: "";
+
+    position: absolute;
+
+    width: 138%;
+    height: 138%;
+
+    left: 50%;
+    top: 52%;
+
+    transform: translate(-50%, -50%);
+
+    border-radius: 50%;
+
+    border: 1px solid rgba(79, 67, 53, 0.08);
+
+    pointer-events: none;
+}
+
+.about-figure::after {
+    content: "03 / PROFILE";
+
+    position: absolute;
+
+    left: 0;
+    bottom: -30px;
+
+    font-family: "Courier New", monospace;
+    font-size: 8px;
+    letter-spacing: 0.22em;
+
+    color: #988a77;
+}
+
+
+/* =========================================
+   PROFILE COPY — SLIGHTLY MORE COMPACT
+   ========================================= */
+
+.about-copy {
+    padding-top: 0;
+}
+
+.terminal-label {
+    margin-bottom: 34px;
+}
+
+.about-lead {
+    max-width: 625px;
+
+    font-size: clamp(28px, 2.25vw, 37px);
+    line-height: 1.43;
+}
+
+.about-text {
+    margin-top: 30px;
+    max-width: 540px;
+
+    font-size: 18px;
+    line-height: 1.5;
+}
+
+.about-signature {
+    margin-top: 34px;
+}
+
+
+/* =========================================
+   METADATA — STRONGER DOCUMENT STRUCTURE
+   ========================================= */
+
+.about-metadata {
+    padding-left: 32px;
+    min-height: 410px;
+
+    border-left-color: rgba(76, 62, 48, 0.38);
+}
+
+.metadata-block {
+    padding-bottom: 19px;
+    margin-bottom: 19px;
+}
+
+.metadata-block span {
+    margin-bottom: 11px;
+
+    font-size: 8px;
+    color: #827563;
+}
+
+.metadata-block strong {
+    font-size: 10px;
+}
+
+
+/* =========================================
+   ARCHIVAL REGISTRATION DETAILS
+   ========================================= */
+
+.about-paper {
+    --archive-line: rgba(76, 62, 48, 0.18);
+}
+
+
+/* small registration mark in upper-right */
+
+.about-paper > .about-header::after {
+    content: "DATE: 01.09.2026";
+
+    position: absolute;
+
+    right: 0;
+    top: 62px;
+
+    font-family: "Courier New", monospace;
+    font-size: 8px;
+    letter-spacing: 0.18em;
+
+    color: #978977;
+}
+
+
+/* =========================================
+   STAMP — BRING IT INTO THE DOCUMENT
+   ========================================= */
+
+.about-stamp {
+    right: 38px;
+    bottom: 25px;
+
+    opacity: 0.78;
+}
+
+
+/* =========================================
+   SUBTLE SIDE MARK
+   ========================================= */
+
+.about-paper {
+    isolation: isolate;
+}
+
+.about-paper .about-grid::before {
+    content: "FIG. 03";
+
+    position: absolute;
+
+    left: -49px;
+    top: 165px;
+
+    writing-mode: vertical-rl;
+
+    font-family: "Courier New", monospace;
+    font-size: 8px;
+    letter-spacing: 0.25em;
+
+    color: #8c7d6a;
+
+    opacity: 0.75;
+}
+
+
+/* =========================================
+   LARGE DESKTOP
+   ========================================= */
+
+@media (min-width: 1200px) {
+
+    .about-paper {
+        min-height: 800px;
+        max-height: calc(100vh - 110px);
+    }
+
+    .about-grid {
+        margin-top: 2px;
+    }
+
+}
+
+
+/* =========================================
+   MOBILE
+   ========================================= */
+
+@media (max-width: 800px) {
+
+    .about-paper > .about-header::after {
+        display: none;
+    }
+
+    .about-paper .about-grid::before {
+        display: none;
+    }
+
+    .about-figure::after {
+        display: none;
+    }
+
+    .about-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* =========================================
+   ABOUT — DARKER ARCHIVAL PAPER
+   ========================================= */
+
+.about-paper {
+    background:
+        radial-gradient(
+            ellipse at 18% 35%,
+            rgba(255, 244, 214, 0.10),
+            transparent 38%
+        ),
+        radial-gradient(
+            ellipse at 82% 75%,
+            rgba(95, 65, 35, 0.10),
+            transparent 42%
+        ),
+        linear-gradient(
+            135deg,
+            #cbbb99 0%,
+            #d0c09f 48%,
+            #c5b38f 100%
+        );
+
+    color: #30231d;
+
+    border-color: rgba(47, 35, 27, 0.35);
+
+    box-shadow:
+        8px 8px 0 rgba(45, 31, 23, 0.45),
+        0 0 0 1px rgba(255, 242, 211, 0.08);
+}
+
+
+/* =========================================
+   PAPER DEPTH
+   ========================================= */
+
+.about-paper::before {
+    content: "";
+
+    position: absolute;
+    inset: 0;
+
+    pointer-events: none;
+
+    background:
+        repeating-linear-gradient(
+            0deg,
+            rgba(60, 43, 29, 0.018) 0px,
+            rgba(60, 43, 29, 0.018) 1px,
+            transparent 1px,
+            transparent 4px
+        );
+
+    opacity: 0.7;
+
+    mix-blend-mode: multiply;
+}
+
+
+/* =========================================
+   TYPOGRAPHY
+   ========================================= */
+
+.about-header-title h2,
+.about-lead {
+    color: #30231d;
+}
+
+.about-text {
+    color: #5b4b3c;
+}
+
+.section-number,
+.about-header-meta,
+.about-figure span,
+.about-figure::after {
+    color: #756650;
+}
+
+
+/* =========================================
+   RULES / DIVIDERS
+   ========================================= */
+
+.about-rule {
+    background: rgba(63, 47, 35, 0.32);
+}
+
+.about-metadata {
+    border-left-color: rgba(63, 47, 35, 0.34);
+}
+
+.metadata-block {
+    border-bottom-color: rgba(63, 47, 35, 0.22);
+}
+
+
+/* =========================================
+   FIGURE
+   ========================================= */
+
+.figure-circle {
+    border-color: rgba(65, 52, 39, 0.30);
+}
+
+.circle-medium {
+    border-style: dashed;
+}
+
+.circle-small {
+    border-color: rgba(190, 83, 32, 0.48);
+}
+
+.figure-cross {
+    background: rgba(65, 52, 39, 0.24);
+}
+
+.figure-point {
+    background: #c69d08;
+    box-shadow:
+        0 0 0 7px rgba(198, 157, 8, 0.10);
+}
+
+
+/* =========================================
+   METADATA
+   ========================================= */
+
+.metadata-block span {
+    color: #776a58;
+}
+
+.metadata-block strong {
+    color: #2774ad;
+}
+
+.metadata-yellow {
+    color: #b08a00 !important;
+}
+
+
+/* =========================================
+   SIGNATURE
+   ========================================= */
+
+.about-signature {
+    color: #b64e1d;
+}
+
+
+/* =========================================
+   ARCHIVE STAMP
+   ========================================= */
+
+.about-stamp {
+    color: #b65d32;
+    border-color: rgba(182, 93, 50, 0.45);
+}
+
+
+/* =========================================
+   OUTER ARCHIVE ENVIRONMENT
+   ========================================= */
+
+.about-section {
+    background: #080a09;
+}
+
+/* =========================================
+   ABOUT — ARCHIVE OBJECT REFINEMENT
+   ========================================= */
+
+.about-section {
+    min-height: 100vh;
+    padding: 70px 8vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background:
+        radial-gradient(
+            circle at 50% 50%,
+            rgba(75, 82, 67, 0.08),
+            transparent 55%
+        ),
+        #070908;
+
+    position: relative;
+}
+
+
+/* =========================================
+   PAPER
+   ========================================= */
+
+.about-paper {
+    width: min(1080px, 78vw);
+    height: 760px;
+
+    padding: 55px 62px 50px;
+
+    position: relative;
+    overflow: hidden;
+    box-sizing: border-box;
+
+    background:
+        radial-gradient(
+            ellipse at 20% 35%,
+            rgba(255, 238, 194, 0.12),
+            transparent 42%
+        ),
+        radial-gradient(
+            ellipse at 80% 75%,
+            rgba(65, 43, 26, 0.13),
+            transparent 50%
+        ),
+        linear-gradient(
+            135deg,
+            #bdae8d 0%,
+            #c6b694 45%,
+            #b9a883 100%
+        );
+
+    color: #30231d;
+
+    border: 1px solid rgba(45, 33, 24, 0.55);
+
+    box-shadow:
+        8px 10px 0 rgba(25, 19, 15, 0.65),
+        0 0 0 8px rgba(7, 9, 8, 0.35);
+}
+
+
+/* paper grain */
+
+.about-paper::before {
+    content: "";
+
+    position: absolute;
+    inset: 0;
+
+    pointer-events: none;
+
+    background:
+        repeating-linear-gradient(
+            0deg,
+            rgba(55, 42, 29, 0.035) 0px,
+            rgba(55, 42, 29, 0.035) 1px,
+            transparent 1px,
+            transparent 5px
+        );
+
+    mix-blend-mode: multiply;
+    opacity: 0.8;
+}
+
+
+/* =========================================
+   HEADER
+   ========================================= */
+
+.about-header {
+    position: relative;
+    z-index: 2;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.about-header-title h2 {
+    margin: 8px 0 0;
+
+    font-size: clamp(4rem, 5vw, 5.5rem);
+    line-height: 0.9;
+
+    letter-spacing: -0.04em;
+}
+
+.about-header-meta {
+    padding-top: 5px;
+    text-align: right;
+
+    font-size: 0.58rem;
+    line-height: 2.2;
+    letter-spacing: 0.22em;
+}
+
+
+/* =========================================
+   HEADER RULE
+   ========================================= */
+
+.about-rule {
+    position: relative;
+    z-index: 2;
+
+    margin-top: 30px;
+    margin-bottom: 38px;
+
+    background: rgba(57, 44, 32, 0.38);
+}
+
+
+/* =========================================
+   MAIN LAYOUT
+   ========================================= */
+
+.about-grid {
+    position: relative;
+    z-index: 2;
+
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 215px;
+
+    gap: 42px;
+
+    height: calc(100% - 185px);
+    min-height: 0;
+}
+
+
+/* =========================================
+   LEFT SIDE
+   ========================================= */
+
+.about-main {
+    display: grid;
+
+    grid-template-columns: 175px minmax(0, 1fr);
+
+    gap: 35px;
+
+    align-items: start;
+}
+
+
+/* =========================================
+   ARCHIVAL FIGURE
+   ========================================= */
+
+.about-figure {
+    width: 175px;
+    height: 175px;
+
+    position: relative;
+
+    margin-top: 10px;
+}
+
+
+/* make the diagram less mechanically perfect */
+
+.circle-large {
+    width: 175px;
+    height: 175px;
+
+    border-color: rgba(64, 51, 38, 0.34);
+
+    transform: translate(-5px, 4px);
+}
+
+.circle-medium {
+    width: 138px;
+    height: 138px;
+
+    top: 18px;
+    left: 18px;
+
+    border-color: rgba(64, 51, 38, 0.27);
+
+    transform: translate(7px, -4px);
+}
+
+.circle-small {
+    width: 92px;
+    height: 92px;
+
+    top: 42px;
+    left: 42px;
+
+    border-color: rgba(190, 83, 32, 0.52);
+
+    transform: translate(-3px, 5px);
+}
+
+.figure-cross {
+    background: rgba(64, 51, 38, 0.25);
+}
+
+.figure-point {
+    background: #c29b08;
+
+    box-shadow:
+        0 0 0 7px rgba(194, 155, 8, 0.10);
+}
+
+
+/* =========================================
+   COPY
+   ========================================= */
+
+.about-copy {
+    padding-top: 4px;
+    max-width: 560px;
+}
+
+.terminal-label {
+    margin-bottom: 25px;
+
+    color: #477354;
+
+    font-size: 0.62rem;
+    letter-spacing: 0.22em;
+}
+
+
+/* primary statement */
+
+.about-lead {
+    margin: 0;
+
+    max-width: 560px;
+
+    font-size: clamp(1.65rem, 2.05vw, 2.35rem);
+    line-height: 1.38;
+
+    letter-spacing: -0.02em;
+
+    color: #30231d;
+}
+
+
+/* secondary statement */
+
+.about-text {
+    margin-top: 28px;
+
+    max-width: 500px;
+
+    font-size: 1.05rem;
+    line-height: 1.55;
+
+    color: #5a4b3c;
+}
+
+
+/* signature */
+
+.about-signature {
+    margin-top: 34px;
+
+    font-size: 1.75rem;
+
+    color: #b64e1d;
+}
+
+
+/* =========================================
+   METADATA
+   ========================================= */
+
+.about-metadata {
+    padding-left: 35px;
+
+    border-left:
+        1px solid rgba(63, 47, 35, 0.38);
+}
+
+.metadata-block {
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+
+    border-bottom:
+        1px solid rgba(63, 47, 35, 0.20);
+}
+
+.metadata-block span {
+    display: block;
+
+    margin-bottom: 11px;
+
+    color: #746652;
+
+    font-size: 0.55rem;
+    letter-spacing: 0.24em;
+}
+
+.metadata-block strong {
+    color: #3975a4;
+
+    font-size: 0.72rem;
+    letter-spacing: 0.08em;
+}
+
+.metadata-yellow {
+    color: #ad8900 !important;
+}
+
+
+/* =========================================
+   ARCHIVE STAMP
+   ========================================= */
+
+.about-stamp {
+    position: absolute;
+
+    right: 30px;
+    bottom: 25px;
+
+    z-index: 3;
+
+    padding: 9px 14px;
+
+    transform: rotate(-3deg);
+
+    border:
+        1px solid rgba(181, 87, 43, 0.42);
+
+    color: rgba(174, 78, 35, 0.65);
+
+    font-size: 0.48rem;
+    letter-spacing: 0.18em;
+}
+
+
+/* =========================================
+   PERIPHERAL ARCHIVE MARKINGS
+   ========================================= */
+
+.about-section::before {
+    content:
+        "03"
+        "                                           "
+        "RECORD: PERSONAL";
+
+    position: absolute;
+
+    top: 35px;
+    left: 2.2vw;
+    right: 2.2vw;
+
+    white-space: pre;
+
+    color: #728244;
+
+    font-family: monospace;
+    font-size: 0.62rem;
+    letter-spacing: 0.18em;
+
+    pointer-events: none;
+}
+
+.about-section::after {
+    content:
+        "ARCHIVE NODE_01";
+
+    position: absolute;
+
+    right: 2.5vw;
+    top: 68px;
+
+    color: rgba(145, 128, 91, 0.65);
+
+    font-family: monospace;
+    font-size: 0.52rem;
+    letter-spacing: 0.2em;
+
+    pointer-events: none;
+}
+
+
+/* =========================================
+   FIGURE LABEL
+   ========================================= */
+
+.about-paper::after {
+    content:
+        "FIG. 03";
+
+    position: absolute;
+
+    left: 16px;
+    top: 50%;
+
+    writing-mode: vertical-rl;
+
+    color: rgba(82, 69, 52, 0.65);
+
+    font-family: monospace;
+    font-size: 0.52rem;
+    letter-spacing: 0.25em;
+
+    pointer-events: none;
+}
+
+
+/* =========================================
+   DESKTOP — KEEP THE DOCUMENT COMPACT
+   ========================================= */
+
+@media (min-width: 1200px) {
+
+    .about-paper {
+        width: 1080px;
+        height: 760px;
+    }
+}
+
+
+/* =========================================
+   TABLET
+   ========================================= */
+
+@media (max-width: 1100px) {
+
+    .about-paper {
+        width: 88vw;
+        height: auto;
+        min-height: 720px;
+
+        padding: 48px;
+    }
+
+    .about-grid {
+        grid-template-columns: minmax(0, 1fr) 200px;
+    }
+
+    .about-main {
+        grid-template-columns: 145px minmax(0, 1fr);
+        gap: 28px;
+    }
+
+    .about-figure {
+        width: 145px;
+        height: 145px;
+    }
+
+    .circle-large {
+        width: 145px;
+        height: 145px;
+    }
+
+    .circle-medium {
+        width: 115px;
+        height: 115px;
+    }
+
+    .circle-small {
+        width: 76px;
+        height: 76px;
+    }
+}
+
+
+/* =========================================
+   MOBILE
+   ========================================= */
+
+@media (max-width: 700px) {
+
+    .about-section {
+        padding: 35px 18px;
+    }
+
+    .about-paper {
+        width: 100%;
+        height: auto;
+        min-height: 0;
+
+        padding: 38px 28px;
+    }
+
+    .about-header {
+        display: block;
+    }
+
+    .about-header-meta {
+        margin-top: 22px;
+        text-align: left;
+    }
+
+    .about-grid {
+        display: block;
+        height: auto;
+    }
+
+    .about-main {
+        display: block;
+    }
+
+    .about-figure {
+        margin-bottom: 30px;
+    }
+
+    .about-metadata {
+        margin-top: 40px;
+        padding: 30px 0 0;
+
+        border-left: 0;
+        border-top:
+            1px solid rgba(63, 47, 35, 0.35);
+    }
+
+    .about-lead {
+        font-size: 1.7rem;
+    }
+
+    .about-stamp {
+        position: static;
+        display: inline-block;
+
+        margin-top: 30px;
+    }
+
+    .about-section::before,
+    .about-section::after {
+        display: none;
+    }
+}
+
+/* =========================================
+   ABOUT — COMPACT VERTICAL PROPORTION
+   ========================================= */
+
+.about-section {
+    padding-top: 45px;
+    padding-bottom: 45px;
+}
+
+.about-paper {
+    height: 650px;
+    padding: 45px 62px 42px;
+}
+
+.about-rule {
+    margin-top: 24px;
+    margin-bottom: 30px;
+}
+
+.about-grid {
+    height: calc(100% - 145px);
+}
+
+.about-main {
+    gap: 30px;
+}
+
+.about-figure {
+    margin-top: 5px;
+}
+
+.about-copy {
+    padding-top: 0;
+}
+
+.terminal-label {
+    margin-bottom: 20px;
+}
+
+.about-lead {
+    font-size: clamp(1.55rem, 1.85vw, 2.05rem);
+    line-height: 1.32;
+}
+
+.about-text {
+    margin-top: 22px;
+    font-size: 1rem;
+    line-height: 1.45;
+}
+
+.about-signature {
+    margin-top: 25px;
+}
+
+.about-metadata .metadata-block {
+    padding-bottom: 16px;
+    margin-bottom: 16px;
+}
+
+
+/* desktop */
+@media (min-width: 1200px) {
+    .about-paper {
+        height: 650px;
+    }
+}
+
+/* =========================================
+   ABOUT — ARCHIVE ENVIRONMENT
+   ========================================= */
+
+.about-section {
+    position: relative;
+    overflow: hidden;
+}
+
+
+/* subtle archive frame */
+
+.about-section {
+    border: 1px solid rgba(111, 119, 70, 0.14);
+}
+
+.about-section::before {
+    content:
+        "03"
+        "                                      "
+        "RECORD: PERSONAL";
+
+    position: absolute;
+    top: 24px;
+    left: 35px;
+    right: 35px;
+
+    white-space: pre;
+
+    font-family: monospace;
+    font-size: 10px;
+    letter-spacing: 0.22em;
+
+    color: rgba(132, 145, 68, 0.75);
+
+    pointer-events: none;
+}
+
+
+/* top-right archive marker */
+
+.about-section::after {
+    content: "+";
+
+    position: absolute;
+    top: 20px;
+    right: 38px;
+
+    font-family: monospace;
+    font-size: 25px;
+    font-weight: 300;
+
+    color: rgba(159, 137, 42, 0.55);
+
+    pointer-events: none;
+}
+
+
+/* =========================================
+   ARCHIVE MARKS AROUND PAPER
+   ========================================= */
+
+.about-paper {
+    isolation: isolate;
+}
+
+
+/* left-side figure annotation */
+
+.about-paper::after {
+    content:
+        "FIG. 03"
+        "\A"
+        "\A"
+        "PERSONAL RECORD"
+        "\A"
+        "J.G."
+        "\A"
+        "001";
+
+    white-space: pre;
+
+    position: absolute;
+    left: -72px;
+    top: 42%;
+
+    transform: translateY(-50%);
+
+    writing-mode: horizontal-tb;
+
+    font-family: monospace;
+    font-size: 8px;
+    line-height: 2.2;
+    letter-spacing: 0.18em;
+
+    color: rgba(142, 127, 78, 0.65);
+
+    pointer-events: none;
+}
+
+
+/* =========================================
+   CORNER REGISTRATION MARKS
+   ========================================= */
+
+.about-section {
+    background-image:
+        linear-gradient(
+            rgba(126, 136, 71, 0.18),
+            rgba(126, 136, 71, 0.18)
+        ),
+        linear-gradient(
+            rgba(126, 136, 71, 0.18),
+            rgba(126, 136, 71, 0.18)
+        );
+
+    background-size:
+        34px 1px,
+        1px 34px;
+
+    background-position:
+        28px 28px,
+        28px 28px;
+
+    background-repeat: no-repeat;
+}
+
+
+/* second registration mark */
+
+.about-section .about-paper {
+    box-shadow:
+        8px 10px 0 rgba(20, 15, 11, 0.65),
+        0 0 0 8px rgba(7, 9, 8, 0.4);
+}
+
+
+/* =========================================
+   DESKTOP ARCHIVE LABELS
+   ========================================= */
+
+@media (min-width: 1101px) {
+
+    .about-section {
+        min-height: 100vh;
+    }
+
+    .about-section .about-paper {
+        transform: translateY(4px);
+    }
+
+}
+
+
+/* =========================================
+   MOBILE — REMOVE PERIPHERAL DECOR
+   ========================================= */
+
+@media (max-width: 700px) {
+
+    .about-section {
+        border: 0;
+        background-image: none;
+    }
+
+    .about-section::before,
+    .about-section::after,
+    .about-paper::after {
+        display: none;
+    }
 }
