@@ -2,9 +2,15 @@
    ARCHIVE RETRIEVAL / PAGE LOADER
    ========================================= */
 
-const loader = document.querySelector("#archiveLoader");
-const progress = document.querySelector("#loaderProgress");
-const loaderStatus = document.querySelector("#loaderStatus");
+const loader =
+    document.querySelector("#archiveLoader");
+
+const progress =
+    document.querySelector("#loaderProgress");
+
+const loaderStatus =
+    document.querySelector("#loaderStatus");
+
 
 const statuses = [
     "INDEXING",
@@ -16,53 +22,66 @@ const statuses = [
     "RECORD READY"
 ];
 
+
 let currentProgress = 0;
 
 
-/*
- * Original archive loading sequence.
- * Kept intentionally close to the original version.
- */
+if (
+    loader &&
+    progress &&
+    loaderStatus
+) {
 
-if (loader && progress && loaderStatus) {
+    const loading =
+        setInterval(function () {
 
-    const loading = setInterval(function () {
-
-        currentProgress += Math.floor(Math.random() * 12) + 5;
-
-        if (currentProgress >= 100) {
-            currentProgress = 100;
-            clearInterval(loading);
-        }
-
-        progress.style.width =
-            currentProgress + "%";
+            currentProgress +=
+                Math.floor(
+                    Math.random() * 12
+                ) + 5;
 
 
-        const statusIndex = Math.min(
-            Math.floor(currentProgress / 15),
-            statuses.length - 1
-        );
+            if (currentProgress >= 100) {
+
+                currentProgress = 100;
+
+                clearInterval(loading);
+
+            }
 
 
-        loaderStatus.textContent =
-            statuses[statusIndex];
+            progress.style.width =
+                currentProgress + "%";
 
 
-        if (currentProgress === 100) {
+            const statusIndex =
+                Math.min(
+                    Math.floor(
+                        currentProgress / 15
+                    ),
+                    statuses.length - 1
+                );
 
-            setTimeout(function () {
 
-                loader.classList.add("hidden");
+            loaderStatus.textContent =
+                statuses[statusIndex];
 
-            }, 500);
 
-        }
+            if (currentProgress === 100) {
 
-    }, 180);
+                setTimeout(function () {
+
+                    loader.classList.add(
+                        "hidden"
+                    );
+
+                }, 500);
+
+            }
+
+        }, 180);
 
 }
-
 
 /* =========================================
    ARCHIVE NAVIGATION
