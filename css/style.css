@@ -4095,3 +4095,25 @@ footer {
         display: none;
     }
 }
+
+/* ABOUT — FINAL TEXT COLORS */
+
+.about-signature {
+    color: #30231d;
+}
+
+.metadata-block .metadata-yellow {
+    color: #30231d;
+}
+
+/* =========================================
+   FINAL ABOUT COLOR OVERRIDES
+   ========================================= */
+
+.about-section .about-signature {
+    color: #30231d !important;
+}
+
+.about-section .about-metadata .metadata-yellow {
+    color: #30231d !important;
+}
