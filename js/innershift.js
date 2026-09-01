@@ -1,43 +1,130 @@
 /* =========================================
-   ARCHIVE NAVIGATION
+   ARCHIVE RETRIEVAL / PAGE LOADER
    ========================================= */
 
-const archiveNav = document.querySelector("#archiveNav");
-const navToggle = document.querySelector("#navToggle");
-const navLinks = document.querySelectorAll(".nav-content a");
+const loader = document.querySelector("#archiveLoader");
+const progress = document.querySelector("#loaderProgress");
+const loaderStatus = document.querySelector("#loaderStatus");
 
-if (navToggle && archiveNav) {
+const statuses = [
+    "INDEXING",
+    "CHECKING HASH",
+    "LOADING ARTIFACT",
+    "RECONSTRUCTING",
+    "MERGING VISUAL LAYERS",
+    "VERIFYING",
+    "RECORD READY"
+];
 
-    navToggle.addEventListener("click", function () {
+let currentProgress = 0;
 
-        const isOpen =
-            archiveNav.classList.toggle("open");
 
-        navToggle.setAttribute(
-            "aria-expanded",
-            String(isOpen)
+/*
+ * Original archive loading sequence.
+ * Kept intentionally close to the original version.
+ */
+
+if (loader && progress && loaderStatus) {
+
+    const loading = setInterval(function () {
+
+        currentProgress += Math.floor(Math.random() * 12) + 5;
+
+        if (currentProgress >= 100) {
+            currentProgress = 100;
+            clearInterval(loading);
+        }
+
+        progress.style.width =
+            currentProgress + "%";
+
+
+        const statusIndex = Math.min(
+            Math.floor(currentProgress / 15),
+            statuses.length - 1
         );
 
-    });
+
+        loaderStatus.textContent =
+            statuses[statusIndex];
+
+
+        if (currentProgress === 100) {
+
+            setTimeout(function () {
+
+                loader.classList.add("hidden");
+
+            }, 500);
+
+        }
+
+    }, 180);
 
 }
 
-navLinks.forEach(function (link) {
 
-    link.addEventListener("click", function () {
+/* =========================================
+   ARCHIVE NAVIGATION
+   ========================================= */
 
-        if (archiveNav) {
-            archiveNav.classList.remove("open");
-        }
+const archiveNav =
+    document.querySelector("#archiveNav");
 
-        if (navToggle) {
+const navToggle =
+    document.querySelector("#navToggle");
+
+const navLinks =
+    document.querySelectorAll(".nav-content a");
+
+
+if (navToggle && archiveNav) {
+
+    navToggle.addEventListener(
+        "click",
+        function () {
+
+            const isOpen =
+                archiveNav.classList.toggle("open");
+
+
             navToggle.setAttribute(
                 "aria-expanded",
-                "false"
+                String(isOpen)
             );
-        }
 
-    });
+        }
+    );
+
+}
+
+
+navLinks.forEach(function (link) {
+
+    link.addEventListener(
+        "click",
+        function () {
+
+            if (archiveNav) {
+
+                archiveNav.classList.remove(
+                    "open"
+                );
+
+            }
+
+
+            if (navToggle) {
+
+                navToggle.setAttribute(
+                    "aria-expanded",
+                    "false"
+                );
+
+            }
+
+        }
+    );
 
 });
 
@@ -107,23 +194,30 @@ const romanDays = [
 const dayButtons =
     document.querySelectorAll(".day-button");
 
+
 const dayPlaceholder =
     document.querySelector("#dayPlaceholder");
+
 
 const placeholderDay =
     document.querySelector("#placeholderDay");
 
+
 const placeholderTitle =
     document.querySelector("#placeholderTitle");
+
 
 const dayCopy =
     document.querySelector(".day-copy");
 
+
 const dayNumber =
     document.querySelector("#dayNumber");
 
+
 const dayTitle =
     document.querySelector("#dayTitle");
+
 
 const dayDescription =
     document.querySelector("#dayDescription");
@@ -171,7 +265,7 @@ function applyDay(day) {
 
 
     /*
-     * Text content on the right
+     * Right-hand text panel
      */
 
     if (dayNumber) {
@@ -199,7 +293,7 @@ function applyDay(day) {
 
 
     /*
-     * Update selected day
+     * Update selected button
      */
 
     dayButtons.forEach(function (button) {
@@ -239,8 +333,7 @@ function setDay(day, animate = true) {
 
 
     /*
-     * Don't animate when selecting
-     * the already active day.
+     * Ignore the currently selected day.
      */
 
     if (
@@ -252,8 +345,7 @@ function setDay(day, animate = true) {
 
 
     /*
-     * Prevent multiple transitions
-     * from stacking on top of each other.
+     * Prevent overlapping transitions.
      */
 
     if (
@@ -265,7 +357,7 @@ function setDay(day, animate = true) {
 
 
     /*
-     * Initial render
+     * Initial state.
      */
 
     if (!animate) {
@@ -281,7 +373,7 @@ function setDay(day, animate = true) {
 
 
     /*
-     * Fade both sides out.
+     * Fade current content out.
      */
 
     if (dayPlaceholder) {
@@ -303,8 +395,8 @@ function setDay(day, animate = true) {
 
 
     /*
-     * Replace content once the old state
-     * has begun fading away.
+     * Replace content after the
+     * fade has started.
      */
 
     setTimeout(function () {
@@ -313,9 +405,9 @@ function setDay(day, animate = true) {
 
 
         /*
-         * Wait for the browser to register
-         * the new content before removing
-         * the transition class.
+         * Force the browser to register
+         * the new content before fading
+         * it back in.
          */
 
         requestAnimationFrame(function () {
@@ -340,11 +432,6 @@ function setDay(day, animate = true) {
                 }
 
 
-                /*
-                 * Keep the lock slightly longer
-                 * than the visual transition.
-                 */
-
                 setTimeout(function () {
 
                     dayTransitioning = false;
@@ -366,10 +453,6 @@ function setDay(day, animate = true) {
 
 dayButtons.forEach(function (button) {
 
-    /*
-     * Accessibility state
-     */
-
     button.setAttribute(
         "aria-selected",
         button.classList.contains("active")
@@ -385,6 +468,7 @@ dayButtons.forEach(function (button) {
             const day =
                 Number(button.dataset.day);
 
+
             setDay(day);
 
         }
@@ -393,9 +477,9 @@ dayButtons.forEach(function (button) {
 });
 
 
-/* -----------------------------------------
-   INITIAL STATE
-   ----------------------------------------- */
+/*
+ * Initial day.
+ */
 
 setDay(1, false);
 
@@ -444,32 +528,42 @@ const artifacts = {
 const modal =
     document.querySelector("#artifactModal");
 
+
 const modalImage =
     document.querySelector("#modalImage");
+
 
 const modalTitle =
     document.querySelector("#modalTitle");
 
+
 const modalKicker =
     document.querySelector("#modalKicker");
+
 
 const modalStatus =
     document.querySelector("#modalStatus");
 
+
 const modalDescription =
     document.querySelector("#modalDescription");
+
 
 const modalCounter =
     document.querySelector("#modalCounter");
 
+
 const modalClose =
     document.querySelector("#modalClose");
+
 
 const modalPrevious =
     document.querySelector("#modalPrevious");
 
+
 const modalNext =
     document.querySelector("#modalNext");
+
 
 const artifactCards =
     document.querySelectorAll(".artifact-card");
@@ -486,6 +580,7 @@ function openArtifact(index) {
 
     const artifact =
         artifacts[index];
+
 
     if (!artifact || !modal) {
         return;
@@ -553,6 +648,7 @@ function openArtifact(index) {
 
 
     modal.classList.add("active");
+
 
     modal.setAttribute(
         "aria-hidden",
@@ -705,16 +801,16 @@ if (modalNext) {
 }
 
 
-/* -----------------------------------------
+/* =========================================
    KEYBOARD CONTROLS
-   ----------------------------------------- */
+   ========================================= */
 
 document.addEventListener(
     "keydown",
     function (event) {
 
         /*
-         * Escape closes the artifact modal.
+         * Escape closes the modal.
          */
 
         if (
@@ -731,7 +827,7 @@ document.addEventListener(
 
 
         /*
-         * Ignore navigation keys when
+         * Ignore arrow keys when
          * the modal isn't open.
          */
 

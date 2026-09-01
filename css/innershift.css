@@ -1,5 +1,39 @@
 @import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Libre+Baskerville:wght@400;700&display=swap');
 
+/* =========================================
+   PAGE LOADER
+   ========================================= */
+
+    font-size: 13px;
+    letter-spacing: 4px;
+}
+
+.loader-line {
+    color: var(--yellow) !important;
+}
+
+.loader-small {
+    color: var(--muted) !important;
+    font-size: 10px !important;
+}
+
+.loader-bar {
+    height: 2px;
+    width: 100%;
+
+    margin: 28px 0;
+
+    background: #1a1a18;
+}
+
+#loaderProgress {
+    width: 0%;
+    height: 100%;
+    background: var(--yellow);
+
+    transition: width 0.15s linear;
+}
+
 
 /* =========================================
    VARIABLES
