@@ -1806,3 +1806,26 @@ h2 {
         transition: none !important;
     }
 }
+
+/* =========================================
+   EXTERNAL RECORD CARDS
+   ========================================= */
+
+.signal-note,
+.metric-card.metric-x {
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.signal-note:hover {
+    border-color: rgba(229, 9, 32, .55);
+}
+
+.metric-card.metric-x:hover {
+    background:
+        linear-gradient(
+            145deg,
+            rgba(229, 9, 32, .25),
+            transparent 65%
+        );
+}
