@@ -1,6 +1,6 @@
-/* =========================================
-   GLOBAL
-   ========================================= */
+/* =========================================================
+   ARCHIVE — GLOBAL
+   ========================================================= */
 
 * {
     box-sizing: border-box;
@@ -40,9 +40,9 @@ body {
 }
 
 
-/* =========================================
+/* =========================================================
    GENERAL
-   ========================================= */
+   ========================================================= */
 
 a {
     color: inherit;
@@ -53,6 +53,11 @@ button {
     font: inherit;
 }
 
+img {
+    max-width: 100%;
+    display: block;
+}
+
 .section {
     width: min(1200px, calc(100% - 80px));
 
@@ -60,6 +65,11 @@ button {
 
     padding: 120px 0;
 }
+
+
+/* =========================================================
+   SECTION HEADERS
+   ========================================================= */
 
 .section-header {
     display: flex;
@@ -105,9 +115,9 @@ button {
 }
 
 
-/* =========================================
+/* =========================================================
    NAVIGATION
-   ========================================= */
+   ========================================================= */
 
 .archive-nav {
     position: fixed;
@@ -121,6 +131,12 @@ button {
 .nav-toggle {
     width: 48px;
     height: 48px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 0;
 
     background: #070a0a;
 
@@ -229,9 +245,9 @@ button {
 }
 
 
-/* =========================================
+/* =========================================================
    HERO
-   ========================================= */
+   ========================================================= */
 
 .hero {
     min-height: 100vh;
@@ -381,9 +397,9 @@ button {
 }
 
 
-/* =========================================
+/* =========================================================
    RECORD SELECTOR
-   ========================================= */
+   ========================================================= */
 
 .record-selector {
     position: absolute;
@@ -544,9 +560,9 @@ button {
 }
 
 
-/* =========================================
-   RECORD CARDS
-   ========================================= */
+/* =========================================================
+   WORK / RECORD CARDS
+   ========================================================= */
 
 .records-grid {
     display: grid;
@@ -699,122 +715,77 @@ button {
     margin-left: 5px;
 }
 
-/* =========================================
+
+/* =========================================================
    ABOUT
-   ========================================= */
+   ========================================================= */
 
 .about-section {
-    position: relative;
-
     width: 100%;
-    max-width: none;
-
     min-height: 100vh;
 
-    padding: 70px 7vw;
+    padding: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    position: relative;
+    overflow: hidden;
 
     background:
         radial-gradient(
-            circle at 20% 45%,
-            rgba(100, 85, 50, 0.06),
-            transparent 30%
+            circle at 50% 50%,
+            rgba(75, 82, 67, 0.08),
+            transparent 55%
         ),
-        radial-gradient(
-            circle at 85% 70%,
-            rgba(100, 85, 50, 0.04),
-            transparent 28%
-        ),
-        #090b0b;
-
-    overflow: hidden;
+        #070908;
 }
 
 
-/* =========================================
-   ARCHIVE FRAME
-   ========================================= */
-
-.about-section::before {
-    content: "";
-
-    position: absolute;
-    inset: 24px;
-
-    border: 1px solid rgba(197, 163, 19, 0.10);
-
-    pointer-events: none;
-}
-
-
-.about-section::after {
-    content: "FIG. 03";
-
-    position: absolute;
-
-    left: 30px;
-    top: 50%;
-
-    color: rgba(197, 163, 19, 0.45);
-
-    font-family: monospace;
-    font-size: 9px;
-
-    letter-spacing: 3px;
-
-    writing-mode: vertical-rl;
-
-    transform: rotate(180deg);
-
-    pointer-events: none;
-}
-
-
-/* =========================================
-   PAPER DOCUMENT
-   ========================================= */
+/* ---------------------------------------------------------
+   PAPER
+   --------------------------------------------------------- */
 
 .about-paper {
+    width: min(1220px, 86vw);
+    height: 500px;
+
     position: relative;
 
-    width: min(1120px, 100%);
-    min-height: 760px;
+    padding: 38px 58px 34px;
 
-    margin: 0 auto;
-
-    padding: 55px 60px 60px;
+    overflow: hidden;
 
     background:
         radial-gradient(
-            circle at 15% 25%,
-            rgba(120, 90, 50, 0.07),
-            transparent 25%
+            ellipse at 18% 35%,
+            rgba(255, 238, 194, 0.10),
+            transparent 40%
         ),
         radial-gradient(
-            circle at 85% 80%,
-            rgba(120, 90, 50, 0.06),
-            transparent 30%
+            ellipse at 82% 75%,
+            rgba(65, 43, 26, 0.11),
+            transparent 48%
         ),
         linear-gradient(
             135deg,
-            #f4ead4 0%,
-            #eee1c4 100%
+            #bdae8d 0%,
+            #c4b491 48%,
+            #b8a681 100%
         );
 
-    color: #33251f;
+    color: #30231d;
 
-    border: 1px solid rgba(51, 37, 31, 0.30);
+    border: 1px solid rgba(45, 33, 24, 0.58);
 
     box-shadow:
-        10px 10px 0 rgba(95, 61, 32, 0.20),
-        0 18px 45px rgba(0, 0, 0, 0.25);
-
-    overflow: hidden;
+        9px 9px 0 rgba(20, 16, 13, 0.72),
+        0 0 0 1px rgba(255, 242, 211, 0.04);
 }
 
 
-/* =========================================
-   PAPER TEXTURE
-   ========================================= */
+/* paper grain */
 
 .about-paper::before {
     content: "";
@@ -824,38 +795,35 @@ button {
 
     pointer-events: none;
 
-    opacity: 0.28;
-
     background:
         repeating-linear-gradient(
             0deg,
-            transparent 0,
-            transparent 5px,
-            rgba(51, 37, 31, 0.035) 6px
-        ),
-        repeating-linear-gradient(
-            90deg,
-            transparent 0,
-            transparent 9px,
-            rgba(51, 37, 31, 0.018) 10px
+            rgba(55, 42, 29, 0.035) 0px,
+            rgba(55, 42, 29, 0.035) 1px,
+            transparent 1px,
+            transparent 5px
         );
+
+    opacity: 0.72;
+
+    mix-blend-mode: multiply;
 }
 
 
-/* Technical circle entering from bottom-right */
+/* technical circle */
 
 .about-paper::after {
     content: "";
 
     position: absolute;
 
-    width: 310px;
-    height: 310px;
+    width: 260px;
+    height: 260px;
 
-    right: -155px;
-    bottom: -155px;
+    right: -130px;
+    bottom: -130px;
 
-    border: 1px solid rgba(216, 109, 41, 0.22);
+    border: 1px solid rgba(190, 83, 32, 0.30);
 
     border-radius: 50%;
 
@@ -863,71 +831,76 @@ button {
 }
 
 
-/* =========================================
-   HEADER
-   ========================================= */
+/* ---------------------------------------------------------
+   ABOUT HEADER
+   --------------------------------------------------------- */
 
 .about-header {
     position: relative;
     z-index: 2;
 
+    height: 78px;
+
     display: flex;
-
     justify-content: space-between;
-    align-items: flex-end;
-
-    gap: 40px;
+    align-items: flex-start;
 }
-
 
 .about-header-title {
     display: flex;
     flex-direction: column;
-}
 
+    gap: 4px;
+}
 
 .about-header-title .section-number {
-    margin-bottom: 10px;
+    margin: 0;
 
-    color: #56834c;
+    color: #4f774c;
+
+    font-family: "Courier New", monospace;
+    font-size: 10px;
+
+    letter-spacing: 0.35em;
 }
-
 
 .about-header-title h2 {
     margin: 0;
 
-    color: #33251f;
+    color: #30231d;
 
-    font-family: Georgia, serif;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 68px;
+    font-weight: 500;
 
-    font-size: clamp(52px, 6vw, 78px);
+    line-height: 0.86;
 
-    font-weight: normal;
-
-    line-height: 0.95;
+    letter-spacing: -0.045em;
 }
 
-
 .about-header-meta {
+    padding-top: 4px;
+
     display: flex;
     flex-direction: column;
-
     gap: 7px;
 
     text-align: right;
 
-    color: #918b80;
+    color: #796b59;
 
-    font-family: monospace;
-    font-size: 9px;
+    font-family: "Courier New", monospace;
+    font-size: 8px;
 
-    letter-spacing: 2px;
+    line-height: 1.7;
+
+    letter-spacing: 0.20em;
 }
 
 
-/* =========================================
-   DOCUMENT RULE
-   ========================================= */
+/* ---------------------------------------------------------
+   ABOUT RULE
+   --------------------------------------------------------- */
 
 .about-rule {
     position: relative;
@@ -936,15 +909,15 @@ button {
     width: 100%;
     height: 1px;
 
-    margin: 35px 0 62px;
+    margin: 17px 0 25px;
 
-    background: rgba(51, 37, 31, 0.30);
+    background: rgba(57, 44, 32, 0.38);
 }
 
 
-/* =========================================
-   MAIN GRID
-   ========================================= */
+/* ---------------------------------------------------------
+   ABOUT GRID
+   --------------------------------------------------------- */
 
 .about-grid {
     position: relative;
@@ -953,399 +926,296 @@ button {
     display: grid;
 
     grid-template-columns:
+        205px
         minmax(0, 1fr)
-        260px;
+        230px;
 
-    gap: 65px;
-}
+    column-gap: 34px;
 
-
-/* =========================================
-   PROFILE AREA
-   ========================================= */
-
-.about-main {
-    display: grid;
-
-    grid-template-columns:
-        210px
-        minmax(0, 1fr);
-
-    gap: 55px;
+    height: 335px;
 
     align-items: start;
 }
 
-
-/* =========================================
-   TECHNICAL FIGURE
-   ========================================= */
-
-.about-figure {
-    position: relative;
-
-    width: 190px;
-    height: 210px;
-
-    color: #5e5147;
+.about-main {
+    display: contents;
 }
 
+
+/* ---------------------------------------------------------
+   TECHNICAL FIGURE
+   --------------------------------------------------------- */
+
+.about-figure {
+    width: 175px;
+    height: 175px;
+
+    position: relative;
+
+    margin-top: 4px;
+}
 
 .about-figure > span {
     position: absolute;
 
-    top: 0;
+    top: -2px;
     left: 0;
 
-    color: #918b80;
+    color: #847664;
 
-    font-family: monospace;
+    font-family: "Courier New", monospace;
     font-size: 8px;
 
-    letter-spacing: 2px;
+    letter-spacing: 0.22em;
 }
-
-
-/* Slightly more "technical drawing" */
 
 .figure-circle {
     position: absolute;
 
     border-radius: 50%;
-
-    border: 1px solid rgba(51, 37, 31, 0.23);
 }
-
 
 .circle-large {
-    width: 190px;
-    height: 190px;
+    width: 175px;
+    height: 175px;
 
-    top: 8px;
-    left: 0;
+    left: 50%;
+    top: 52%;
+
+    transform: translate(-50%, -50%);
+
+    border: 1px solid rgba(64, 51, 38, 0.34);
 }
-
 
 .circle-medium {
-    width: 145px;
-    height: 145px;
+    width: 137px;
+    height: 137px;
 
-    top: 30px;
-    left: 22px;
+    left: 50%;
+    top: 52%;
 
-    border-style: dashed;
+    transform: translate(-50%, -50%);
+
+    border: 1px dashed rgba(64, 51, 38, 0.28);
 }
-
 
 .circle-small {
-    width: 82px;
-    height: 82px;
+    width: 90px;
+    height: 90px;
 
-    top: 61px;
-    left: 53px;
+    left: 50%;
+    top: 52%;
 
-    border-color: rgba(216, 109, 41, 0.58);
+    transform: translate(-50%, -50%);
+
+    border: 1px solid rgba(190, 83, 32, 0.52);
 }
-
 
 .figure-cross {
     position: absolute;
 
-    background: rgba(51, 37, 31, 0.18);
+    background: rgba(64, 51, 38, 0.25);
 }
-
 
 .figure-cross-x {
-    width: 190px;
+    width: 100%;
     height: 1px;
 
-    top: 103px;
     left: 0;
+    top: 52%;
 }
-
 
 .figure-cross-y {
     width: 1px;
-    height: 190px;
+    height: 100%;
 
-    left: 95px;
-    top: 8px;
+    left: 50%;
+    top: 2%;
 }
 
-
 .figure-point {
-    position: absolute;
-
     width: 10px;
     height: 10px;
 
-    top: 98px;
-    left: 90px;
+    position: absolute;
+
+    left: 50%;
+    top: 52%;
+
+    transform: translate(-50%, -50%);
 
     border-radius: 50%;
 
-    background: #c5a313;
+    background: #c29b08;
 
     box-shadow:
-        0 0 0 5px rgba(197, 163, 19, 0.10);
+        0 0 0 7px rgba(194, 155, 8, 0.10);
 }
 
 
-/* =========================================
+/* ---------------------------------------------------------
    ABOUT COPY
-   ========================================= */
+   --------------------------------------------------------- */
 
 .about-copy {
-    max-width: 650px;
-}
+    max-width: 610px;
 
+    padding: 0;
+
+    align-self: start;
+}
 
 .terminal-label {
-    margin-bottom: 30px;
+    margin: 1px 0 20px;
 
-    color: #56834c;
+    color: #477354;
 
-    font-family: monospace;
-    font-size: 10px;
+    font-family: "Courier New", monospace;
+    font-size: 9px;
 
-    letter-spacing: 2px;
+    letter-spacing: 0.23em;
 }
-
 
 .about-lead {
-    max-width: 650px;
+    max-width: 610px;
 
-    margin-bottom: 30px;
+    margin: 0;
 
-    color: #33251f;
+    color: #30231d;
 
-    font-family: Georgia, serif;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 31px;
 
-    font-size: clamp(22px, 2.3vw, 29px);
+    line-height: 1.27;
 
-    line-height: 1.65;
+    letter-spacing: -0.018em;
 }
-
 
 .about-text {
-    max-width: 560px;
+    max-width: 510px;
 
-    color: #5e5147;
+    margin: 20px 0 0;
 
-    font-family: Georgia, serif;
+    color: #594a3b;
 
-    font-size: 17px;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 16px;
 
-    line-height: 1.8;
+    line-height: 1.42;
 }
 
-
 .about-signature {
-    margin-top: 48px;
+    margin-top: 17px;
 
-    color: #a84e20;
+    color: #b64e1d;
 
-    font-family: cursive;
+    font-family:
+        "Brush Script MT",
+        "Segoe Script",
+        cursive;
 
     font-size: 29px;
 
-    transform: rotate(-3deg);
+    line-height: 1;
 }
 
 
-/* =========================================
-   METADATA
-   ========================================= */
+/* ---------------------------------------------------------
+   ABOUT METADATA
+   --------------------------------------------------------- */
 
 .about-metadata {
+    height: 100%;
+    min-height: 0;
+
     padding-left: 30px;
 
     border-left:
-        1px solid rgba(51, 37, 31, 0.28);
+        1px solid rgba(63, 47, 35, 0.38);
 }
-
 
 .metadata-block {
-    padding-bottom: 23px;
-    margin-bottom: 23px;
+    padding-bottom: 14px;
+    margin-bottom: 14px;
 
     border-bottom:
-        1px solid rgba(51, 37, 31, 0.16);
+        1px solid rgba(63, 47, 35, 0.20);
 }
-
 
 .metadata-block:last-child {
     margin-bottom: 0;
 }
 
-
 .metadata-block span {
     display: block;
 
-    margin-bottom: 10px;
+    margin-bottom: 8px;
 
-    color: #918b80;
+    color: #756754;
 
-    font-family: monospace;
-    font-size: 8px;
+    font-family: "Courier New", monospace;
+    font-size: 7px;
 
-    letter-spacing: 2px;
+    letter-spacing: 0.25em;
 }
-
 
 .metadata-block strong {
     display: block;
 
-    color: #2773a8;
+    color: #3475a7;
 
-    font-family: monospace;
-    font-size: 10px;
+    font-family: "Courier New", monospace;
+    font-size: 9px;
 
-    font-weight: normal;
+    font-weight: 400;
 
-    line-height: 1.5;
+    line-height: 1.4;
 
-    letter-spacing: 0.5px;
+    letter-spacing: 0.07em;
 }
-
 
 .metadata-block .metadata-yellow {
-    color: #c5a313;
+    color: #ae8900;
 }
 
 
-/* =========================================
-   ARCHIVE STAMP
-   ========================================= */
+/* ---------------------------------------------------------
+   ABOUT STAMP
+   --------------------------------------------------------- */
 
 .about-stamp {
     position: absolute;
 
-    z-index: 3;
+    right: 34px;
+    bottom: 22px;
 
-    right: 35px;
-    bottom: 28px;
+    z-index: 3;
 
     display: flex;
     flex-direction: column;
+    align-items: center;
 
-    gap: 3px;
-
-    padding: 9px 13px;
+    padding: 7px 12px;
 
     border:
-        1px solid rgba(168, 78, 32, 0.45);
+        1px solid rgba(181, 87, 43, 0.40);
 
-    color: #a84e20;
+    color: rgba(174, 78, 35, 0.62);
 
-    font-family: monospace;
+    font-family: "Courier New", monospace;
     font-size: 7px;
 
     line-height: 1.4;
 
-    letter-spacing: 1px;
+    letter-spacing: 0.18em;
 
     transform: rotate(-3deg);
-
-    opacity: 0.85;
 }
 
 
-/* =========================================
-   RESPONSIVE
-   ========================================= */
-
-@media (max-width: 900px) {
-
-    .about-section {
-        padding: 50px 30px;
-    }
-
-    .about-paper {
-        min-height: auto;
-
-        padding:
-            40px 35px 55px;
-    }
-
-    .about-grid {
-        grid-template-columns: 1fr;
-
-        gap: 50px;
-    }
-
-    .about-metadata {
-        padding-left: 0;
-        padding-top: 30px;
-
-        border-left: none;
-        border-top:
-            1px solid rgba(51, 37, 31, 0.25);
-    }
-
-}
-
-
-@media (max-width: 650px) {
-
-    .about-section {
-        padding: 30px 18px;
-    }
-
-    .about-section::before {
-        inset: 12px;
-    }
-
-    .about-section::after {
-        display: none;
-    }
-
-    .about-paper {
-        padding:
-            35px 25px 50px;
-    }
-
-    .about-header {
-        flex-direction: column;
-
-        align-items: flex-start;
-
-        gap: 20px;
-    }
-
-    .about-header-meta {
-        text-align: left;
-    }
-
-    .about-rule {
-        margin:
-            30px 0 45px;
-    }
-
-    .about-main {
-        grid-template-columns: 1fr;
-
-        gap: 35px;
-    }
-
-    .about-figure {
-        width: 180px;
-    }
-
-    .about-lead {
-        font-size: 22px;
-    }
-
-    .about-stamp {
-        right: 20px;
-        bottom: 18px;
-    }
-
-}
-
-/* =========================================
+/* =========================================================
    ARCHIVE
-   ========================================= */
+   ========================================================= */
 
 .archive-grid {
     display: grid;
@@ -1381,15 +1251,6 @@ button {
     background: rgba(230, 196, 0, 0.025);
 
     border-color: var(--gold);
-}
-
-.archive-item:focus-visible,
-.selector-item:focus-visible,
-.nav-toggle:focus-visible,
-.record-link:focus-visible,
-.archive-button:focus-visible {
-    outline: 1px solid var(--gold-bright);
-    outline-offset: 4px;
 }
 
 .archive-number {
@@ -1444,9 +1305,9 @@ button {
 }
 
 
-/* =========================================
+/* =========================================================
    RETRIEVAL SCREEN
-   ========================================= */
+   ========================================================= */
 
 .retrieval-screen {
     position: fixed;
@@ -1474,9 +1335,9 @@ button {
 
     padding: 30px;
 
-    border: 1px solid var(--gold);
-
     background: #050707;
+
+    border: 1px solid var(--gold);
 }
 
 .retrieval-header {
@@ -1547,12 +1408,18 @@ button {
 }
 
 
-/* =========================================
+/* =========================================================
    CONTACT
-   ========================================= */
+   ========================================================= */
 
 .contact-section {
+    width: min(1200px, calc(100% - 80px));
+
+    margin: 0 auto;
+
     min-height: 70vh;
+
+    padding: 120px 0;
 
     display: flex;
     flex-direction: column;
@@ -1560,7 +1427,7 @@ button {
 }
 
 .contact-content {
-    max-width: 700px;
+    width: 100%;
 }
 
 .contact-label {
@@ -1573,6 +1440,8 @@ button {
 }
 
 .contact-content h2 {
+    max-width: 720px;
+
     margin-top: 20px;
 
     color: var(--gold-bright);
@@ -1584,18 +1453,108 @@ button {
     line-height: 1.1;
 }
 
-.contact-content p:not(.contact-label) {
+.contact-content > p:not(.contact-label) {
+    max-width: 950px;
+
     margin-top: 25px;
 
     color: var(--muted);
 
     font-family: monospace;
+    font-size: 14px;
 }
 
 
-/* =========================================
+/* ---------------------------------------------------------
+   CONTACT RECORDS
+   --------------------------------------------------------- */
+
+.contact-records {
+    width: 100%;
+
+    display: grid;
+
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+
+    margin-top: 48px;
+
+    border-top: 1px solid var(--gold-border);
+    border-bottom: 1px solid var(--gold-border);
+}
+
+.contact-record {
+    min-width: 0;
+    min-height: 125px;
+
+    position: relative;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    padding: 24px 32px;
+
+    border-right:
+        1px solid rgba(230, 196, 0, 0.20);
+
+    color: inherit;
+
+    transition:
+        background 0.2s;
+}
+
+.contact-record:first-child {
+    padding-left: 0;
+}
+
+.contact-record:last-child {
+    border-right: none;
+}
+
+.contact-record:hover {
+    background: rgba(230, 196, 0, 0.025);
+}
+
+.contact-record-label {
+    color: var(--green);
+
+    font-family: monospace;
+    font-size: 9px;
+
+    letter-spacing: 3px;
+}
+
+.contact-record-value {
+    max-width: 100%;
+
+    margin-top: 12px;
+
+    color: var(--text);
+
+    font-family: monospace;
+    font-size: 11px;
+
+    letter-spacing: 1px;
+
+    white-space: nowrap;
+}
+
+.contact-record-arrow {
+    position: absolute;
+
+    right: 25px;
+    bottom: 18px;
+
+    color: var(--gold);
+
+    font-family: monospace;
+    font-size: 16px;
+}
+
+
+/* =========================================================
    FOOTER
-   ========================================= */
+   ========================================================= */
 
 footer {
     width: min(1200px, calc(100% - 80px));
@@ -1618,9 +1577,38 @@ footer {
 }
 
 
-/* =========================================
-   MOBILE
-   ========================================= */
+/* =========================================================
+   FOCUS STATES
+   ========================================================= */
+
+.archive-item:focus-visible,
+.selector-item:focus-visible,
+.nav-toggle:focus-visible,
+.record-link:focus-visible,
+.archive-button:focus-visible,
+.contact-record:focus-visible {
+    outline: 1px solid var(--gold-bright);
+    outline-offset: 4px;
+}
+
+
+/* =========================================================
+   LARGE DESKTOP
+   ========================================================= */
+
+@media (min-width: 1200px) {
+
+    .about-paper {
+        width: 1080px;
+        height: 500px;
+    }
+
+}
+
+
+/* =========================================================
+   TABLET
+   ========================================================= */
 
 @media (max-width: 1050px) {
 
@@ -1651,6 +1639,67 @@ footer {
 }
 
 
+/* =========================================================
+   ABOUT — TABLET
+   ========================================================= */
+
+@media (max-width: 1100px) {
+
+    .about-section {
+        padding: 40px;
+    }
+
+    .about-paper {
+        width: 100%;
+        height: auto;
+
+        min-height: 650px;
+
+        padding: 45px;
+    }
+
+    .about-grid {
+        grid-template-columns:
+            165px
+            minmax(0, 1fr)
+            200px;
+
+        column-gap: 30px;
+
+        height: auto;
+    }
+
+    .about-figure {
+        width: 150px;
+        height: 150px;
+    }
+
+    .circle-large {
+        width: 150px;
+        height: 150px;
+    }
+
+    .circle-medium {
+        width: 118px;
+        height: 118px;
+    }
+
+    .circle-small {
+        width: 78px;
+        height: 78px;
+    }
+
+    .about-lead {
+        font-size: 28px;
+    }
+
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
 @media (max-width: 800px) {
 
     .section {
@@ -1658,6 +1707,17 @@ footer {
 
         padding: 80px 0;
     }
+
+
+    /* navigation */
+
+    .archive-nav {
+        top: 16px;
+        left: 16px;
+    }
+
+
+    /* hero */
 
     .hero {
         padding-left: 30px;
@@ -1679,11 +1739,17 @@ footer {
         gap: 5px;
     }
 
+
+    /* selector */
+
     .record-selector {
         width: 100%;
 
         margin-top: 70px;
     }
+
+
+    /* work */
 
     .records-grid {
         grid-template-columns: 1fr;
@@ -1693,23 +1759,8 @@ footer {
         min-height: 390px;
     }
 
-    .about-grid {
-        grid-template-columns: 1fr;
 
-        gap: 40px;
-    }
-
-    .about-metadata {
-        padding-top: 30px;
-        padding-left: 0;
-
-        border-top: 1px solid var(--gold-border);
-        border-left: none;
-    }
-
-    .archive-grid {
-        grid-template-columns: 1fr;
-    }
+    /* section headers */
 
     .section-header {
         align-items: flex-start;
@@ -1723,6 +1774,131 @@ footer {
         font-size: 34px;
     }
 
+
+    /* archive */
+
+    .archive-grid {
+        grid-template-columns: 1fr;
+    }
+
+
+    /* about */
+
+    .about-section {
+        padding: 30px 18px;
+    }
+
+    .about-paper {
+        width: 100%;
+        height: auto;
+
+        min-height: 0;
+
+        padding: 38px 28px;
+    }
+
+    .about-header {
+        height: auto;
+
+        display: block;
+    }
+
+    .about-header-title h2 {
+        font-size: 56px;
+    }
+
+    .about-header-meta {
+        margin-top: 20px;
+
+        text-align: left;
+    }
+
+    .about-rule {
+        margin-top: 25px;
+        margin-bottom: 35px;
+    }
+
+    .about-grid {
+        display: block;
+
+        height: auto;
+    }
+
+    .about-main {
+        display: block;
+    }
+
+    .about-figure {
+        margin-bottom: 35px;
+    }
+
+    .about-lead {
+        font-size: 27px;
+    }
+
+    .about-text {
+        font-size: 17px;
+    }
+
+    .about-metadata {
+        height: auto;
+
+        margin-top: 40px;
+        padding: 30px 0 0;
+
+        border-left: none;
+
+        border-top:
+            1px solid rgba(63, 47, 35, 0.35);
+    }
+
+    .about-stamp {
+        position: static;
+
+        width: fit-content;
+
+        margin-top: 30px;
+    }
+
+
+    /* contact */
+
+    .contact-section {
+        width: calc(100% - 40px);
+
+        padding: 80px 0;
+    }
+
+    .contact-records {
+        grid-template-columns: 1fr;
+
+        margin-top: 40px;
+    }
+
+    .contact-record {
+        min-height: 105px;
+
+        padding: 22px 0;
+
+        border-right: none;
+
+        border-bottom:
+            1px solid rgba(230, 196, 0, 0.20);
+    }
+
+    .contact-record:last-child {
+        border-bottom: none;
+    }
+
+    .contact-record-value {
+        white-space: normal;
+
+        padding-right: 35px;
+    }
+
+
+    /* footer */
+
     footer {
         width: calc(100% - 40px);
 
@@ -1733,2387 +1909,63 @@ footer {
 
 }
 
-/* =========================================
-   ABOUT — ARCHIVAL REFINEMENT
-   ========================================= */
 
-.about-section {
-    padding: 42px 5.5vw 50px;
-    min-height: 100vh;
-    box-sizing: border-box;
+/* =========================================================
+   SMALL MOBILE
+   ========================================================= */
 
-    display: flex;
-    align-items: center;
-    justify-content: center;
+@media (max-width: 500px) {
 
-    background: #080a09;
-}
+    .nav-content {
+        width: 230px;
 
-
-/* =========================================
-   PAPER
-   ========================================= */
-
-.about-paper {
-    position: relative;
-
-    width: 100%;
-    max-width: 1380px;
-    min-height: calc(100vh - 92px);
-
-    box-sizing: border-box;
-
-    padding: 58px 70px 52px;
-
-    /* darker, warmer archival paper */
-    background:
-        linear-gradient(
-            90deg,
-            rgba(112, 76, 42, 0.035),
-            transparent 18%,
-            transparent 82%,
-            rgba(112, 76, 42, 0.045)
-        ),
-        #e6d8bb;
-
-    border: 1px solid rgba(48, 36, 27, 0.42);
-
-    box-shadow:
-        10px 10px 0 rgba(91, 51, 27, 0.18),
-        0 0 0 1px rgba(255, 255, 255, 0.025);
-
-    overflow: hidden;
-}
-
-
-/* subtle paper texture */
-
-.about-paper::before {
-    content: "";
-
-    position: absolute;
-    inset: 0;
-
-    pointer-events: none;
-
-    opacity: 0.20;
-
-    background-image:
-        repeating-linear-gradient(
-            0deg,
-            rgba(70, 52, 37, 0.025) 0px,
-            rgba(70, 52, 37, 0.025) 1px,
-            transparent 1px,
-            transparent 5px
-        );
-}
-
-
-/* archival circular mark */
-
-.about-paper::after {
-    content: "";
-
-    position: absolute;
-
-    width: 250px;
-    height: 250px;
-
-    right: -115px;
-    bottom: -120px;
-
-    border: 1px solid rgba(190, 82, 35, 0.28);
-
-    border-radius: 50%;
-
-    pointer-events: none;
-}
-
-
-/* =========================================
-   HEADER
-   ========================================= */
-
-.about-header {
-    position: relative;
-    z-index: 1;
-
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-
-    margin-bottom: 24px;
-}
-
-
-.about-header-title {
-    display: flex;
-    flex-direction: column;
-    gap: 7px;
-}
-
-
-.about-header-title .section-number {
-    font-family: "Courier New", monospace;
-
-    font-size: 11px;
-    letter-spacing: 0.38em;
-
-    color: #47734a;
-}
-
-
-.about-header-title h2 {
-    margin: 0;
-
-    font-family: Georgia, "Times New Roman", serif;
-
-    font-size: clamp(64px, 5.8vw, 88px);
-    line-height: 0.88;
-
-    font-weight: 500;
-
-    color: #35241d;
-}
-
-
-.about-header-meta {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    gap: 11px;
-
-    margin-top: 9px;
-
-    font-family: "Courier New", monospace;
-
-    font-size: 9px;
-    letter-spacing: 0.23em;
-
-    color: #887967;
-}
-
-
-.about-rule {
-    position: relative;
-    z-index: 1;
-
-    width: 100%;
-    height: 1px;
-
-    margin-bottom: 36px;
-
-    background: rgba(69, 53, 41, 0.30);
-}
-
-
-/* =========================================
-   CONTENT GRID
-   ========================================= */
-
-.about-grid {
-    position: relative;
-    z-index: 1;
-
-    display: grid;
-
-    grid-template-columns:
-        minmax(170px, 0.75fr)
-        minmax(430px, 2.7fr)
-        minmax(235px, 1.05fr);
-
-    column-gap: 48px;
-
-    align-items: start;
-}
-
-
-/* =========================================
-   FIGURE
-   ========================================= */
-
-.about-main {
-    display: contents;
-}
-
-
-.about-figure {
-    position: relative;
-
-    width: 210px;
-    height: 210px;
-
-    margin-top: 2px;
-}
-
-
-.about-figure > span {
-    position: absolute;
-
-    top: -2px;
-    left: 0;
-
-    font-family: "Courier New", monospace;
-
-    font-size: 8px;
-    letter-spacing: 0.25em;
-
-    color: #8e806f;
-}
-
-
-.figure-circle {
-    position: absolute;
-
-    left: 50%;
-    top: 52%;
-
-    transform: translate(-50%, -50%);
-
-    border-radius: 50%;
-}
-
-
-.circle-large {
-    width: 100%;
-    height: 100%;
-
-    border: 1px solid rgba(83, 70, 57, 0.32);
-}
-
-
-.circle-medium {
-    width: 76%;
-    height: 76%;
-
-    border: 1px dashed rgba(83, 70, 57, 0.30);
-}
-
-
-.circle-small {
-    width: 48%;
-    height: 48%;
-
-    border: 1px solid rgba(207, 94, 40, 0.55);
-}
-
-
-.figure-cross {
-    position: absolute;
-
-    background: rgba(83, 70, 57, 0.26);
-}
-
-
-.figure-cross-x {
-    width: 100%;
-    height: 1px;
-
-    left: 0;
-    top: 52%;
-}
-
-
-.figure-cross-y {
-    width: 1px;
-    height: 100%;
-
-    left: 50%;
-    top: 2%;
-}
-
-
-.figure-point {
-    position: absolute;
-
-    width: 10px;
-    height: 10px;
-
-    left: 50%;
-    top: 52%;
-
-    transform: translate(-50%, -50%);
-
-    border-radius: 50%;
-
-    background: #c6a719;
-
-    box-shadow:
-        0 0 0 7px rgba(198, 167, 25, 0.08);
-}
-
-
-/* =========================================
-   PROFILE
-   ========================================= */
-
-.about-copy {
-    max-width: 650px;
-    padding-top: 1px;
-}
-
-
-.terminal-label {
-    margin: 0 0 43px;
-
-    font-family: "Courier New", monospace;
-
-    font-size: 10px;
-    letter-spacing: 0.25em;
-
-    color: #4d794e;
-}
-
-
-.about-lead {
-    margin: 0;
-
-    max-width: 650px;
-
-    font-family: Georgia, "Times New Roman", serif;
-
-    font-size: clamp(29px, 2.45vw, 40px);
-    line-height: 1.43;
-
-    font-weight: 400;
-
-    color: #35241d;
-}
-
-
-.about-text {
-    margin: 34px 0 0;
-
-    max-width: 570px;
-
-    font-family: Georgia, "Times New Roman", serif;
-
-    font-size: 19px;
-    line-height: 1.55;
-
-    color: #66584b;
-}
-
-
-.about-signature {
-    margin-top: 42px;
-
-    font-family:
-        "Brush Script MT",
-        "Segoe Script",
-        cursive;
-
-    font-size: 34px;
-
-    color: #b65327;
-}
-
-
-/* =========================================
-   METADATA
-   ========================================= */
-
-.about-metadata {
-    border-left: 1px solid rgba(76, 62, 48, 0.34);
-
-    padding-left: 37px;
-
-    min-height: 450px;
-}
-
-
-.metadata-block {
-    padding-bottom: 22px;
-    margin-bottom: 22px;
-
-    border-bottom:
-        1px solid rgba(76, 62, 48, 0.20);
-}
-
-
-.metadata-block span {
-    display: block;
-
-    margin-bottom: 13px;
-
-    font-family: "Courier New", monospace;
-
-    font-size: 8px;
-    letter-spacing: 0.27em;
-
-    color: #8f816f;
-}
-
-
-.metadata-block strong {
-    display: block;
-
-    font-family: "Courier New", monospace;
-
-    font-size: 10px;
-    letter-spacing: 0.08em;
-
-    font-weight: 400;
-
-    color: #2678b9;
-}
-
-
-.metadata-block .metadata-yellow {
-    color: #b79600;
-}
-
-
-/* =========================================
-   STAMP
-   ========================================= */
-
-.about-stamp {
-    position: absolute;
-
-    right: 42px;
-    bottom: 32px;
-
-    z-index: 2;
-
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-
-    padding: 9px 16px;
-
-    border:
-        1px solid rgba(181, 83, 39, 0.42);
-
-    transform: rotate(-2deg);
-
-    color: #ae572f;
-}
-
-
-.about-stamp span,
-.about-stamp strong {
-    font-family: "Courier New", monospace;
-
-    font-size: 7px;
-    letter-spacing: 0.18em;
-
-    font-weight: 400;
-}
-
-
-/* =========================================
-   DESKTOP — KEEP THE DOCUMENT COMPACT
-   ========================================= */
-
-@media (min-width: 1200px) {
-
-    .about-paper {
-        min-height: 820px;
-        max-height: calc(100vh - 92px);
+        padding: 17px;
     }
 
-}
-
-
-/* =========================================
-   TABLET
-   ========================================= */
-
-@media (max-width: 1100px) {
-
-    .about-section {
-        padding: 34px 4vw 42px;
+    .hero h1 {
+        font-size: 54px;
     }
 
-    .about-paper {
-        padding: 48px 46px 50px;
-    }
-
-    .about-grid {
-        grid-template-columns:
-            165px
-            minmax(300px, 1fr)
-            205px;
-
-        column-gap: 32px;
-    }
-
-    .about-figure {
-        width: 165px;
-        height: 165px;
-    }
-
-    .about-lead {
-        font-size: 29px;
-    }
-
-}
-
-
-/* =========================================
-   MOBILE
-   ========================================= */
-
-@media (max-width: 800px) {
-
-    .about-section {
-        padding: 20px 16px;
-        display: block;
-    }
-
-    .about-paper {
-        min-height: auto;
-        max-height: none;
-
-        padding: 36px 26px 42px;
-    }
-
-    .about-header {
-        margin-bottom: 20px;
-    }
-
-    .about-header-title h2 {
-        font-size: 56px;
-    }
-
-    .about-header-meta {
-        font-size: 7px;
-    }
-
-    .about-grid {
-        grid-template-columns: 1fr;
-        gap: 30px;
-    }
-
-    .about-figure {
-        width: 145px;
-        height: 145px;
-    }
-
-    .terminal-label {
-        margin-bottom: 26px;
-    }
-
-    .about-lead {
-        font-size: 27px;
-        line-height: 1.4;
-    }
-
-    .about-text {
+    .hero h2 {
         font-size: 17px;
-        margin-top: 27px;
+
+        letter-spacing: 4px;
     }
 
-    .about-signature {
-        margin-top: 30px;
-    }
-
-    .about-metadata {
-        border-left: 0;
-        border-top: 1px solid rgba(76, 62, 48, 0.30);
-
-        padding: 27px 0 0;
-
-        min-height: auto;
-    }
-
-    .about-stamp {
-        position: relative;
-
-        right: auto;
-        bottom: auto;
-
-        width: fit-content;
-
-        margin: 30px 0 0 auto;
-    }
-}
-
-/* =========================================
-   ABOUT — SECOND REFINEMENT
-   ========================================= */
-
-.about-paper {
-    min-height: calc(100vh - 120px);
-
-    padding-top: 50px;
-    padding-bottom: 40px;
-
-    background:
-        radial-gradient(
-            circle at 18% 42%,
-            rgba(120, 82, 43, 0.055),
-            transparent 30%
-        ),
-        radial-gradient(
-            circle at 82% 78%,
-            rgba(120, 82, 43, 0.045),
-            transparent 28%
-        ),
-        #e2d3b4;
-}
-
-
-/* =========================================
-   HEADER — LESS EMPTY SPACE
-   ========================================= */
-
-.about-header {
-    margin-bottom: 20px;
-}
-
-.about-header-title h2 {
-    font-size: clamp(62px, 5.4vw, 84px);
-}
-
-.about-rule {
-    margin-bottom: 30px;
-}
-
-
-/* =========================================
-   MAIN AREA
-   ========================================= */
-
-.about-grid {
-    grid-template-columns:
-        220px
-        minmax(440px, 2.8fr)
-        minmax(245px, 1fr);
-
-    column-gap: 38px;
-}
-
-
-/* =========================================
-   FIGURE — TECHNICAL DOCUMENT FEEL
-   ========================================= */
-
-.about-figure {
-    width: 200px;
-    height: 200px;
-    margin-top: 0;
-}
-
-.about-figure::before {
-    content: "";
-
-    position: absolute;
-
-    width: 138%;
-    height: 138%;
-
-    left: 50%;
-    top: 52%;
-
-    transform: translate(-50%, -50%);
-
-    border-radius: 50%;
-
-    border: 1px solid rgba(79, 67, 53, 0.08);
-
-    pointer-events: none;
-}
-
-.about-figure::after {
-    content: "03 / PROFILE";
-
-    position: absolute;
-
-    left: 0;
-    bottom: -30px;
-
-    font-family: "Courier New", monospace;
-    font-size: 8px;
-    letter-spacing: 0.22em;
-
-    color: #988a77;
-}
-
-
-/* =========================================
-   PROFILE COPY — SLIGHTLY MORE COMPACT
-   ========================================= */
-
-.about-copy {
-    padding-top: 0;
-}
-
-.terminal-label {
-    margin-bottom: 34px;
-}
-
-.about-lead {
-    max-width: 625px;
-
-    font-size: clamp(28px, 2.25vw, 37px);
-    line-height: 1.43;
-}
-
-.about-text {
-    margin-top: 30px;
-    max-width: 540px;
-
-    font-size: 18px;
-    line-height: 1.5;
-}
-
-.about-signature {
-    margin-top: 34px;
-}
-
-
-/* =========================================
-   METADATA — STRONGER DOCUMENT STRUCTURE
-   ========================================= */
-
-.about-metadata {
-    padding-left: 32px;
-    min-height: 410px;
-
-    border-left-color: rgba(76, 62, 48, 0.38);
-}
-
-.metadata-block {
-    padding-bottom: 19px;
-    margin-bottom: 19px;
-}
-
-.metadata-block span {
-    margin-bottom: 11px;
-
-    font-size: 8px;
-    color: #827563;
-}
-
-.metadata-block strong {
-    font-size: 10px;
-}
-
-
-/* =========================================
-   ARCHIVAL REGISTRATION DETAILS
-   ========================================= */
-
-.about-paper {
-    --archive-line: rgba(76, 62, 48, 0.18);
-}
-
-
-/* small registration mark in upper-right */
-
-.about-paper > .about-header::after {
-    content: "DATE: 01.09.2026";
-
-    position: absolute;
-
-    right: 0;
-    top: 62px;
-
-    font-family: "Courier New", monospace;
-    font-size: 8px;
-    letter-spacing: 0.18em;
-
-    color: #978977;
-}
-
-
-/* =========================================
-   STAMP — BRING IT INTO THE DOCUMENT
-   ========================================= */
-
-.about-stamp {
-    right: 38px;
-    bottom: 25px;
-
-    opacity: 0.78;
-}
-
-
-/* =========================================
-   SUBTLE SIDE MARK
-   ========================================= */
-
-.about-paper {
-    isolation: isolate;
-}
-
-.about-paper .about-grid::before {
-    content: "FIG. 03";
-
-    position: absolute;
-
-    left: -49px;
-    top: 165px;
-
-    writing-mode: vertical-rl;
-
-    font-family: "Courier New", monospace;
-    font-size: 8px;
-    letter-spacing: 0.25em;
-
-    color: #8c7d6a;
-
-    opacity: 0.75;
-}
-
-
-/* =========================================
-   LARGE DESKTOP
-   ========================================= */
-
-@media (min-width: 1200px) {
-
-    .about-paper {
-        min-height: 800px;
-        max-height: calc(100vh - 110px);
-    }
-
-    .about-grid {
-        margin-top: 2px;
-    }
-
-}
-
-
-/* =========================================
-   MOBILE
-   ========================================= */
-
-@media (max-width: 800px) {
-
-    .about-paper > .about-header::after {
-        display: none;
-    }
-
-    .about-paper .about-grid::before {
-        display: none;
-    }
-
-    .about-figure::after {
-        display: none;
-    }
-
-    .about-grid {
-        grid-template-columns: 1fr;
-    }
-}
-
-/* =========================================
-   ABOUT — DARKER ARCHIVAL PAPER
-   ========================================= */
-
-.about-paper {
-    background:
-        radial-gradient(
-            ellipse at 18% 35%,
-            rgba(255, 244, 214, 0.10),
-            transparent 38%
-        ),
-        radial-gradient(
-            ellipse at 82% 75%,
-            rgba(95, 65, 35, 0.10),
-            transparent 42%
-        ),
-        linear-gradient(
-            135deg,
-            #cbbb99 0%,
-            #d0c09f 48%,
-            #c5b38f 100%
-        );
-
-    color: #30231d;
-
-    border-color: rgba(47, 35, 27, 0.35);
-
-    box-shadow:
-        8px 8px 0 rgba(45, 31, 23, 0.45),
-        0 0 0 1px rgba(255, 242, 211, 0.08);
-}
-
-
-/* =========================================
-   PAPER DEPTH
-   ========================================= */
-
-.about-paper::before {
-    content: "";
-
-    position: absolute;
-    inset: 0;
-
-    pointer-events: none;
-
-    background:
-        repeating-linear-gradient(
-            0deg,
-            rgba(60, 43, 29, 0.018) 0px,
-            rgba(60, 43, 29, 0.018) 1px,
-            transparent 1px,
-            transparent 4px
-        );
-
-    opacity: 0.7;
-
-    mix-blend-mode: multiply;
-}
-
-
-/* =========================================
-   TYPOGRAPHY
-   ========================================= */
-
-.about-header-title h2,
-.about-lead {
-    color: #30231d;
-}
-
-.about-text {
-    color: #5b4b3c;
-}
-
-.section-number,
-.about-header-meta,
-.about-figure span,
-.about-figure::after {
-    color: #756650;
-}
-
-
-/* =========================================
-   RULES / DIVIDERS
-   ========================================= */
-
-.about-rule {
-    background: rgba(63, 47, 35, 0.32);
-}
-
-.about-metadata {
-    border-left-color: rgba(63, 47, 35, 0.34);
-}
-
-.metadata-block {
-    border-bottom-color: rgba(63, 47, 35, 0.22);
-}
-
-
-/* =========================================
-   FIGURE
-   ========================================= */
-
-.figure-circle {
-    border-color: rgba(65, 52, 39, 0.30);
-}
-
-.circle-medium {
-    border-style: dashed;
-}
-
-.circle-small {
-    border-color: rgba(190, 83, 32, 0.48);
-}
-
-.figure-cross {
-    background: rgba(65, 52, 39, 0.24);
-}
-
-.figure-point {
-    background: #c69d08;
-    box-shadow:
-        0 0 0 7px rgba(198, 157, 8, 0.10);
-}
-
-
-/* =========================================
-   METADATA
-   ========================================= */
-
-.metadata-block span {
-    color: #776a58;
-}
-
-.metadata-block strong {
-    color: #2774ad;
-}
-
-.metadata-yellow {
-    color: #b08a00 !important;
-}
-
-
-/* =========================================
-   SIGNATURE
-   ========================================= */
-
-.about-signature {
-    color: #b64e1d;
-}
-
-
-/* =========================================
-   ARCHIVE STAMP
-   ========================================= */
-
-.about-stamp {
-    color: #b65d32;
-    border-color: rgba(182, 93, 50, 0.45);
-}
-
-
-/* =========================================
-   OUTER ARCHIVE ENVIRONMENT
-   ========================================= */
-
-.about-section {
-    background: #080a09;
-}
-
-/* =========================================
-   ABOUT — ARCHIVE OBJECT REFINEMENT
-   ========================================= */
-
-.about-section {
-    min-height: 100vh;
-    padding: 70px 8vw;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    background:
-        radial-gradient(
-            circle at 50% 50%,
-            rgba(75, 82, 67, 0.08),
-            transparent 55%
-        ),
-        #070908;
-
-    position: relative;
-}
-
-
-/* =========================================
-   PAPER
-   ========================================= */
-
-.about-paper {
-    width: min(1080px, 78vw);
-    height: 760px;
-
-    padding: 55px 62px 50px;
-
-    position: relative;
-    overflow: hidden;
-    box-sizing: border-box;
-
-    background:
-        radial-gradient(
-            ellipse at 20% 35%,
-            rgba(255, 238, 194, 0.12),
-            transparent 42%
-        ),
-        radial-gradient(
-            ellipse at 80% 75%,
-            rgba(65, 43, 26, 0.13),
-            transparent 50%
-        ),
-        linear-gradient(
-            135deg,
-            #bdae8d 0%,
-            #c6b694 45%,
-            #b9a883 100%
-        );
-
-    color: #30231d;
-
-    border: 1px solid rgba(45, 33, 24, 0.55);
-
-    box-shadow:
-        8px 10px 0 rgba(25, 19, 15, 0.65),
-        0 0 0 8px rgba(7, 9, 8, 0.35);
-}
-
-
-/* paper grain */
-
-.about-paper::before {
-    content: "";
-
-    position: absolute;
-    inset: 0;
-
-    pointer-events: none;
-
-    background:
-        repeating-linear-gradient(
-            0deg,
-            rgba(55, 42, 29, 0.035) 0px,
-            rgba(55, 42, 29, 0.035) 1px,
-            transparent 1px,
-            transparent 5px
-        );
-
-    mix-blend-mode: multiply;
-    opacity: 0.8;
-}
-
-
-/* =========================================
-   HEADER
-   ========================================= */
-
-.about-header {
-    position: relative;
-    z-index: 2;
-
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-}
-
-.about-header-title h2 {
-    margin: 8px 0 0;
-
-    font-size: clamp(4rem, 5vw, 5.5rem);
-    line-height: 0.9;
-
-    letter-spacing: -0.04em;
-}
-
-.about-header-meta {
-    padding-top: 5px;
-    text-align: right;
-
-    font-size: 0.58rem;
-    line-height: 2.2;
-    letter-spacing: 0.22em;
-}
-
-
-/* =========================================
-   HEADER RULE
-   ========================================= */
-
-.about-rule {
-    position: relative;
-    z-index: 2;
-
-    margin-top: 30px;
-    margin-bottom: 38px;
-
-    background: rgba(57, 44, 32, 0.38);
-}
-
-
-/* =========================================
-   MAIN LAYOUT
-   ========================================= */
-
-.about-grid {
-    position: relative;
-    z-index: 2;
-
-    display: grid;
-    grid-template-columns: minmax(0, 1fr) 215px;
-
-    gap: 42px;
-
-    height: calc(100% - 185px);
-    min-height: 0;
-}
-
-
-/* =========================================
-   LEFT SIDE
-   ========================================= */
-
-.about-main {
-    display: grid;
-
-    grid-template-columns: 175px minmax(0, 1fr);
-
-    gap: 35px;
-
-    align-items: start;
-}
-
-
-/* =========================================
-   ARCHIVAL FIGURE
-   ========================================= */
-
-.about-figure {
-    width: 175px;
-    height: 175px;
-
-    position: relative;
-
-    margin-top: 10px;
-}
-
-
-/* make the diagram less mechanically perfect */
-
-.circle-large {
-    width: 175px;
-    height: 175px;
-
-    border-color: rgba(64, 51, 38, 0.34);
-
-    transform: translate(-5px, 4px);
-}
-
-.circle-medium {
-    width: 138px;
-    height: 138px;
-
-    top: 18px;
-    left: 18px;
-
-    border-color: rgba(64, 51, 38, 0.27);
-
-    transform: translate(7px, -4px);
-}
-
-.circle-small {
-    width: 92px;
-    height: 92px;
-
-    top: 42px;
-    left: 42px;
-
-    border-color: rgba(190, 83, 32, 0.52);
-
-    transform: translate(-3px, 5px);
-}
-
-.figure-cross {
-    background: rgba(64, 51, 38, 0.25);
-}
-
-.figure-point {
-    background: #c29b08;
-
-    box-shadow:
-        0 0 0 7px rgba(194, 155, 8, 0.10);
-}
-
-
-/* =========================================
-   COPY
-   ========================================= */
-
-.about-copy {
-    padding-top: 4px;
-    max-width: 560px;
-}
-
-.terminal-label {
-    margin-bottom: 25px;
-
-    color: #477354;
-
-    font-size: 0.62rem;
-    letter-spacing: 0.22em;
-}
-
-
-/* primary statement */
-
-.about-lead {
-    margin: 0;
-
-    max-width: 560px;
-
-    font-size: clamp(1.65rem, 2.05vw, 2.35rem);
-    line-height: 1.38;
-
-    letter-spacing: -0.02em;
-
-    color: #30231d;
-}
-
-
-/* secondary statement */
-
-.about-text {
-    margin-top: 28px;
-
-    max-width: 500px;
-
-    font-size: 1.05rem;
-    line-height: 1.55;
-
-    color: #5a4b3c;
-}
-
-
-/* signature */
-
-.about-signature {
-    margin-top: 34px;
-
-    font-size: 1.75rem;
-
-    color: #b64e1d;
-}
-
-
-/* =========================================
-   METADATA
-   ========================================= */
-
-.about-metadata {
-    padding-left: 35px;
-
-    border-left:
-        1px solid rgba(63, 47, 35, 0.38);
-}
-
-.metadata-block {
-    padding-bottom: 20px;
-    margin-bottom: 20px;
-
-    border-bottom:
-        1px solid rgba(63, 47, 35, 0.20);
-}
-
-.metadata-block span {
-    display: block;
-
-    margin-bottom: 11px;
-
-    color: #746652;
-
-    font-size: 0.55rem;
-    letter-spacing: 0.24em;
-}
-
-.metadata-block strong {
-    color: #3975a4;
-
-    font-size: 0.72rem;
-    letter-spacing: 0.08em;
-}
-
-.metadata-yellow {
-    color: #ad8900 !important;
-}
-
-
-/* =========================================
-   ARCHIVE STAMP
-   ========================================= */
-
-.about-stamp {
-    position: absolute;
-
-    right: 30px;
-    bottom: 25px;
-
-    z-index: 3;
-
-    padding: 9px 14px;
-
-    transform: rotate(-3deg);
-
-    border:
-        1px solid rgba(181, 87, 43, 0.42);
-
-    color: rgba(174, 78, 35, 0.65);
-
-    font-size: 0.48rem;
-    letter-spacing: 0.18em;
-}
-
-
-/* =========================================
-   PERIPHERAL ARCHIVE MARKINGS
-   ========================================= */
-
-.about-section::before {
-    content:
-        "03"
-        "                                           "
-        "RECORD: PERSONAL";
-
-    position: absolute;
-
-    top: 35px;
-    left: 2.2vw;
-    right: 2.2vw;
-
-    white-space: pre;
-
-    color: #728244;
-
-    font-family: monospace;
-    font-size: 0.62rem;
-    letter-spacing: 0.18em;
-
-    pointer-events: none;
-}
-
-.about-section::after {
-    content:
-        "ARCHIVE NODE_01";
-
-    position: absolute;
-
-    right: 2.5vw;
-    top: 68px;
-
-    color: rgba(145, 128, 91, 0.65);
-
-    font-family: monospace;
-    font-size: 0.52rem;
-    letter-spacing: 0.2em;
-
-    pointer-events: none;
-}
-
-
-/* =========================================
-   FIGURE LABEL
-   ========================================= */
-
-.about-paper::after {
-    content:
-        "FIG. 03";
-
-    position: absolute;
-
-    left: 16px;
-    top: 50%;
-
-    writing-mode: vertical-rl;
-
-    color: rgba(82, 69, 52, 0.65);
-
-    font-family: monospace;
-    font-size: 0.52rem;
-    letter-spacing: 0.25em;
-
-    pointer-events: none;
-}
-
-
-/* =========================================
-   DESKTOP — KEEP THE DOCUMENT COMPACT
-   ========================================= */
-
-@media (min-width: 1200px) {
-
-    .about-paper {
-        width: 1080px;
-        height: 760px;
-    }
-}
-
-
-/* =========================================
-   TABLET
-   ========================================= */
-
-@media (max-width: 1100px) {
-
-    .about-paper {
-        width: 88vw;
-        height: auto;
-        min-height: 720px;
-
-        padding: 48px;
-    }
-
-    .about-grid {
-        grid-template-columns: minmax(0, 1fr) 200px;
-    }
-
-    .about-main {
-        grid-template-columns: 145px minmax(0, 1fr);
-        gap: 28px;
-    }
-
-    .about-figure {
-        width: 145px;
-        height: 145px;
-    }
-
-    .circle-large {
-        width: 145px;
-        height: 145px;
-    }
-
-    .circle-medium {
-        width: 115px;
-        height: 115px;
-    }
-
-    .circle-small {
-        width: 76px;
-        height: 76px;
-    }
-}
-
-
-/* =========================================
-   MOBILE
-   ========================================= */
-
-@media (max-width: 700px) {
-
-    .about-section {
-        padding: 35px 18px;
-    }
-
-    .about-paper {
-        width: 100%;
-        height: auto;
-        min-height: 0;
-
-        padding: 38px 28px;
-    }
-
-    .about-header {
-        display: block;
-    }
-
-    .about-header-meta {
-        margin-top: 22px;
-        text-align: left;
-    }
-
-    .about-grid {
-        display: block;
-        height: auto;
-    }
-
-    .about-main {
-        display: block;
-    }
-
-    .about-figure {
-        margin-bottom: 30px;
-    }
-
-    .about-metadata {
-        margin-top: 40px;
-        padding: 30px 0 0;
-
-        border-left: 0;
-        border-top:
-            1px solid rgba(63, 47, 35, 0.35);
-    }
-
-    .about-lead {
-        font-size: 1.7rem;
-    }
-
-    .about-stamp {
-        position: static;
-        display: inline-block;
-
-        margin-top: 30px;
-    }
-
-    .about-section::before,
-    .about-section::after {
-        display: none;
-    }
-}
-
-/* =========================================
-   ABOUT — COMPACT VERTICAL PROPORTION
-   ========================================= */
-
-.about-section {
-    padding-top: 45px;
-    padding-bottom: 45px;
-}
-
-.about-paper {
-    height: 520px;
-    padding: 30px 50px 42px;
-}
-
-.about-rule {
-    margin-top: 15px;
-    margin-bottom: 20px;
-}
-
-.about-grid {
-    height: calc(100% - 145px);
-}
-
-.about-main {
-    gap: 30px;
-}
-
-.about-figure {
-    margin-top: 5px;
-}
-
-.about-copy {
-    padding-top: 0;
-}
-
-.terminal-label {
-    margin-bottom: 20px;
-}
-
-.about-lead {
-    font-size: clamp(1.55rem, 1.85vw, 2.05rem);
-    line-height: 1.32;
-}
-
-.about-text {
-    margin-top: 15px;
-    font-size: 1rem;
-    line-height: 1.45;
-}
-
-.about-signature {
-    margin-top: 15px;
-    margin-bottom: 5px;
-}
-
-.about-metadata .metadata-block {
-    padding-bottom: 16px;
-    margin-bottom: 16px;
-}
-
-
-/* desktop */
-@media (min-width: 1200px) {
-    .about-paper {
-        height: 650px;
-    }
-}
-
-/* =========================================
-   ABOUT — FINAL HORIZONTAL ARCHIVE FORMAT
-   ========================================= */
-
-.about-section {
-    width: 100%;
-    min-height: 100vh;
-
-    padding: 0;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    background: #070908;
-
-    position: relative;
-    overflow: hidden;
-}
-
-
-/* =========================================
-   THE DOCUMENT
-   ========================================= */
-
-.about-paper {
-    width: min(1220px, 86vw);
-
-    /* THIS is the important change */
-    height: 500px;
-    min-height: 500px;
-    max-height: 500px;
-
-    margin: 0;
-
-    padding: 38px 58px 34px;
-
-    position: relative;
-
-    overflow: hidden;
-
-    background:
-        radial-gradient(
-            ellipse at 18% 35%,
-            rgba(255, 238, 194, 0.10),
-            transparent 40%
-        ),
-        radial-gradient(
-            ellipse at 82% 75%,
-            rgba(65, 43, 26, 0.11),
-            transparent 48%
-        ),
-        linear-gradient(
-            135deg,
-            #bdae8d 0%,
-            #c4b491 48%,
-            #b8a681 100%
-        );
-
-    border: 1px solid rgba(45, 33, 24, 0.58);
-
-    box-shadow:
-        9px 9px 0 rgba(20, 16, 13, 0.72),
-        0 0 0 1px rgba(255, 242, 211, 0.04);
-
-    box-sizing: border-box;
-}
-
-
-/* =========================================
-   PAPER GRAIN
-   ========================================= */
-
-.about-paper::before {
-    content: "";
-
-    position: absolute;
-    inset: 0;
-
-    pointer-events: none;
-
-    background:
-        repeating-linear-gradient(
-            0deg,
-            rgba(55, 42, 29, 0.035) 0px,
-            rgba(55, 42, 29, 0.035) 1px,
-            transparent 1px,
-            transparent 5px
-        );
-
-    opacity: 0.72;
-
-    mix-blend-mode: multiply;
-}
-
-
-/* bottom-right technical circle */
-
-.about-paper::after {
-    content: "";
-
-    position: absolute;
-
-    width: 260px;
-    height: 260px;
-
-    right: -130px;
-    bottom: -130px;
-
-    border: 1px solid rgba(190, 83, 32, 0.30);
-
-    border-radius: 50%;
-
-    pointer-events: none;
-}
-
-
-/* =========================================
-   HEADER
-   ========================================= */
-
-.about-header {
-    position: relative;
-    z-index: 2;
-
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-
-    height: 78px;
-
-    margin: 0;
-}
-
-
-.about-header-title {
-    display: flex;
-    flex-direction: column;
-
-    gap: 4px;
-}
-
-
-.about-header-title .section-number {
-    margin: 0;
-
-    font-family: "Courier New", monospace;
-    font-size: 10px;
-
-    letter-spacing: 0.35em;
-
-    color: #4f774c;
-}
-
-
-.about-header-title h2 {
-    margin: 0;
-
-    font-family: Georgia, "Times New Roman", serif;
-
-    font-size: 68px;
-    line-height: 0.86;
-
-    font-weight: 500;
-
-    letter-spacing: -0.045em;
-
-    color: #30231d;
-}
-
-
-.about-header-meta {
-    padding-top: 4px;
-
-    display: flex;
-    flex-direction: column;
-
-    gap: 7px;
-
-    text-align: right;
-
-    font-family: "Courier New", monospace;
-
-    font-size: 8px;
-    line-height: 1.7;
-
-    letter-spacing: 0.20em;
-
-    color: #796b59;
-}
-
-
-/* =========================================
-   HEADER LINE
-   ========================================= */
-
-.about-rule {
-    position: relative;
-    z-index: 2;
-
-    width: 100%;
-    height: 1px;
-
-    margin: 17px 0 25px;
-
-    background: rgba(57, 44, 32, 0.38);
-}
-
-
-/* =========================================
-   CONTENT
-   ========================================= */
-
-.about-grid {
-    position: relative;
-    z-index: 2;
-
-    display: grid;
-
-    grid-template-columns:
-        205px
-        minmax(0, 1fr)
-        230px;
-
-    column-gap: 34px;
-
-    height: 335px;
-
-    align-items: start;
-}
-
-
-/* =========================================
-   LEFT FIGURE
-   ========================================= */
-
-.about-main {
-    display: contents;
-}
-
-
-.about-figure {
-    width: 175px;
-    height: 175px;
-
-    position: relative;
-
-    margin-top: 4px;
-}
-
-
-/* figure label */
-
-.about-figure > span {
-    position: absolute;
-
-    top: -2px;
-    left: 0;
-
-    font-family: "Courier New", monospace;
-
-    font-size: 8px;
-    letter-spacing: 0.22em;
-
-    color: #847664;
-}
-
-
-/* circles */
-
-.circle-large {
-    width: 175px;
-    height: 175px;
-
-    left: 50%;
-    top: 52%;
-
-    transform: translate(-50%, -50%);
-
-    border: 1px solid rgba(64, 51, 38, 0.34);
-}
-
-
-.circle-medium {
-    width: 137px;
-    height: 137px;
-
-    left: 50%;
-    top: 52%;
-
-    transform: translate(-50%, -50%);
-
-    border: 1px dashed rgba(64, 51, 38, 0.28);
-}
-
-
-.circle-small {
-    width: 90px;
-    height: 90px;
-
-    left: 50%;
-    top: 52%;
-
-    transform: translate(-50%, -50%);
-
-    border: 1px solid rgba(190, 83, 32, 0.52);
-}
-
-
-/* crosshair */
-
-.figure-cross {
-    position: absolute;
-
-    background: rgba(64, 51, 38, 0.25);
-}
-
-
-.figure-cross-x {
-    width: 100%;
-    height: 1px;
-
-    left: 0;
-    top: 52%;
-}
-
-
-.figure-cross-y {
-    width: 1px;
-    height: 100%;
-
-    left: 50%;
-    top: 2%;
-}
-
-
-.figure-point {
-    width: 10px;
-    height: 10px;
-
-    position: absolute;
-
-    left: 50%;
-    top: 52%;
-
-    transform: translate(-50%, -50%);
-
-    border-radius: 50%;
-
-    background: #c29b08;
-
-    box-shadow:
-        0 0 0 7px rgba(194, 155, 8, 0.10);
-}
-
-
-/* =========================================
-   PROFILE COPY
-   ========================================= */
-
-.about-copy {
-    max-width: 610px;
-
-    padding: 0;
-
-    align-self: start;
-}
-
-
-.terminal-label {
-    margin: 1px 0 20px;
-
-    font-family: "Courier New", monospace;
-
-    font-size: 9px;
-
-    letter-spacing: 0.23em;
-
-    color: #477354;
-}
-
-
-.about-lead {
-    max-width: 610px;
-
-    margin: 0;
-
-    font-family: Georgia, "Times New Roman", serif;
-
-    font-size: 31px;
-
-    line-height: 1.27;
-
-    letter-spacing: -0.018em;
-
-    color: #30231d;
-}
-
-
-.about-text {
-    max-width: 510px;
-
-    margin: 20px 0 0;
-
-    font-family: Georgia, "Times New Roman", serif;
-
-    font-size: 16px;
-
-    line-height: 1.42;
-
-    color: #594a3b;
-}
-
-
-.about-signature {
-    margin-top: 17px;
-
-    font-family:
-        "Brush Script MT",
-        "Segoe Script",
-        cursive;
-
-    font-size: 29px;
-
-    line-height: 1;
-
-    color: #b64e1d;
-}
-
-
-/* =========================================
-   METADATA
-   ========================================= */
-
-.about-metadata {
-    min-height: 0;
-
-    height: 100%;
-
-    padding-left: 30px;
-
-    border-left:
-        1px solid rgba(63, 47, 35, 0.38);
-}
-
-
-.metadata-block {
-    padding-bottom: 14px;
-
-    margin-bottom: 14px;
-
-    border-bottom:
-        1px solid rgba(63, 47, 35, 0.20);
-}
-
-
-.metadata-block span {
-    display: block;
-
-    margin-bottom: 8px;
-
-    font-family: "Courier New", monospace;
-
-    font-size: 7px;
-
-    letter-spacing: 0.25em;
-
-    color: #756754;
-}
-
-
-.metadata-block strong {
-    display: block;
-
-    font-family: "Courier New", monospace;
-
-    font-size: 9px;
-
-    line-height: 1.4;
-
-    letter-spacing: 0.07em;
-
-    font-weight: 400;
-
-    color: #3475a7;
-}
-
-
-.metadata-block .metadata-yellow {
-    color: #ae8900;
-}
-
-
-/* =========================================
-   STAMP
-   ========================================= */
-
-.about-stamp {
-    position: absolute;
-
-    right: 34px;
-    bottom: 22px;
-
-    z-index: 3;
-
-    padding: 7px 12px;
-
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-
-    border:
-        1px solid rgba(181, 87, 43, 0.40);
-
-    color: rgba(174, 78, 35, 0.62);
-
-    font-family: "Courier New", monospace;
-
-    font-size: 6px;
-
-    line-height: 1.45;
-
-    letter-spacing: 0.16em;
-
-    transform: rotate(-2deg);
-}
-
-
-/* =========================================
-   OUTER ARCHIVE MARKINGS
-   ========================================= */
-
-.about-section::before {
-    content:
-        "03"
-        "                                      "
-        "RECORD: PERSONAL";
-
-    position: absolute;
-
-    top: 22px;
-    left: 34px;
-    right: 34px;
-
-    white-space: pre;
-
-    font-family: "Courier New", monospace;
-
-    font-size: 9px;
-
-    letter-spacing: 0.20em;
-
-    color: rgba(126, 145, 68, 0.75);
-
-    pointer-events: none;
-}
-
-
-.about-section::after {
-    content: "+";
-
-    position: absolute;
-
-    top: 18px;
-    right: 32px;
-
-    font-family: monospace;
-
-    font-size: 22px;
-
-    color: rgba(159, 137, 42, 0.48);
-
-    pointer-events: none;
-}
-
-
-/* =========================================
-   DESKTOP
-   ========================================= */
-
-@media (min-width: 1200px) {
-
-    .about-paper {
-        width: min(1220px, 86vw);
-
-        height: 500px;
-        min-height: 500px;
-        max-height: 500px;
-    }
-
-}
-
-
-/* =========================================
-   SMALLER DESKTOP / TABLET
-   ========================================= */
-
-@media (max-width: 1199px) and (min-width: 801px) {
-
-    .about-section {
-        padding: 40px 4vw;
-    }
-
-    .about-paper {
-        width: 92vw;
-
-        height: 500px;
-        min-height: 500px;
-        max-height: 500px;
-
-        padding: 35px 42px;
-    }
-
-    .about-grid {
-        grid-template-columns:
-            175px
-            minmax(0, 1fr)
-            200px;
-
-        column-gap: 25px;
-    }
-
-    .about-lead {
-        font-size: 27px;
-    }
-
-}
-
-
-/* =========================================
-   MOBILE
-   ========================================= */
-
-@media (max-width: 800px) {
-
-    .about-section {
-        min-height: auto;
-
-        padding: 30px 16px;
-    }
-
-    .about-paper {
-        width: 100%;
-
-        height: auto;
-        min-height: 0;
-        max-height: none;
-
-        padding: 34px 26px 40px;
-    }
-
-    .about-header {
-        height: auto;
+    .section-header h2 {
+        font-size: 30px;
     }
 
     .about-header-title h2 {
-        font-size: 55px;
-    }
-
-    .about-grid {
-        display: block;
-
-        height: auto;
-    }
-
-    .about-figure {
-        margin-bottom: 28px;
-    }
-
-    .about-copy {
-        max-width: none;
+        font-size: 48px;
     }
 
     .about-lead {
-        font-size: 27px;
+        font-size: 24px;
     }
 
-    .about-text {
-        font-size: 16px;
+    .contact-content h2 {
+        font-size: 44px;
     }
 
-    .about-metadata {
-        height: auto;
-
-        margin-top: 35px;
-        padding: 25px 0 0;
-
-        border-left: 0;
-        border-top:
-            1px solid rgba(63, 47, 35, 0.30);
-    }
-
-    .about-stamp {
-        position: static;
-
-        width: fit-content;
-
-        margin: 28px 0 0 auto;
-    }
-
-    .about-section::before,
-    .about-section::after {
-        display: none;
-    }
 }
 
-/* ABOUT — FINAL TEXT COLORS */
 
-.about-signature {
-    color: #30231d;
-}
+/* =========================================================
+   REDUCED MOTION
+   ========================================================= */
 
-.metadata-block .metadata-yellow {
-    color: #30231d;
-}
+@media (prefers-reduced-motion: reduce) {
 
-/* =========================================
-   FINAL ABOUT COLOR OVERRIDES
-   ========================================= */
+    html {
+        scroll-behavior: auto;
+    }
 
-.about-section .about-signature {
-    color: #30231d !important;
-}
+    *,
+    *::before,
+    *::after {
+        transition: none !important;
+        animation: none !important;
+    }
 
-.about-section .about-metadata .metadata-yellow {
-    color: #30231d !important;
 }
