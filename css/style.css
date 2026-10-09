@@ -1486,7 +1486,8 @@ img {
 }
 
 .contact-content {
-    width: 100%;
+    width: min(1200px, calc(100% - 80px));
+    margin: 0 auto;
 }
 
 .contact-label {
@@ -1972,6 +1973,10 @@ footer {
 
 
     /* contact */
+
+    .contact-content {
+        width: calc(100% - 40px);
+    }
 
     .contact-section {
         width: calc(100% - 40px);
