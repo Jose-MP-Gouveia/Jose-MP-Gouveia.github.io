@@ -1099,28 +1099,67 @@ h2 {
 
     min-height: 285px;
 
-    padding: 28px;
+    padding: 30px 30px 76px;
 
     text-align: left;
 
     color: var(--white);
 
-    background: var(--panel);
+    background: #111113;
 
-    border: 0;
+    border: 1px solid rgba(255,255,255,.18);
 
     cursor: pointer;
 
     transition:
-        background .25s,
-        transform .25s;
+        background .2s,
+        border-color .2s;
 }
 
-.artifact-card:hover {
-    background: #18181b;
+.artifact-card::after {
+    content: "OPEN ARTIFACT  ↗";
 
-    transform:
-        translateY(-3px);
+    position: absolute;
+    left: 30px;
+    bottom: 24px;
+
+    display: inline-flex;
+    align-items: center;
+
+    min-height: 36px;
+    padding: 0 13px;
+
+    border: 1px solid rgba(255,255,255,.55);
+
+    color: var(--white);
+
+    font-family: var(--mono);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: .08em;
+
+    background: #18181b;
+}
+
+.artifact-card:hover,
+.artifact-card:focus-visible {
+    background: #151518;
+
+    border-color: rgba(255,255,255,.5);
+
+    outline: none;
+}
+
+.artifact-card:hover::after,
+.artifact-card:focus-visible::after {
+    background: var(--red);
+    border-color: var(--red);
+    color: var(--white);
+}
+
+.artifact-card:focus-visible {
+    box-shadow:
+        0 0 0 1px var(--white);
 }
 
 .artifact-index,
@@ -1813,21 +1852,115 @@ h2 {
 
 .signal-note,
 .metric-card.metric-x {
+    position: relative;
+
     text-decoration: none;
     cursor: pointer;
+
+    transition:
+        background .2s,
+        border-color .2s;
 }
 
-.signal-note:hover {
-    border-color: rgba(229, 9, 32, .55);
+.signal-note {
+    padding-bottom: 66px;
+
+    border-left: 2px solid rgba(255,255,255,.42);
 }
 
-.metric-card.metric-x:hover {
-    background:
-        linear-gradient(
-            145deg,
-            rgba(229, 9, 32, .25),
-            transparent 65%
-        );
+.signal-note::after {
+    content: "VISIT TEDxNOVA  ↗";
+
+    position: absolute;
+    left: 24px;
+    bottom: 22px;
+
+    display: inline-flex;
+    align-items: center;
+
+    min-height: 34px;
+    padding: 0 12px;
+
+    border: 1px solid rgba(255,255,255,.55);
+
+    color: var(--white);
+
+    font-family: var(--mono);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: .07em;
+
+    background: #18181b;
+}
+
+.signal-note:hover,
+.signal-note:focus-visible {
+    border-left-color: var(--white);
+
+    background: #151518;
+
+    outline: none;
+}
+
+.signal-note:hover::after,
+.signal-note:focus-visible::after {
+    background: var(--red);
+    border-color: var(--red);
+    color: var(--white);
+}
+
+.metric-card.metric-x {
+    padding-bottom: 66px;
+
+    border-top: 2px solid rgba(255,255,255,.42);
+
+    background: #111113;
+}
+
+.metric-card.metric-x::after {
+    content: "VISIT TEDxNOVA  ↗";
+
+    position: absolute;
+    left: 24px;
+    bottom: 22px;
+
+    display: inline-flex;
+    align-items: center;
+
+    min-height: 34px;
+    padding: 0 12px;
+
+    border: 1px solid rgba(255,255,255,.55);
+
+    color: var(--white);
+
+    font-family: var(--mono);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: .07em;
+
+    background: #18181b;
+}
+
+.metric-card.metric-x:hover,
+.metric-card.metric-x:focus-visible {
+    border-top-color: var(--white);
+
+    background: #151518;
+
+    outline: none;
+}
+
+.metric-card.metric-x:hover::after,
+.metric-card.metric-x:focus-visible::after {
+    background: var(--red);
+    border-color: var(--red);
+    color: var(--white);
+}
+
+.metric-card.metric-x:focus-visible {
+    box-shadow:
+        0 0 0 1px var(--white);
 }
 
 /* =========================================

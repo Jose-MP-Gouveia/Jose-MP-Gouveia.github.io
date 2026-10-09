@@ -48,46 +48,62 @@
     </div>
 
 
-    <!-- ARCHIVE MENU -->
+    <!-- =========================
+         ARCHIVE NAVIGATION
+         ========================= -->
 
-    <button id="navToggle" class="nav-toggle" aria-label="Open archive menu">
-        <span></span>
-        <span></span>
-        <span></span>
-    </button>
+    <nav class="archive-nav" id="archiveNav">
 
-    <aside id="archiveNav" class="archive-nav">
+        <button
+            class="nav-toggle"
+            id="navToggle"
+            aria-label="Open archive navigation"
+            aria-expanded="false">
+            ☰
+        </button>
 
         <div class="nav-content">
 
-            <div class="nav-kicker">
-                ARCHIVE NODE_01
+            <div class="nav-header">
+                <span>ARCHIVE INDEX</span>
+                <span class="status">● ACTIVE</span>
             </div>
 
-            <div class="nav-record">
-                RECORD 03
-            </div>
+            <div class="nav-line"></div>
 
-            <nav>
-                <a href="index.html">INDEX</a>
-                <a href="index.html#about">ABOUT</a>
-                <a href="#record">WALLID</a>
-                <a href="#merge">MERGE</a>
-            </nav>
+            <a href="#home">
+                <span>01</span>
+                HOME
+            </a>
 
-            <div class="nav-status">
-                <span>STATUS</span>
-                <strong>ACTIVE RECORD</strong>
+            <a href="#work">
+                <span>02</span>
+                WORK
+            </a>
+
+            <a href="#about">
+                <span>03</span>
+                ABOUT
+            </a>
+
+            <a href="#archive">
+                <span>04</span>
+                ARCHIVE
+            </a>
+
+            <a href="#contact">
+                <span>05</span>
+                CONTACT
+            </a>
+
+            <div class="nav-footer">
+                NODE_01<br>
+                SYSTEM: STABLE
             </div>
 
         </div>
 
-    </aside>
-
-
-    <!-- RECORD -->
-
-    <main id="record">
+    </nav>
 
 
         <!-- =====================================================
@@ -394,7 +410,7 @@
             </div>
 
 
-            <div class="merge-artifact-row">
+            <div class="merge-artifact-row" id="artifacts">
 
                 <a
                     href="https://wallid.co/"
@@ -408,8 +424,8 @@
                         WALLID
                     </strong>
 
-                    <small>
-                        EXTERNAL RECORD ↗
+                    <small class="artifact-action">
+                        VISIT WEBSITE ↗
                     </small>
 
                     <div class="artifact-line"></div>
@@ -433,8 +449,8 @@
                         WALLID / BLOG
                     </strong>
 
-                    <small>
-                        CONTENT ARCHIVE ↗
+                    <small class="artifact-action">
+                        EXPLORE ARTICLES ↗
                     </small>
 
                     <div class="artifact-line"></div>
@@ -471,7 +487,7 @@
              04 — PROCESS / OUTPUT
         ====================================================== -->
 
-        <section class="process-section">
+        <section class="process-section" id="process">
 
             <div class="process-label">
                 <span>03</span>

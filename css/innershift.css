@@ -153,116 +153,129 @@ p {
 }
 
 
-/* =========================================
+/* =========================================================
    ARCHIVE NAVIGATION
-   ========================================= */
+   ========================================================= */
 
 .archive-nav {
     position: fixed;
-    top: 0;
-    left: 0;
+    top: 25px;
+    left: 25px;
     z-index: 1000;
 }
 
 .nav-toggle {
     width: 48px;
     height: 48px;
-    margin: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
 
-    border: 1px solid rgba(255,255,255,.28);
-
-    background: rgba(10,10,9,.9);
-    color: #fff;
-
+    background: #070a0a;
+    border: 2px solid #e6c400;
+    color: #e6c400;
+    font-size: 20px;
     cursor: pointer;
 
-    position: relative;
-    z-index: 1001;
+    transition:
+        background 0.2s,
+        color 0.2s,
+        box-shadow 0.2s,
+        transform 0.1s;
 }
 
-.nav-toggle:hover {
-    border-color: var(--orange);
-    color: var(--orange);
+.nav-toggle:hover,
+.nav-toggle:focus-visible {
+    background: #e6c400;
+    color: #050707;
+    box-shadow: 0 0 0 2px rgba(230, 196, 0, 0.18);
+}
+
+.nav-toggle:active {
+    transform: translateY(1px);
 }
 
 .nav-content {
-    position: fixed;
-    top: 0;
-    left: 0;
+    width: 250px;
+    display: none;
 
-    width: min(320px, 88vw);
-    min-height: 100vh;
+    margin-top: 8px;
+    padding: 20px;
 
-    padding: 32px 28px;
-
-    background: #0c0c0b;
-
-    border-right: 1px solid rgba(255,255,255,.18);
-
-    transform: translateX(-100%);
-
-    transition:
-        transform .28s ease;
+    background: rgba(5, 7, 7, 0.97);
+    border: 1px solid rgba(230, 196, 0, 0.45);
 }
 
 .archive-nav.open .nav-content {
-    transform: translateX(0);
-}
-
-.nav-header,
-.nav-footer,
-.nav-content a {
-    font-size: 11px;
-    letter-spacing: .08em;
+    display: block;
 }
 
 .nav-header {
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
+    gap: 5px;
+
+    color: #e6c400;
+    font-family: monospace;
+    font-size: 12px;
+    letter-spacing: 2px;
 }
 
 .nav-header .status {
-    color: #a9c58b;
+    color: #43c43b;
+    font-size: 10px;
 }
 
 .nav-line {
     height: 1px;
-    background: var(--line);
     margin: 18px 0;
+    background: rgba(230, 196, 0, 0.45);
 }
 
 .nav-content a {
     display: flex;
-    gap: 16px;
+    gap: 14px;
 
-    padding: 15px 0;
+    padding: 10px 0;
 
-    border-bottom: 1px solid rgba(255,255,255,.08);
-
-    color: #bbb;
+    color: #008cff;
+    font-family: monospace;
+    font-size: 12px;
+    letter-spacing: 2px;
 
     transition:
-        color .2s ease;
+        color 0.2s,
+        padding-left 0.2s;
 }
 
 .nav-content a span {
-    color: #777;
+    color: #77796f;
 }
 
 .nav-content a:hover {
-    color: var(--orange);
+    padding-left: 5px;
+    color: #ffe600;
 }
 
 .nav-footer {
-    margin-top: 42px;
-    color: #666;
-    line-height: 1.7;
+    margin-top: 20px;
+    padding-top: 15px;
+
+    border-top: 1px solid rgba(67, 196, 59, 0.3);
+
+    color: #43c43b;
+    font-family: monospace;
+    font-size: 10px;
+    line-height: 1.8;
 }
 
 
 /* =========================================
    GENERAL SECTIONS
    ========================================= */
+
+
 
 .section-index {
     display: flex;
