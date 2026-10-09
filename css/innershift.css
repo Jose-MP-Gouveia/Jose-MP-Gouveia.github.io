@@ -2005,3 +2005,23 @@ footer {
     pointer-events: none;
     user-select: none;
 }
+
+/* =========================================
+   REGRESSION FIX — IDEA SECTION RESPONSIVE STACK
+   The restored desktop layout uses !important, so
+   explicitly restore the single-column layout on smaller screens.
+   ========================================= */
+
+@media (max-width: 900px) {
+    .idea-grid {
+        grid-template-columns: minmax(0, 1fr) !important;
+        column-gap: 0 !important;
+    }
+
+    .idea-copy,
+    .symbiosis {
+        grid-column: 1 !important;
+        grid-row: auto !important;
+        min-width: 0;
+    }
+}
