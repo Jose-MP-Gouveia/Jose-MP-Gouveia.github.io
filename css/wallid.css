@@ -61,7 +61,7 @@ a {
     position: fixed;
     inset: 0;
 
-    z-index: 2000;
+    z-index: 1000;
 
     display: grid;
     place-items: center;
@@ -178,121 +178,157 @@ a {
 }
 
 /* =========================================================
-   NAVIGATION — MATCHED TO INDEX
+   ARCHIVE NAVIGATION — MATCHES INDEX / INNERSHIFT
 ========================================================= */
 
 .archive-nav {
     position: fixed;
-    top: 25px;
-    left: 25px;
+    top: 0;
+    left: 0;
     z-index: 1000;
 }
 
 .nav-toggle {
     width: 48px;
     height: 48px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 0;
+    margin: 18px;
 
-    background: #070a0a;
-    border: 2px solid #e6c400;
-    color: #e6c400;
+    border: 1px solid rgba(255,255,255,.28);
+    background: rgba(10,10,9,.9);
+    color: #fff;
 
-    font-size: 20px;
+    font-family: var(--mono);
+    font-size: 22px;
+    line-height: 1;
+
     cursor: pointer;
+    position: relative;
+    z-index: 1001;
 
     transition:
-        background 0.2s,
-        color 0.2s,
-        box-shadow 0.2s,
-        transform 0.1s;
+        border-color .2s ease,
+        color .2s ease,
+        background .2s ease;
 }
 
 .nav-toggle:hover,
 .nav-toggle:focus-visible {
-    background: #e6c400;
-    color: #050707;
-    box-shadow: 0 0 0 2px rgba(230, 196, 0, 0.18);
-}
-
-.nav-toggle:active {
-    transform: translateY(1px);
+    border-color: var(--wallid-purple-light);
+    color: var(--wallid-purple-light);
+    outline: 2px solid var(--wallid-purple-light);
+    outline-offset: 3px;
 }
 
 .nav-content {
-    width: 250px;
-    display: none;
-    margin-top: 8px;
-    padding: 20px;
+    position: fixed;
+    top: 0;
+    left: 0;
 
-    background: rgba(5, 7, 7, 0.97);
-    border: 1px solid rgba(230, 196, 0, 0.45);
+    width: min(320px, 88vw);
+    min-height: 100vh;
+
+    padding: 32px 28px;
+
+    background: #0c0c0b;
+    border-right: 1px solid rgba(255,255,255,.18);
+
+    transform: translateX(-100%);
+    visibility: hidden;
+    pointer-events: none;
+
+    transition:
+        transform .28s ease,
+        visibility .28s ease;
 }
 
 .archive-nav.open .nav-content {
-    display: block;
+    transform: translateX(0);
+    visibility: visible;
+    pointer-events: auto;
+}
+
+.nav-header,
+.nav-footer,
+.nav-content a {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: .08em;
 }
 
 .nav-header {
     display: flex;
-    flex-direction: column;
-    gap: 5px;
-
-    color: #e6c400;
-    font-family: monospace;
-    font-size: 12px;
-    letter-spacing: 2px;
+    justify-content: space-between;
+    gap: 12px;
 }
 
 .nav-header .status {
-    color: #43c43b;
-    font-size: 10px;
+    color: #a9c58b;
 }
 
 .nav-line {
     height: 1px;
+    background: rgba(255,255,255,.16);
     margin: 18px 0;
-    background: rgba(230, 196, 0, 0.45);
 }
 
 .nav-content a {
     display: flex;
-    gap: 14px;
-    padding: 10px 0;
+    align-items: center;
+    gap: 16px;
 
-    color: #008cff;
-    font-family: monospace;
-    font-size: 12px;
-    letter-spacing: 2px;
+    min-height: 46px;
+    padding: 12px 0;
+
+    border-bottom: 1px solid rgba(255,255,255,.08);
+
+    color: #ddd;
 
     transition:
-        color 0.2s,
-        padding-left 0.2s;
+        color .2s ease,
+        padding-left .2s ease,
+        background .2s ease;
 }
 
 .nav-content a span {
-    color: #77796f;
+    min-width: 22px;
+    color: #888;
 }
 
 .nav-content a:hover,
 .nav-content a:focus-visible {
-    padding-left: 5px;
-    color: #ffe600;
+    padding-left: 6px;
+    color: var(--white);
+    background: rgba(112,64,232,.12);
+    outline: 2px solid transparent;
+}
+
+.nav-content a:hover span,
+.nav-content a:focus-visible span {
+    color: var(--wallid-purple-light);
+}
+
+.nav-content a:focus-visible {
+    outline: 2px solid var(--wallid-purple-light);
+    outline-offset: 2px;
 }
 
 .nav-footer {
-    margin-top: 20px;
-    padding-top: 15px;
-
-    border-top: 1px solid rgba(67, 196, 59, 0.3);
-    color: #43c43b;
-
-    font-family: monospace;
-    font-size: 10px;
-    line-height: 1.8;
+    margin-top: 42px;
+    color: #777;
+    line-height: 1.7;
 }
+
+@media (max-width: 650px) {
+    .nav-toggle {
+        margin: 16px;
+    }
+
+    .nav-content {
+        width: min(320px, 88vw);
+        padding: 28px 24px;
+    }
+}
+
 
 /* =========================================================
    SECTION 01 — WALLID HERO
@@ -368,7 +404,6 @@ a {
 .archive-record {
     display: flex;
     gap: 18px;
-    padding-left: 70px;
 
     font-family: var(--mono);
     font-size: 8px;
@@ -2260,4 +2295,85 @@ a {
     height: 100%;
     display: block;
     pointer-events: none;
+}
+
+
+
+/* TYPOGRAPHY HIERARCHY — targeted patch; archive links/buttons preserved */
+.hero-description {
+  max-width: 720px;
+  font-size: clamp(18px, 1.5vw, 21px);
+  line-height: 1.75;
+  font-weight: 500;
+}
+.hero-role {
+  font-size: 15px;
+  line-height: 1.7;
+}
+.archive-lead {
+  font-size: clamp(17px, 1.25vw, 19px);
+  line-height: 1.75;
+  letter-spacing: 0;
+}
+.archive-section-copy p,
+.process-copy,
+.artifact-copy,
+.result-copy,
+main p {
+  font-size: clamp(16px, 1.15vw, 18px);
+  line-height: 1.8;
+}
+.archive-section-copy h2 { line-height: 1.05; }
+.process-step p,
+.artifact-description,
+.section-intro {
+  font-size: 15px;
+  line-height: 1.7;
+}
+.archive-record,
+.hero-top .record-type,
+.hero-top .record-status,
+.terminal-label,
+.metadata-label,
+.archive-section-top,
+.artifact-number,
+.process-output span {
+  font-size: 10px;
+  line-height: 1.5;
+  opacity: .75;
+}
+.process-output strong {
+  font-size: clamp(22px, 2.1vw, 30px);
+  line-height: 1.2;
+}
+@media (max-width: 700px) {
+  .hero-description,
+  .archive-section-copy p,
+  .process-copy,
+  .artifact-copy,
+  .result-copy,
+  main p { font-size: 15px; line-height: 1.75; }
+  .archive-lead { font-size: 16px; }
+}
+
+/* Targeted fix: keep the fixed menu toggle clear of the hero metadata. */
+@media (min-width: 951px) {
+  .hero-top .archive-record {
+    padding-left: 112px;
+  }
+}
+
+@media (max-width: 950px) {
+  .hero-top .archive-record {
+    margin-left: 82px;
+    padding-left: 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-top .archive-record {
+    margin-left: 68px;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
 }

@@ -2079,3 +2079,50 @@ footer {
     }
 
 }
+
+
+
+/* TYPOGRAPHY HIERARCHY — targeted patch; existing controls untouched */
+.hero-introduction {
+  max-width: 760px;
+  font-size: clamp(18px, 1.5vw, 21px);
+  line-height: 1.75;
+  color: var(--text, #d8d4bd);
+  font-weight: 500;
+}
+.hero h2 {
+  font-size: clamp(22px, 2.2vw, 29px);
+  line-height: 1.3;
+}
+.about-lead {
+  font-size: clamp(25px, 2.4vw, 34px);
+  line-height: 1.35;
+  font-weight: 600;
+}
+.about-paper p,
+.contact-content p {
+  font-size: clamp(16px, 1.15vw, 18px);
+  line-height: 1.8;
+}
+.record-card h3 {
+  font-size: clamp(27px, 2.4vw, 35px);
+  line-height: 1.12;
+}
+.result-description {
+  font-size: 15px;
+  line-height: 1.65;
+}
+.record-top,
+.section-status,
+.result-label,
+.metadata-block span {
+  font-size: 10px;
+  line-height: 1.5;
+  opacity: .72;
+}
+@media (max-width: 700px) {
+  .hero-introduction { font-size: 17px; line-height: 1.7; }
+  .about-lead { font-size: 23px; }
+  .about-paper p, .contact-content p { font-size: 16px; }
+  .result-description { font-size: 14px; }
+}

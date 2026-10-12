@@ -1986,3 +1986,61 @@ h2 {
     pointer-events: none;
     user-select: none;
 }
+
+
+
+/* TYPOGRAPHY HIERARCHY — targeted patch; cards and action affordances preserved */
+.hero-intro {
+  max-width: 800px;
+  font-size: clamp(18px, 1.45vw, 21px);
+  line-height: 1.75;
+  font-weight: 500;
+}
+.role-block strong {
+  font-size: clamp(30px, 2.6vw, 38px);
+  line-height: 1.12;
+}
+.role-block p,
+.modal-panel p,
+.signal-note p {
+  font-size: 16px;
+  line-height: 1.75;
+}
+.signal-main .lead,
+.signal-main p.lead {
+  font-size: clamp(25px, 2.7vw, 38px);
+  line-height: 1.25;
+  font-weight: 600;
+}
+.hero-description,
+.section-intro,
+.signal-copy,
+.artifact-description {
+  font-size: 16px;
+  line-height: 1.75;
+}
+.role-block span,
+.note-mark,
+.record-type,
+.record-status,
+.hero-top .record-number,
+.terminal-label {
+  font-size: 10px;
+  line-height: 1.5;
+  opacity: .75;
+}
+.metric-value,
+.metric-number {
+  font-weight: 800;
+  line-height: 1;
+}
+@media (max-width: 700px) {
+  .hero-intro,
+  .hero-description,
+  .section-intro,
+  .signal-copy,
+  .artifact-description,
+  .role-block p,
+  .modal-panel p,
+  .signal-note p { font-size: 15px; line-height: 1.7; }
+}
